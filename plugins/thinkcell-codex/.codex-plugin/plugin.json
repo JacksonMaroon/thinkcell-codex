@@ -1,7 +1,7 @@
 {
   "name": "thinkcell-codex",
-  "version": "0.2.1",
-  "description": "Create native think-cell chart slides from donors and update chart data with Codex, with automatic naming and native verification.",
+  "version": "0.3.0",
+  "description": "Create and position native think-cell charts from donors and update their data with automatic naming and native verification.",
   "author": {
     "name": "Jackson Maroon"
   },
@@ -21,6 +21,7 @@
     "defaultPrompt": [
       "Update the think-cell chart on this slide with my new data.",
       "Create a new think-cell chart slide using this donor and my data.",
+      "Add a suitable think-cell chart to a copy of this finished slide using my data.",
       "Check my setup for think-cell chart automation."
     ]
   },

@@ -2,6 +2,7 @@ param([Parameter(Mandatory=$true)][string]$InputFile,[Parameter(Mandatory=$true)
 $ErrorActionPreference='Stop'
 if($PSVersionTable.PSEdition-ne'Desktop'){throw 'Requires Windows PowerShell 5.1.'}
 Import-Module (Join-Path $PSHOME 'Modules/Microsoft.PowerShell.Utility')
+. (Join-Path $PSScriptRoot '../../office_state.ps1')
 $source=(Resolve-Path -LiteralPath $InputFile).Path
 $dest=[IO.Path]::GetFullPath($OutputFile)
 $RenderFile=[IO.Path]::GetFullPath($RenderFile)
@@ -37,8 +38,9 @@ try {
 }catch{$r.error=$_.Exception.Message}
 finally {
  if($null-ne$owned){try{$owned.Saved=$true;$owned.Close()}catch{}}
- $r.other_presentations_after=State
- $r.other_presentations_unchanged=$r.other_presentations_before-eq$r.other_presentations_after
+ $r.other_presentations_after=Wait-OfficeState $r.other_presentations_before {State}
+ $r.other_presentations_unchanged=Compare-OfficeState $r.other_presentations_before $r.other_presentations_after
+ $r.state_scope='Visible, named and unsaved presentations; full snapshots retain saved hidden unnamed native transients.'
  $r.source_unchanged=(Get-FileHash -LiteralPath $source).Hash-eq$r.source_sha256
  $r|ConvertTo-Json -Depth 8|Set-Content -LiteralPath $ReportFile -Encoding UTF8
  $r|ConvertTo-Json -Depth 8

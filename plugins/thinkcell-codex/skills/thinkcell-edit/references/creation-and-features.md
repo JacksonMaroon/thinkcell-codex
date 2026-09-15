@@ -10,7 +10,7 @@ python scripts/thinkcell.py create --input donor.pptx --expected-sha256 HASH --s
 
 Add `--style-file company-style.xml` to bind native style defaults. Read the returned output path, inspect that new file, generate its request, update the data, and review the preview. Creation includes the donor slide's existing text and notes: revise ordinary titles and source text to match the user's content using the presentation workflow. Do not treat inherited donor copy as a finished client slide.
 
-The donor determines the type and starting geometry. This is template-based chart creation, not an API that inserts any chart onto an arbitrary blank slide. Use a donor with the required dimensions and point/series counts. Counts cannot be changed through this version's update contract. Gantt/timeline and other native elements can be copied, but their dates, tasks and dependencies cannot be edited through this JSON wrapper.
+The donor determines the type and starting geometry. For a chart added to a finished chartless slide, use the separate [existing-slide composition route](existing-slide.md), which includes experimental movement and resizing. Use a donor with the required point/series counts. Counts cannot be changed through this version's update contract. Gantt/timeline and other native elements can be copied, but their dates, tasks and dependencies cannot be edited through this JSON wrapper.
 
 No proprietary donors or company style files are bundled. A local company profile can reference authorized local files without redistributing them.
 
@@ -31,7 +31,8 @@ The native `LoadStyle` API can load an XML style into a master or layout. `load_
 | Difference arrows, CAGR arrows, error bars, trendlines, axis breaks, series connectors, reference lines | Choose a donor already containing them; adding/removing/repositioning them is not implemented by this package |
 | Gantt dates, task bars, milestones and dependencies | Native donor copy only; specialized editing is not implemented |
 | Excel/Tableau links | Persistent or unknown external links rejected by the update route |
-| Arbitrary move/resize/type conversion | Native UI or suitable donor required; no generic API route is claimed |
+| Move/resize a one-chart native donor | Experimental exclusive plot/legend coordinate adapter, official regeneration and native readback in the existing-slide route |
+| Type conversion, shared/grouped constraints, general element insertion | Not implemented; choose a compatible donor or a separately supported native route |
 
 Presence is not correctness: after a data update, review retained annotations, automatic labels, ranges, scale breaks and clipping against the requested result. Feature inventory is slide-level and does not prove each feature belongs to the selected chart or remains meaningful.
 

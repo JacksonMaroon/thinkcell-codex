@@ -2,7 +2,7 @@
 
 **Create chart slides from native think-cell donors and update their data with Codex.**
 
-Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.2.1**, experimental desktop release. This is a documentation-and-packaging update; chart behavior is unchanged from 0.2.0.
+Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.3.0**, experimental desktop release.
 
 This plugin contains one focused skill, `thinkcell-edit`, and local Python/PowerShell helpers. It uses think-cell's official JSON automation for data changes. An experimental namer identifies unnamed charts and assigns their automation names on working copies by default. A `--named-only` option disables that step.
 
@@ -11,13 +11,14 @@ This plugin contains one focused skill, `thinkcell-edit`, and local Python/Power
 - Inspects native chart identity and embedded data without opening PowerPoint.
 - Builds a data-request template from the chart, including its actual row layout.
 - Creates native chart slides from user-supplied donors, optionally binding a company style file for new-element defaults.
+- Adds an experimental finished-slide route: choose a chart and empty region, position the native donor through exclusive anchors, then preserve ordinary target content in a new slide copy.
 - Updates bounded pie, bar/column/line/area/combination, scatter and bubble structures through the installed generator.
 - Adds experimental fixed-structure waterfall and Mekko contracts, including calculated totals and independent widths.
 - Checks intended values, embedded data, untouched sibling charts, theme and notes. Ordinary charts also use native-cache parity; waterfall/Mekko instead require specialized visual semantic review after exact model/datasheet checks.
 - Saves/reopens an output in PowerPoint and renders a preview for visual review.
 - Includes an optional whole-slide handoff for a separately connected PowerPoint plugin.
 
-Creation copies a real donor slide. The package does not insert arbitrary chart types onto blank slides, edit Gantt data, add arbitrary annotations, or provide general slide design. Existing chart styles and features come from the donor. It rejects persistent or unknown external Excel links. The namer is a compatibility adapter, not an official think-cell naming API.
+Creation uses a real donor slide. The [finished-slide route](skills/thinkcell-edit/references/existing-slide.md) supports bounded chartless targets and one-chart donors with native placement and preservation checks. The package does not generate arbitrary chart types from scratch, edit Gantt data, add arbitrary annotations, or provide general slide design. Existing chart styles and features come from the donor. It rejects persistent or unknown external Excel links. The namer is a compatibility adapter, not an official think-cell naming API.
 
 ## Install in Codex
 

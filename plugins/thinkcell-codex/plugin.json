@@ -1,6 +1,6 @@
 {
   "name": "thinkcell-codex",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Create native think-cell chart slides from donors and update chart data with Codex, with automatic naming and native verification.",
   "author": {
     "name": "Jackson Maroon"

@@ -1,6 +1,6 @@
 ---
 name: thinkcell-edit
-description: Create native think-cell chart slides from donors and update chart data through JSON, with automatic naming and native verification. Use for think-cell chart creation, data updates, chart inspection and style defaults; not ordinary PowerPoint charts or general slide design.
+description: Create native think-cell charts from donors, add them to chartless slide copies, and update chart data through JSON, with automatic naming and native verification. Use for think-cell creation, placement, data updates and inspection; not ordinary PowerPoint charts or general slide design.
 ---
 
 # Create and edit think-cell charts
@@ -10,6 +10,8 @@ Use the bundled scripts to update existing native charts without flattening them
 For ordinary presentation creation, slide writing, and non-think-cell PowerPoint edits, use the separate PowerPoint for Codex companion. Keep think-cell chart operations in this skill.
 
 ## Choose the route
+
+For a chart added to a finished slide that contains no think-cell content, read [existing-slide.md](references/existing-slide.md). Follow explicit user guidance and infer only the missing chart/layout choices from the slide and supplied data. The experimental route uses native donor composition, exclusive plot/legend anchors and preservation checks. It creates a new one-slide copy.
 
 For a new chart, use `create` to copy an authorized native donor slide matching the chart type, layout and desired features. Optionally load a user-supplied style file for new-element defaults. Then follow the data-update path below. Read [creation-and-features.md](references/creation-and-features.md) for creation, styling, or features beyond data. Never equate a slide clone with generating an arbitrary chart from scratch.
 
@@ -28,7 +30,7 @@ Run `doctor` once for a new environment or after a dependency failure. See [setu
 - Automatic naming edits only the chart and owning data-table name fields on a separate local copy. It is an experimental compatibility adapter, not an official naming API. Regenerate through official JSON before native use; never deliver a naming-only candidate.
 - The supplied route covers bounded pie, sequence, scatter and bubble data structures. Keep sequence category/series counts and scatter/bubble point counts fixed. Waterfall and Mekko have experimental specialized contracts; read [specialized-charts.md](references/specialized-charts.md) before using them. Gantt data changes and arbitrary native feature insertion are not implemented. All native donor chart types can be copied, but data-update support is narrower.
 - Reject persistent or unknown external Excel links, including linked siblings. Do not silently detach a workbook link or substitute a static chart.
-- Preserve whole native slides and their dependencies. Do not write PowerPoint's chart cache, think-cell values, styles or axes directly. If the request exceeds a verified operation, state the specific gap and continue independent supported work.
+- Preserve whole native slides and their dependencies. Do not write PowerPoint's chart cache, think-cell values, styles or axes directly. Only the guarded coordinate adapter in the existing-slide route may edit exclusive geometry fields on copies, followed by official regeneration and native verification. If the request exceeds a verified operation, state the specific gap and continue independent supported work.
 - Inputs, reports and outputs must stay distinct. After a timeout or uncertain native write, inspect the recorded state instead of retrying blindly. Close only task-owned presentations; never quit PowerPoint.
 
 Keep routine replies short: result, relevant limitation, file. Ask only for missing information that changes the update. Follow the user's instructions over skill preferences; do not add approval pauses for already-authorized copy work. Shared-file writes, sends and publication follow the user's existing authorization rules. Use parallel read-only work only when it saves time; serialize Office mutations. This skill does not override the selected model or reasoning effort.
