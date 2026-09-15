@@ -1,0 +1,6 @@
+interface:
+  display_name: "Create and edit think-cell charts"
+  short_description: "Create and update native think-cell charts"
+  default_prompt: "Use $thinkcell-edit to update the existing think-cell chart with my new data and keep it editable."
+policy:
+  allow_implicit_invocation: true

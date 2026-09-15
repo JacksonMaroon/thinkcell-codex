@@ -1,0 +1,4 @@
+{
+  "matrix": [[null, null], ["Product A", 60], ["Product B", 40]],
+  "expected_model": {"categories": ["Product A", "Product B"], "values": [60, 40]}
+}

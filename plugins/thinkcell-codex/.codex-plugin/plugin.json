@@ -1,0 +1,35 @@
+{
+  "name": "thinkcell-codex",
+  "version": "0.2.1",
+  "description": "Create native think-cell chart slides from donors and update chart data with Codex, with automatic naming and native verification.",
+  "author": {
+    "name": "Jackson Maroon"
+  },
+  "homepage": "https://github.com/JacksonMaroon/thinkcell-codex",
+  "repository": "https://github.com/JacksonMaroon/thinkcell-codex",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Think-cell for Codex",
+    "shortDescription": "Create and update native think-cell charts",
+    "longDescription": "A Windows desktop toolkit for donor-based native chart creation, JSON data updates, optional native style defaults, experimental automatic naming, and scoped data and native-render verification.",
+    "developerName": "Jackson Maroon",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Update the think-cell chart on this slide with my new data.",
+      "Create a new think-cell chart slide using this donor and my data.",
+      "Check my setup for think-cell chart automation."
+    ]
+  },
+  "license": "MIT",
+  "keywords": [
+    "think-cell",
+    "powerpoint",
+    "charts",
+    "automation",
+    "codex"
+  ]
+}

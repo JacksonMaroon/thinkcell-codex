@@ -1,0 +1,19 @@
+{
+  "name": "thinkcell-codex",
+  "version": "0.2.1",
+  "description": "Create native think-cell chart slides from donors and update chart data with Codex, with automatic naming and native verification.",
+  "author": {
+    "name": "Jackson Maroon"
+  },
+  "homepage": "https://github.com/JacksonMaroon/thinkcell-codex",
+  "repository": "https://github.com/JacksonMaroon/thinkcell-codex",
+  "license": "MIT",
+  "keywords": [
+    "think-cell",
+    "powerpoint",
+    "charts",
+    "automation",
+    "codex"
+  ],
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
+}
