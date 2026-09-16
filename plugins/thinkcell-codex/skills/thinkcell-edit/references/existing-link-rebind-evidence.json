@@ -1,0 +1,24 @@
+{
+  "feature": "existing linked Excel workbook rebind",
+  "adapter": {
+    "path": "scripts/external_links/portable_rebind.py",
+    "sha256": "7ed495d9c3d9d38473d6b7d4850ea666547d4926925a176f6b8cfff9c9271aaa"
+  },
+  "offline_proof": {
+    "proof_sha256": "02d8d366c903effd9fbd1408effd6fa55a1842c42b7834656520883f04399fe9",
+    "seed_comparison_sha256": "4d8eaa41cd5abca9884ae213cd5994c0f154f5fe9844b3c0d91d1e452edcccd0",
+    "status": "PASS_OFFLINE_PORTABLE_REBIND_PROOF"
+  },
+  "native_canary": {
+    "evidence_sha256": "00046373ede910d44c2ebb5204f58c319d64417a3b136947acb0b640b5ce02a8",
+    "grade_sha256": "055492d89295d87f3f7f40f4a695658dd9256d9f4d931ab7d70ec3367484ad92",
+    "targeted_checks": 31,
+    "status": "PASS"
+  },
+  "scope": {
+    "carrier": "one existing external link selected by semantic identity",
+    "guards": "presentation and workbook SHA-256, optional GUID/link-ID/range-name and named-range compatibility",
+    "mutation": "one UTF-16 workbook-path replacement with equal byte length",
+    "excluded": "new-link creation, arbitrary path length changes, internal datasheet update"
+  }
+}

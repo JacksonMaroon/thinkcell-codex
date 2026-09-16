@@ -1,0 +1,107 @@
+{
+  "status": "NATIVE_BREAK_INSERTION_GATES_PASS",
+  "mode": "insert",
+  "source_sha256": "FAE032EAC98E4D6CEDED6DF9D7F6F0CF4B7C94287A494D2BD9BDC767C6C2E305",
+  "donor_sha256": "4E03F81243B29D7BBFFC131077BB64C0FDACA0CE407692DDC3C9E979B7A8289E",
+  "output_sha256": "68C9D80C3ACF137A2F0A29FEBD6991AF2055831E65E388D42195A75B8450D2D2",
+  "pre": {
+    "status": "PREPARED_SEED_NATIVE_REGENERATION_REQUIRED",
+    "exact_model": true,
+    "exact_datasheet": true,
+    "native_break_shape_count": 2,
+    "physical_tag_count": 6,
+    "fraction": 0.2
+  },
+  "generated": {
+    "exact_model": true,
+    "exact_datasheet": true,
+    "integrity": {
+      "integrity_assertions_pass": true,
+      "native_cache_parity": "known_axis_break_cache_transform",
+      "excluded_inapplicable_checks": [
+        "no_model_visible_chart_mismatch",
+        "strict_parity_available",
+        "strict_parity_pass"
+      ]
+    },
+    "chart": {
+      "name": "TC_AUTO_4FD4FB579092_516_8",
+      "shape_tag": "t3NL4BqaIewPMw01VrwngWg",
+      "subtype": "CSequenceChartSE",
+      "ect": "1",
+      "cache": "barChart/col/clustered"
+    },
+    "break_id": "266",
+    "fraction": 0.2,
+    "gap": [
+      45.0,
+      90.0
+    ],
+    "crossing_values": [
+      90.0
+    ],
+    "native_break_shape_count": 1,
+    "physical_tag_count": 3,
+    "axis_interval_versions": [
+      {
+        "reqver": null,
+        "endver": null,
+        "length": "12"
+      }
+    ]
+  },
+  "native_reopened": {
+    "exact_model": true,
+    "exact_datasheet": true,
+    "integrity": {
+      "integrity_assertions_pass": true,
+      "native_cache_parity": "known_axis_break_cache_transform",
+      "excluded_inapplicable_checks": [
+        "no_model_visible_chart_mismatch",
+        "strict_parity_available",
+        "strict_parity_pass"
+      ]
+    },
+    "chart": {
+      "name": "TC_AUTO_4FD4FB579092_516_8",
+      "shape_tag": "t3NL4BqaIewPMw01VrwngWg",
+      "subtype": "CSequenceChartSE",
+      "ect": "1",
+      "cache": "barChart/col/clustered"
+    },
+    "break_id": "266",
+    "fraction": 0.2,
+    "gap": [
+      45.0,
+      90.0
+    ],
+    "crossing_values": [
+      90.0
+    ],
+    "native_break_shape_count": 1,
+    "physical_tag_count": 3,
+    "axis_interval_versions": [
+      {
+        "reqver": null,
+        "endver": null,
+        "length": "12"
+      }
+    ]
+  },
+  "native_scope": {
+    "source": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\packaged-break-insert-v2_axis_break_work\\generated.pptx",
+    "source_sha256": "259FACB12CF37CF6003D1C9F545D6FD763365E1FA64869B16142C33C9488C591",
+    "output": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\packaged-break-insert-v2_axis_break_work\\native-reopened.pptx",
+    "render": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\packaged-break-insert-v2_axis_break_work\\native.png",
+    "other_presentations_before": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "native_reopen_pass": true,
+    "slides": 1,
+    "other_presentations_after": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "other_presentations_unchanged": true,
+    "state_scope": "Visible, named and unsaved presentations; full snapshots retain saved hidden unnamed native transients.",
+    "source_unchanged": true
+  },
+  "preview": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\packaged-break-insert-v2_axis_break_work\\native.png",
+  "source_unchanged": true,
+  "donor_unchanged": true
+}

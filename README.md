@@ -1,6 +1,6 @@
-# Think-cell for Codex 0.3.0
+# Think-cell for Codex 0.4.0
 
-By Jackson Maroon. A focused Codex plugin for donor-based native chart creation and scoped data updates.
+By Jackson Maroon. A focused Codex plugin for donor-based native chart creation, guarded feature updates, and scoped data changes.
 
 ## Install from the private repository
 

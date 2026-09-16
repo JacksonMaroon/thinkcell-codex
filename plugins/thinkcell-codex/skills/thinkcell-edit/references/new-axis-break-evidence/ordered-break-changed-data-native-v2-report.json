@@ -1,0 +1,83 @@
+{
+  "status": "NATIVE_BREAK_INSERTION_GATES_PASS",
+  "source_sha256": "10EEC605BCC669EB981CBDD7D26EA1E480E6DC11094C50ABFF53BDD82A49C122",
+  "output_sha256": "0B20AA44F255915AD06C9455DD9E5C5600386A1ECBC2E8B6D6F1939DCDD868A0",
+  "pre_generation": {
+    "exact_model": true,
+    "exact_datasheet": true,
+    "chart_identity": {
+      "shape_tag": "t3NL4BqaIewPMw01VrwngWg",
+      "name": "TC_AUTO_4FD4FB579092_516_8"
+    },
+    "break_id": "266",
+    "shape_ids": [
+      "267"
+    ],
+    "native_break_shape_count": 1,
+    "physical_tag_count": 3,
+    "axis_interval_versions": [
+      {
+        "reqver": null,
+        "endver": null,
+        "length": "12"
+      }
+    ]
+  },
+  "generated": {
+    "exact_model": true,
+    "exact_datasheet": true,
+    "chart_identity": {
+      "shape_tag": "t3NL4BqaIewPMw01VrwngWg",
+      "name": "TC_AUTO_4FD4FB579092_516_8"
+    },
+    "break_id": "266",
+    "shape_ids": [
+      "267"
+    ],
+    "native_break_shape_count": 1,
+    "physical_tag_count": 3,
+    "axis_interval_versions": [
+      {
+        "reqver": null,
+        "endver": null,
+        "length": "12"
+      }
+    ]
+  },
+  "native_reopened": {
+    "exact_model": true,
+    "exact_datasheet": true,
+    "chart_identity": {
+      "shape_tag": "t3NL4BqaIewPMw01VrwngWg",
+      "name": "TC_AUTO_4FD4FB579092_516_8"
+    },
+    "break_id": "266",
+    "shape_ids": [
+      "267"
+    ],
+    "native_break_shape_count": 1,
+    "physical_tag_count": 3,
+    "axis_interval_versions": [
+      {
+        "reqver": null,
+        "endver": null,
+        "length": "12"
+      }
+    ]
+  },
+  "native_scope": {
+    "source": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\break-execution\\ordered-break-changed-data-native-v2_native_break_work\\generated.pptx",
+    "source_sha256": "331C900F238C339BE261F46FDEC7590E5342EA9B1EB233ADF3E3675171B3F2B5",
+    "output": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\break-execution\\ordered-break-changed-data-native-v2_native_break_work\\native-reopened.pptx",
+    "render": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\break-execution\\ordered-break-changed-data-native-v2_native_break_work\\native.png",
+    "other_presentations_before": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "native_reopen_pass": true,
+    "slides": 1,
+    "other_presentations_after": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "other_presentations_unchanged": true,
+    "state_scope": "Visible, named and unsaved presentations; full snapshots retain saved hidden unnamed native transients.",
+    "source_unchanged": true
+  },
+  "render": "work\\feature-research-v4\\break-execution\\ordered-break-changed-data-native-v2_native_break_work\\native.png",
+  "source_unchanged": true
+}

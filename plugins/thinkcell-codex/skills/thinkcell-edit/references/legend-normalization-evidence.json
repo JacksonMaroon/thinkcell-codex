@@ -1,0 +1,25 @@
+{
+  "scope": {
+    "excluded": "new legend creation and arbitrary grouped-layout translation",
+    "native_reuse": "existing signed normalized native output",
+    "operation": "existing native legend metric-anchor translation"
+  },
+  "adapter": {
+    "path": "scripts/legend_controls/legend_high_adapter.py",
+    "sha256": "8bb3c4deaaa6c03b8910c4ee6324569a2086bbf750b3ac882e4a2afd7ff24188"
+  },
+  "feature": "native legend normalization and metric-anchor translation",
+  "native_proof": {
+    "relative_changed": "PASS",
+    "portable_identity_sha256": "0b38960c7d3cbd80293758c17192dee4c283701c827fd195954297606ff5a063",
+    "status": "PASS",
+    "relative_same": "PASS",
+    "changed_report_sha256": "993bf7ca0e7784a017404d7a0a7f97ce29a0ff801d03a0fd70428a75e34ff0d8",
+    "baseline_report_sha256": "42efb3955e912b4b61d86cce024717a0ac9f44412b261aeacfff2e2654fab593",
+    "translated_report_sha256": "fd387e8abf2449c91f2044947b712ae9c7cb4349723ac3463702a5ab6c2ec396"
+  },
+  "portable_core": {
+    "path": "scripts/legend_controls/portable_metric.py",
+    "sha256": "3177a789db530dadc19c299257bc683d3836559cf85835b0e32f07357737d130"
+  }
+}

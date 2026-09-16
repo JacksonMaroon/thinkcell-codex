@@ -1,0 +1,232 @@
+{
+  "status": "ALL_GATES_PASS",
+  "source": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of200-native.pptx",
+  "source_sha256": "B67414E1E2438F8F15E6BCA2C61166BA9BBF1214F0B821BD25C09A3B560C5312",
+  "targets": [
+    {
+      "name": "TC_AUTO_74EDF5BF7FB0_561_8",
+      "shape_tag": "tpMAVi87XwuZW.7OXCpysuw"
+    }
+  ],
+  "contracts": [
+    {
+      "family": "sequence",
+      "datasheet_orientation": "0",
+      "source_dimensions": [
+        6,
+        4
+      ],
+      "requested_dimensions": [
+        6,
+        4
+      ],
+      "count_change": false,
+      "only_optional_row": "100%=",
+      "datasource": {
+        "state": "INTERNAL_DATASHEET_OBSERVED",
+        "advisesink_idref": "0",
+        "storage": "think-cellChild0",
+        "external_storage_field": "1",
+        "external_storage_field_is_not_a_link_indicator": true,
+        "stream_sha256": {
+          "Package": "A7CF253A162F8750F9B65B6FF76D6A158C99A4E77757EAB4933084B039077F23",
+          "think-cellXML": "525515301CE4D99A3A364A1C5C09D65940F627F202DF6F628C1FA8E249E1E2CC"
+        },
+        "matrix_orientation": "Read actual embedded datasource; not inferred from chart direction",
+        "requires_exact_datasheet_matrix_before_json_update": true
+      }
+    }
+  ],
+  "native_reopen_render_required": true,
+  "no_external_links": true,
+  "all_native_charts_explicitly_targeted": true,
+  "prepared": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\named-1.pptx",
+  "prepared_sha256": "9D30DD4C9A9E13F0E85CE1491EF217C032A437FCE3FB5078B555611944D041EE",
+  "name_preparations": [
+    {
+      "schema_version": 1,
+      "status": "PREPARED_PENDING_NATIVE_VERIFICATION",
+      "experimental_copy_only": true,
+      "source": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of200-native.pptx",
+      "source_sha256": "B67414E1E2438F8F15E6BCA2C61166BA9BBF1214F0B821BD25C09A3B560C5312",
+      "output": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\named-1.pptx",
+      "automation_name": "TC_AUTO_74EDF5BF7FB0_561_8",
+      "reused_existing_name": true,
+      "generation_scope": "entire presentation; unique names required",
+      "target": {
+        "slide_id": 561,
+        "slide_number": 1,
+        "model_type": "CSequenceChartSE",
+        "logical_chart_id": "7",
+        "logical_table_id": "72",
+        "active_document_part": "ppt/embeddings/oleObject13.bin",
+        "shape_id": 10,
+        "shape_name": "Chart 9",
+        "shape_tag": "tpMAVi87XwuZW.7OXCpysuw",
+        "native_chart_part": "ppt/charts/chart1.xml",
+        "bounds_emu": {
+          "left": 3346450,
+          "top": 1263650,
+          "width": 8574088,
+          "height": 4283075
+        }
+      },
+      "datasource": {
+        "state": "INTERNAL_DATASHEET_OBSERVED",
+        "advisesink_idref": "0",
+        "storage": "think-cellChild0",
+        "external_storage_field": "1",
+        "external_storage_field_is_not_a_link_indicator": true,
+        "stream_sha256": {
+          "Package": "A7CF253A162F8750F9B65B6FF76D6A158C99A4E77757EAB4933084B039077F23",
+          "think-cellXML": "525515301CE4D99A3A364A1C5C09D65940F627F202DF6F628C1FA8E249E1E2CC"
+        },
+        "matrix_orientation": "Read actual embedded datasource; not inferred from chart direction",
+        "requires_exact_datasheet_matrix_before_json_update": true,
+        "logical_model": {
+          "id": "72",
+          "automation_name": "TC_AUTO_74EDF5BF7FB0_561_8",
+          "series_names": [
+            "Not Mapped",
+            "High risk",
+            "Medium Risk",
+            "Low risk"
+          ],
+          "categories": [
+            "Gross Profit",
+            "Revenues",
+            "Customer Count"
+          ],
+          "series_values": [
+            [
+              50.0,
+              20.0,
+              20.0
+            ],
+            [
+              70.0,
+              30.0,
+              30.0
+            ],
+            [
+              55.0,
+              40.0,
+              40.0
+            ],
+            [
+              25.0,
+              110.0,
+              110.0
+            ]
+          ],
+          "category_extents": [
+            200.0,
+            200.0,
+            200.0
+          ],
+          "orientation": "vertical",
+          "percent_axis": true
+        }
+      },
+      "changes": [],
+      "only_name_fields_changed": true,
+      "requires_json_update_and_native_verification": true,
+      "integrity_scope": {
+        "native_cache_parity": "pass",
+        "specialized_visual_semantics_review_required": false,
+        "excluded_inapplicable_checks": []
+      },
+      "output_sha256": "9D30DD4C9A9E13F0E85CE1491EF217C032A437FCE3FB5078B555611944D041EE",
+      "all_integrity_checks": true,
+      "other_ole_streams_byte_identical": true,
+      "other_zip_entries_byte_identical": true,
+      "source_unchanged": true
+    }
+  ],
+  "staging_directory": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work",
+  "output_withheld": false,
+  "appearance_modes": {
+    "TC_AUTO_74EDF5BF7FB0_561_8": "not_enabled"
+  },
+  "output": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native.pptx",
+  "output_sha256": "C2F778D7070C82D1369FB89AF0F9E648573BD13207AD51C99CA476EA67FD65D6",
+  "validation": {
+    "targets": [
+      {
+        "name": "TC_AUTO_74EDF5BF7FB0_561_8",
+        "shape_tag": "tpMAVi87XwuZW.7OXCpysuw",
+        "contract": {
+          "family": "sequence",
+          "datasheet_orientation": "0",
+          "source_dimensions": [
+            6,
+            4
+          ],
+          "requested_dimensions": [
+            6,
+            4
+          ],
+          "count_change": false,
+          "only_optional_row": "100%=",
+          "datasource": {
+            "state": "INTERNAL_DATASHEET_OBSERVED",
+            "advisesink_idref": "0",
+            "storage": "think-cellChild0",
+            "external_storage_field": "1",
+            "external_storage_field_is_not_a_link_indicator": true,
+            "stream_sha256": {
+              "Package": "A7CF253A162F8750F9B65B6FF76D6A158C99A4E77757EAB4933084B039077F23",
+              "think-cellXML": "525515301CE4D99A3A364A1C5C09D65940F627F202DF6F628C1FA8E249E1E2CC"
+            },
+            "matrix_orientation": "Read actual embedded datasource; not inferred from chart direction",
+            "requires_exact_datasheet_matrix_before_json_update": true
+          }
+        },
+        "exact_datasheet_cells": true,
+        "category_extents": [
+          250.0,
+          200.0,
+          200.0
+        ],
+        "native_cache_semantics": {
+          "bar_dir": "col",
+          "grouping": "stacked",
+          "vary_colors": "0",
+          "series_count": 4
+        },
+        "appearance_fills": "DC9DDE7FE7B8B105A05395272D9F2ABA2BAF7CAAA22432C8EC701D6885624412",
+        "preserved_existing_fill_series": null,
+        "degenerate_clustered_to_stacked": false
+      }
+    ],
+    "theme_and_notes_preserved": true,
+    "integrity_scope": {
+      "native_cache_parity": "pass",
+      "specialized_visual_semantics_review_required": false,
+      "excluded_inapplicable_checks": []
+    },
+    "native_chart_count": 1,
+    "native_tags": [
+      "tpMAVi87XwuZW.7OXCpysuw"
+    ],
+    "unique_names": [
+      "TC_AUTO_74EDF5BF7FB0_561_8"
+    ]
+  },
+  "generator_exit_code": 0,
+  "native_verification": {
+    "source": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\generated.pptx",
+    "source_sha256": "28697A4E1185F244C04A89A4BDF1BB44067156FCF8FCF9FE665655C3FAB40708",
+    "output": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\native-reopened.pptx",
+    "render": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\native.png",
+    "other_presentations_before": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "native_reopen_pass": true,
+    "slides": 1,
+    "other_presentations_after": "[{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_No_Click_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1},{\"path\":\"C:\\\\Users\\\\jmaroo01\\\\Documents\\\\Codex\\\\2026-09-15\\\\ca-2\\\\outputs\\\\ThinkCell_Moved_Resized_Proof.pptx\",\"saved\":0,\"slides\":1,\"windows\":1}]",
+    "other_presentations_unchanged": true,
+    "state_scope": "Visible, named and unsaved presentations; full snapshots retain saved hidden unnamed native transients.",
+    "source_unchanged": true
+  },
+  "render": "C:\\Users\\jmaroo01\\Documents\\Codex\\2026-09-15\\ho\\work\\feature-research-v4\\percent-execution\\runs\\com-relative-parentheses-25of250-native_multi_tc_work\\native.png",
+  "source_unchanged": true
+}

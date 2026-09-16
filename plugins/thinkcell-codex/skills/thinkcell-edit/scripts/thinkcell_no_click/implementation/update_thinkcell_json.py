@@ -2,6 +2,8 @@
 from pathlib import Path
 import argparse,collections,io,json,math,os,subprocess,sys,zipfile
 from lxml import etree as E
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from office_operation_lock import serialized_office, run_locked_subprocess
 from prepare_thinkcell_name import prepare,inventory,choose,link_contract,need,sha,xml,SKILL,NS,logical_slides,relationship_map,pie_tables,sequence_tables,scatter_tables,inspect_presentation
 from read_named_datasheet import read as read_datasheet, read_blob
 from extract_thinkcell_named_datasheet import wrap_biff_workbook_stream
@@ -15,6 +17,34 @@ def equal(a,b):
  if isinstance(a,list) and isinstance(b,list):return len(a)==len(b) and all(equal(x,y) for x,y in zip(a,b))
  if isinstance(a,dict) and isinstance(b,dict):return set(a)==set(b) and all(equal(a[k],b[k]) for k in a)
  return a==b
+
+def labels_equal(a,b):
+ """Native models parse number-like category labels while datasheets retain text."""
+ def one(x,y):
+  if isinstance(x,(int,float)) and isinstance(y,(int,float)):return equal(x,y)
+  try:
+   if isinstance(x,str) and isinstance(y,(int,float)):return equal(float(x),y)
+   if isinstance(y,str) and isinstance(x,(int,float)):return equal(x,float(y))
+  except ValueError:pass
+  return x==y
+ return len(a)==len(b) and all(one(x,y) for x,y in zip(a,b))
+
+def _sequence_optional_row_kind(row, row_index, baseline, chart_kind):
+ """Classify the second sequence row without treating every blank as 100%=.
+
+ Numeric row values remain the long-standing explicit denominator contract on
+ both percentage and ordinary absolute charts.  A blank denominator row is
+ only meaningful when the native model identifies a percentage axis; ordinary
+ line and dual-axis donors use the same blank slot as a reserved row.
+ """
+ if chart_kind != 'CSequenceChartSE' or row_index != 1:
+  return 'reserved'
+ values=row[1:]
+ if all(isinstance(v,(int,float)) for v in values):
+  return 'explicit_denominator'
+ if all(v is None for v in values) and baseline.get('percent_axis') is True:
+  return 'blank_denominator'
+ return 'reserved'
 
 def validate_request(request,family):
  need(isinstance(request,dict) and set(request)=={'matrix','expected_model'},'Data JSON requires exactly matrix and expected_model')
@@ -72,9 +102,9 @@ def canonical_sequence_contract(path, request, target=None, name=None):
  def row_matches(raw,calculated):
   if len(raw)!=len(calculated):return False
   return all((chart_kind=='waterfall' and v=='e' and isinstance(w,(int,float)) and math.isfinite(w)) or equal(v,w) for v,w in zip(raw,calculated))
- need(equal(canonical[0][1:],baseline['categories']),'Source canonical categories disagree with model')
+ need(labels_equal(canonical[0][1:],baseline['categories']),'Source canonical categories disagree with model')
  need(len(matrix)==len(canonical) and all(len(r)==len(canonical[0]) for r in matrix),'JSON matrix must use canonical sequence orientation and fixed slot dimensions')
- need(equal(matrix[0][1:],expected['categories']),'JSON category row does not match expected model')
+ need(labels_equal(matrix[0][1:],expected['categories']),'JSON category row does not match expected model')
  names0=baseline['series_names'];need(len(set(names0))==len(names0),'Duplicate source series labels require a richer contract')
  need(len(expected['series_names'])==len(names0) and len(expected['series_values'])==len(names0),'Series count changes need a separate layout contract')
  need(len(expected['categories'])==len(baseline['categories']),'Category count changes need a separate layout contract')
@@ -85,10 +115,14 @@ def canonical_sequence_contract(path, request, target=None, name=None):
    need(row_matches(row[1:],baseline['series_values'][i]),'Source canonical series values disagree with model')
    need(matrix[ri][0]==expected['series_names'][i] and row_matches(matrix[ri][1:],expected['series_values'][i]),'JSON series row order/values do not match expected model at slot '+str(ri+1))
    if chart_kind=='waterfall':need([v=='e' for v in row[1:]]==[v=='e' for v in matrix[ri][1:]],'Waterfall equals slots must stay fixed')
-  elif chart_kind=='CSequenceChartSE' and ri==1 and all(isinstance(v,(int,float)) for v in row[1:]):
+  elif _sequence_optional_row_kind(row,ri,baseline,chart_kind)=='explicit_denominator':
    need(equal(row[1:],baseline['category_extents']),'Source 100%= row disagrees with model')
    need(matrix[ri][0]==row[0] and equal(matrix[ri][1:],expected.get('category_extents')),'Explicit 100%= row must match expected category_extents')
    need(all(not isinstance(v,bool) and isinstance(v,(int,float)) and math.isfinite(v) and v>0 for v in matrix[ri][1:]),'Explicit 100%= values must be positive')
+  elif _sequence_optional_row_kind(row,ri,baseline,chart_kind)=='blank_denominator':
+   need(matrix[ri][0]==row[0] and all(v is None for v in matrix[ri][1:]),'Blank 100%= row must remain blank')
+   ext=expected.get('category_extents');need(isinstance(ext,list) and len(ext)==len(expected['categories']),'Blank 100%= row requires expected category_extents')
+   need(equal(ext,[sum((r[i] or 0) for r in expected['series_values']) for i in range(len(ext))]),'Blank 100%= category extents must equal series totals')
   elif chart_kind=='mekko-units' and ri==1:
    need(equal(row[1:],baseline['column_widths']),'Source Mekko width row disagrees with model')
    need(matrix[ri][0]==row[0] and equal(matrix[ri][1:],expected.get('column_widths')),'Mekko X extent row must match expected column_widths')
@@ -156,6 +190,10 @@ def canonical_scatter_contract(c,request):
 def payload(matrix,contract=None):
  def cell(v):
   if v is None:return None
+  if isinstance(v,dict):
+   need(set(v) in ({'number','fill'},{'string','fill'}),'Typed appearance cell must contain one value and fill')
+   need(isinstance(v.get('fill'),str) and v['fill'].startswith('#') and len(v['fill'])==7,'Typed appearance cell has invalid fill')
+   return dict(v)
   if isinstance(v,bool):return {'boolean':v}
   if isinstance(v,(int,float)):return {'number':v}
   return {'string':v}
@@ -242,10 +280,14 @@ def validate_output(prepared_path,output_path,automation_name,request):
  need(prepared_path.read_bytes()==before and output_path.read_bytes()==after,'Input changed during validation')
  return {'status':'JSON_OUTPUT_VALIDATED_PENDING_NATIVE_CERTIFICATION','output_sha256':sha(after),'resolved_target_tag_preserved':True,'actual_datasheet_nonempty_cells_match':True,'expected_logical_model_matches':True,'integrity_scope':integrity_scope,'strict_model_native_cache_integrity':integrity_scope['native_cache_parity']=='pass','untargeted_chart_data_and_streams_unchanged':True,'visual_geometry_requires_native_render_check':True,'bound_theme_and_notes_unchanged':True,'notes_preservation_scope':'Exact authored substance and paragraph prose; only cached slidenum field text excluded','target_native_frame':actual['target_native_frame'],'expected_model':request['expected_model'],'datasheet_storage_kind':sheet['storage_kind'],'generated_datasheet_orientation':actual['datasheet_orientation'],'sequence_cells_compared_in_canonical_orientation':actual['target_family']=='CSequenceChartSE','json_layout_contract':contract,'read_only':True}
 
+@serialized_office
 def run(input_path,expected_sha256,output_path,request,slide_id=None,slide_number=None,shape_id=None,shape_tag=None,execute=False,ppttc_path=None):
  src=Path(input_path).resolve();out=Path(output_path).resolve();stage=out.parent/(out.stem+'_thinkcell_work')
  need(src!=out and out.suffix.lower()=='.pptx','Output must be a distinct PPTX')
  need(not out.exists(),'Output exists; refusing overwrite')
+ _, existing_charts, _ = inventory(src.read_bytes())
+ need(not any(c['table'].find('m_bExcelOnTop') is not None and c['table'].find('m_bExcelOnTop').get('val') == '1' for c in existing_charts),
+      'This slide uses datasheet colors. Use multi_chart_update.py with every chart explicit so configured fills survive the data update.')
  with zipfile.ZipFile(src) as z:need(len(logical_slides(z))==1,'Runner requires a single-slide source; clone selected slide natively first')
  prep=prepare(src,expected_sha256,stage/'prepared.pptx',slide_id,slide_number,shape_id,shape_tag,execute=False)
  validate_request(request,prep['target']['model_type'])
@@ -260,9 +302,7 @@ def run(input_path,expected_sha256,output_path,request,slide_id=None,slide_numbe
  job.write_text(json.dumps([{'template':str(prepared),'data':[{'name':prep['automation_name'],'table':payload(request['matrix'],contract)}]}],indent=2))
  startup=subprocess.STARTUPINFO();startup.dwFlags|=subprocess.STARTF_USESHOWWINDOW;startup.wShowWindow=0
  with (stage/'generator.stdout.txt').open('w') as stdout,(stage/'generator.stderr.txt').open('w') as stderr:
-  process=subprocess.Popen([str(ppttc),str(job),'-o',str(generated)],stdout=stdout,stderr=stderr,startupinfo=startup,creationflags=subprocess.CREATE_NO_WINDOW)
-  try:code=process.wait(timeout=180)
-  except subprocess.TimeoutExpired:raise RuntimeError(f'Generator still running, PID {process.pid}; no process was killed. Inspect staging directory before retrying.')
+  code=run_locked_subprocess([str(ppttc),str(job),'-o',str(generated)],operation='ppttc-json',timeout_seconds=180,stdout=stdout,stderr=stderr,startupinfo=startup,creationflags=subprocess.CREATE_NO_WINDOW).returncode
  need(code==0,'Official JSON generator failed, exit '+str(code));need(generated.exists(),'Generator produced no presentation')
  validation=validate_output(prepared,generated,prep['automation_name'],request)
  need(sha(src.read_bytes())==expected_sha256.upper(),'Source changed during run')

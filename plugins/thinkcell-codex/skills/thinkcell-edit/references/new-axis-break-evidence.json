@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "adapter": "experimental_axis_break_insert",
+  "status": "bounded_native_proof",
+  "tested_scope": {
+    "chart_family": "one current-version clustered-column CSequenceChartSE",
+    "target": "zero native breaks, one length-12 ordinary primary-axis interval vector, no native tickmark collection",
+    "data_topology": "three series by four categories with one outlying nonnegative scalar",
+    "generated_topology": "one CDataAxisBreak and one CPPTBreakShape with three linked physical tags for one scalar crossing one gap",
+    "repeat_update": "Same one-break/one-generated-shape output can be updated with mode repeat."
+  },
+  "source_seed": {
+    "path": "../assets/feature-fixtures/axis-break-ordinary-38764.pptx",
+    "sha256": "fae032eac98e4d6ceded6df9d7f6f0cf4b7c94287a494d2bd9bdc767c6c2e305",
+    "native_model_version": "38764",
+    "native_break_count": 0
+  },
+  "break_seed": {
+    "path": "../assets/feature-fixtures/axis-break-seed-38764.pptx",
+    "sha256": "4e03f81243b29d7bbffc131077bb64c0fdaca0ce407692ddc3c9e979b7a8289e",
+    "native_model_version": "38764",
+    "seed_graph": "one CDataAxisBreak, two CPPTBreakShape, six physical tags"
+  },
+  "native_evidence": {
+    "same_data_report": "new-axis-break-evidence/ordered-break-same-data-native-v3-report.json",
+    "changed_data_report": "new-axis-break-evidence/ordered-break-changed-data-native-v2-report.json",
+    "same_data_result": "native JSON generation, native reopen, exact datasource/model readback and visible 90 break passed",
+    "changed_data_result": "90 to 120 update retained the same one-shape native break after JSON generation and native reopen",
+    "independent_review": "new-axis-break-evidence/independent-review.md",
+    "packaged_insertion": {
+      "report": "new-axis-break-evidence/packaged-break-insert-v2.json",
+      "output_sha256": "68C9D80C3ACF137A2F0A29FEBD6991AF2055831E65E388D42195A75B8450D2D2",
+      "mode": "insert"
+    },
+    "packaged_repeat": {
+      "report": "new-axis-break-evidence/packaged-break-repeat.json",
+      "output_sha256": "A97682DDFCF3C2C5812B94A3F3E447115BF1EADF5CDBD19C351A3DEFF758483A",
+      "mode": "repeat"
+    },
+    "package_review": "new-axis-break-evidence/package-review.md"
+  },
+  "unsupported": [
+    "secondary axes or native tickmark collections",
+    "multiple crossing outliers or multiple generated break shapes",
+    "other chart families, negative data, and arbitrary interval topologies"
+  ],
+  "certification_gates": [
+    "exact source and donor SHA-256 before mutation and after preparation",
+    "official JSON regeneration",
+    "native save/reopen and rendered visual review",
+    "exact datasource/model and linked physical-tag readback",
+    "changed-data repeat with the same bounded topology"
+  ],
+  "routine_gates": "Requested operation, native reopen and exact readback, source preservation and rendered review. Do not alter user data merely to repeat certification."
+}

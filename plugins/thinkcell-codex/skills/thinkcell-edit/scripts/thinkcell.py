@@ -11,6 +11,7 @@ import time
 HERE = Path(__file__).resolve().parent
 IMPL = HERE/'thinkcell_no_click/implementation'
 sys.path.insert(0, str(IMPL))
+from office_operation_lock import serialized_office, run_locked_subprocess
 from runtime import doctor, find_ppttc, powershell, powershell_env
 
 def write_json(path, data):
@@ -60,7 +61,10 @@ def baseline_request(path, c):
         candidates = [candidates[int(orientation.get('val'))]]
     for rows in candidates:
         request = {'matrix':rows, 'expected_model':dict(expected)}
-        if family=='CSequenceChartSE' and 'column_widths' not in model and len(rows)>1 and rows[1][0] not in model['series_names'] and all(isinstance(v,(int,float)) for v in rows[1][1:]):
+        # A 100%-axis donor can encode its reserved row as all blanks.  The
+        # model still exposes derived category extents, which belongs in the
+        # canonical expected model even though the matrix row stays blank.
+        if family=='CSequenceChartSE' and 'column_widths' not in model and len(rows)>1 and rows[1][0] not in model['series_names'] and (all(isinstance(v,(int,float)) for v in rows[1][1:]) or all(v is None for v in rows[1][1:])):
             from chart_semantics import kind
             if kind(c)=='CSequenceChartSE':request['expected_model']['category_extents']=model['category_extents']
         try:
@@ -93,6 +97,10 @@ def inspect(a):
             continue
         row = {'slide_number':c['doc']['slide_number'], 'slide_id':c['doc']['slide_id'],
                'family':c['owner'].tag, 'automation_name':c['owner_name'] or None, 'exact_target':c['exact'], 'frames':c['frames']}
+        fill_setting = c['table'].find('m_bExcelOnTop')
+        row['datasheet_fill_enabled'] = fill_setting is not None and fill_setting.get('val') == '1'
+        if row['datasheet_fill_enabled']:
+            row['update_route'] = 'multi_chart_update.py preserves configured fills; cover every native chart'
         try:
             link_contract(c)
             row['data_route'] = 'internal'
@@ -115,6 +123,7 @@ def inspect(a):
         raise ValueError('Source changed during inspection; inspect again.')
     return result
 
+@serialized_office
 def update(a):
     from prepare_thinkcell_name import inventory, link_contract, need, SKILL
     from update_thinkcell_json import run, validate_output
@@ -160,11 +169,7 @@ def update(a):
         cmd = [powershell(),'-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(IMPL/'native_verify_scoped.ps1'),
                '-InputFile',str(generated),'-OutputFile',str(verified),'-ReportFile',str(native_report),'-RenderFile',str(render)]
         with (work/'native.stdout.txt').open('w') as stdout, (work/'native.stderr.txt').open('w') as stderr:
-            process = subprocess.Popen(cmd,stdout=stdout,stderr=stderr,creationflags=subprocess.CREATE_NO_WINDOW,env=powershell_env())
-            try:
-                code = process.wait(timeout=180)
-            except subprocess.TimeoutExpired:
-                raise RuntimeError(f'Native verification still running, PID {process.pid}. No process was killed. Inspect work files before retrying.')
+            code = run_locked_subprocess(cmd,operation='native-verify',timeout_seconds=180,stdout=stdout,stderr=stderr,creationflags=subprocess.CREATE_NO_WINDOW,env=powershell_env()).returncode
         need(code == 0 and native_report.is_file(), 'Native verification failed; inspect work/native.json and logs.')
         native = json.loads(native_report.read_text(encoding='utf-8-sig'))
         need(native['native_reopen_pass'] and native['other_presentations_unchanged'] and native['source_unchanged'], 'Native verification did not pass.')
@@ -194,6 +199,7 @@ def selectors(p):
     p.add_argument('--shape-id',type=int)
     p.add_argument('--shape-tag')
 
+@serialized_office
 def create(a):
     """Create a new native slide from a user-supplied donor, preserving features."""
     import zipfile
@@ -212,14 +218,14 @@ def create(a):
                 'style_scope':'Optional defaults for new elements; donor formatting is preserved.'}
     cmd=[powershell(),'-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(HERE/'extract_slide.ps1'),
          '-InputFile',str(source),'-SlideNumber',str(a.slide_number),'-OutputDirectory',str(destination)]
-    proc=subprocess.run(cmd,capture_output=True,text=True,env=powershell_env(),timeout=240)
+    proc=run_locked_subprocess(cmd,operation='native-extract',timeout_seconds=240,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,env=powershell_env(),creationflags=subprocess.CREATE_NO_WINDOW)
     need(proc.returncode==0, 'Native donor copy failed: '+proc.stdout[-1500:]+proc.stderr[-500:])
     result=json.loads((destination/'extraction.json').read_text(encoding='utf-8-sig'))
     if a.style_file:
         style_out=destination/'style'
         cmd=[powershell(),'-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(HERE/'load_style.ps1'),
              '-InputFile',result['output'],'-OutputDirectory',str(style_out),'-StyleFile',str(a.style_file.resolve())]
-        proc=subprocess.run(cmd,capture_output=True,text=True,env=powershell_env(),timeout=180)
+        proc=run_locked_subprocess(cmd,operation='native-style',timeout_seconds=180,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,env=powershell_env(),creationflags=subprocess.CREATE_NO_WINDOW)
         need(proc.returncode==0, 'Style defaults failed: '+proc.stdout[-1500:]+proc.stderr[-500:])
         result['style']=json.loads((style_out/'style.json').read_text(encoding='utf-8-sig'))
         result['output']=result['style']['output']

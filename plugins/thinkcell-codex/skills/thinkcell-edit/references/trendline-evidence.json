@@ -1,0 +1,23 @@
+{
+  "feature": "official scatter trendline donor update",
+  "adapter": {
+    "path": "scripts/trendline/portable_trendline_implementation.py",
+    "sha256": "bf0d8def373f3daf7dd822da4f7f99376113f0c4b26d6f4250062770769b520c",
+    "lane_frozen_sha256": "654a91e4af9a98be1dd586f4dfa4fbd6b73515df331def5c3ad3b0b9d0d097ec",
+    "staging_correction": "required explicit source, shape tag and fresh output"
+  },
+  "native_proof": {
+    "status": "PASS",
+    "grade_sha256": "10de52524a55f3c49bbcee7da82e07939f8defb66cf3f01714eb2dfa5c748898",
+    "grader_sha256": "47795261ca5e23357e3d014a029f90e25931c72ecfff996ce711581bbb43c2d2",
+    "higher_end_shift": "+2 Y",
+    "lower_end_shift": "-1 Y",
+    "unrelated_native_embeddings_preserved": true,
+    "candidate_slide_count": 2
+  },
+  "scope": {
+    "chart_family": "official scatter donor",
+    "supported": "existing visible linear trendline partitions",
+    "excluded": "other trendline types and clean-chart insertion"
+  }
+}

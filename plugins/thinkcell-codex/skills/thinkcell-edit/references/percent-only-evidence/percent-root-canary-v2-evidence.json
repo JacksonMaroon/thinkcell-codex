@@ -1,0 +1,16 @@
+{
+  "status": "PERCENT_ONLY_PARENTHESES_NATIVE_PASS",
+  "input_sha256": "F51F2B8178B5060CF937BC0F004540175AA4B2D1BF1F3ECEF9DAB95C51A462D4",
+  "output_sha256": "445F85C610FAAAECED821C2CAD0B9223C2504ECB10CB37A744E73972A343C55E",
+  "shape_tag": "tbUpiE_yCia4NQkLBVWFCIA",
+  "scalar_id": "191",
+  "actual_native_ratio": "30.0/200.0",
+  "expected_display": "15%",
+  "com_report": "work\\feature-research-v4\\percent-root-canary-v2\\com-report.json",
+  "official_report": "work\\feature-research-v4\\percent-root-canary-v2-report.json",
+  "final_trace": "work\\feature-research-v4\\percent-root-canary-v2\\final-trace.json",
+  "absolute_raw_retained_unbound": true,
+  "one_native_relative_field": true,
+  "source_unchanged": true,
+  "output_withheld_until_feature_pass": true
+}

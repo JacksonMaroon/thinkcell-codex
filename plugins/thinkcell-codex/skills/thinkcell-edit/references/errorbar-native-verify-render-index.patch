@@ -1,0 +1,23 @@
+--- a/native_verify_scoped.ps1
++++ b/native_verify_scoped.ps1
+@@ -4,6 +4,7 @@
+     [Parameter(Mandatory=$true)][string]$ReportFile,
+     [Parameter(Mandatory=$true)][string]$RenderFile,
+     [int]$FirstSlideNumber=0,
++    [int]$RenderSlideIndex=1,
+     [string]$ScriptsRoot='',
+     [string]$CheckpointFile=''
+ )
+@@ -99,9 +100,11 @@
+  $owned=$presentations.Open($dest,$false,$false,$false)
+  $slides=$owned.Slides
+  if($slides.Count-ne$r.slides){throw 'Reopen slide count mismatch.'}
++ if($RenderSlideIndex -lt 1 -or $RenderSlideIndex -gt $slides.Count){throw 'Render slide index is outside the opened presentation.'}
+  $pageSetup=$owned.PageSetup
+  $height=[int][Math]::Round(1920*$pageSetup.SlideHeight/$pageSetup.SlideWidth)
+- $slide=$slides.Item(1)
++ $slide=$slides.Item($RenderSlideIndex)
++ $r.render_slide_index=$RenderSlideIndex
+  $slide.Export($RenderFile,'PNG',1920,$height)
+  Release-OwnedReference 'slide' $slide;$slide=$null
+  Release-OwnedReference 'pageSetup' $pageSetup;$pageSetup=$null

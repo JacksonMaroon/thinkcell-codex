@@ -1,0 +1,29 @@
+{
+  "feature": "clean ordinary line chart CAGR import for a selected scalar series",
+  "adapter": {
+    "path": "scripts/cagr_import/portable_line_family_cagr.py",
+    "sha256": "d321492c5e35b3b3a3c98558c975410c1010df4e6d4c91d690c576a966028273"
+  },
+  "portable_candidate_v4": {
+    "sha256": "938f57a779e244aaf312c1a7d8c433192417991d5e1e2a3c47f17244a213281b",
+    "prepare_sha256": "850fcdbd81c19999932851ff4d6d4a9f8d6711ee924daaa305feddf0434384e4",
+    "regression_sha256": "6cfefbd8448ac130924447753a78a7f0e3762e1772a22c59012c22a9d5abebdd",
+    "guards_sha256": "d7034f13d8947ab895aa15bf123a462aca7662a0fb8c337675167e306b7fae2b",
+    "audit_sha256": "e4d934fbeb5a1025fa04d65330329188ce87566e9eec4a457046e522d892b83c"
+  },
+  "native_reference": {
+    "base_output_sha256": "8e3f9a96e81739cba15a673e45722b2b249966bae37d9767ea46b2a6a46ffe62",
+    "changed_output_sha256": "ffc34bc8260e62ffe9f8ac43084d184d846186134c88fc49f0d38e5fa4a4b76c",
+    "base_grade_sha256": "58a680d54bc86131f87bc6c190337d98aab96265ed16ad22427be3c510578c17",
+    "changed_grade_sha256": "c23ec8c60827b9801271e65d8a550fb3cbddce1188f43248dacb51256ddbcf37",
+    "dynamic_grade_sha256": "b5878c4d6c76b415c1112cd267afe052a840036c31075877da1bd09df802b1f8",
+    "dynamic_status": "NATIVE_DYNAMIC_CAGR_CHANGE_GRADE_PASS"
+  },
+  "scope": {
+    "chart_family": "ordinary internal line chart",
+    "selection": "semantic target and donor chart names; optional explicit series index and name",
+    "endpoints": "scalar source and sink indices",
+    "guards": "target SHA and selected-series donor SHA when series extension is used",
+    "excluded": "aggregate totals and non-line chart families"
+  }
+}

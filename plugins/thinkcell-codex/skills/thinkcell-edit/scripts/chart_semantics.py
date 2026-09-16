@@ -50,7 +50,11 @@ def audit_scope(path, audit):
     Only a single specialized chart is allowed, so no sibling is exempted.
     """
     from prepare_thinkcell_name import inventory, need
-    _,cs,_ = inventory(path.read_bytes())
+    docs,cs,_ = inventory(path.read_bytes())
+    identity_invariants(docs)
+    if len(cs)>1 and any(kind(c)=='waterfall' for c in cs):
+        from mixed_integrity import mixed_integrity_scope
+        return mixed_integrity_scope(path,audit)
     special = len(cs)==1 and kind(cs[0]) in {'waterfall','mekko-percent','mekko-units'}
     exclusions = {'no_model_visible_chart_mismatch','strict_parity_available','strict_parity_pass'} if special else set()
     failures = [k for k,v in audit['assertions'].items() if not v and k not in exclusions]
@@ -58,6 +62,16 @@ def audit_scope(path, audit):
     return {'native_cache_parity': 'not_implemented_for_specialized_chart' if special else 'pass',
             'specialized_visual_semantics_review_required':special,
             'excluded_inapplicable_checks':sorted(exclusions)}
+
+def identity_invariants(docs):
+    """Each native document has GUID and hidden shape-name registries as well as IDs."""
+    from prepare_thinkcell_name import need
+    for doc in docs:
+        for field in ('m_guid','m_bstrShapeName'):
+            values=[(x.text or x.get('val') or '').strip() for x in doc['root'].iter(field)]
+            values=[v.lower() if field=='m_guid' else v for v in values if v]
+            need(len(values)==len(set(values)), 'Duplicate native registry keys: '+field+'; recreate the composition with identity remapping')
+    return {'native_guids_unique':True,'native_shape_names_unique':True}
 
 
 def feature_summary(c):

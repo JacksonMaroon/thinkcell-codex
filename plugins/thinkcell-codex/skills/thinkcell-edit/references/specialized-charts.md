@@ -1,6 +1,6 @@
-# Experimental waterfall and Mekko contracts
+# Waterfall and Mekko contracts
 
-These routes preserve a native donor's structure. Each requires a single chart on the slide, an internal embedded datasheet, fixed category/series slots, and native save/reopen plus visual review. Native-cache parity is **not implemented** for these specialized charts: waterfall Office caches encode offsets, and Mekko charts render as native shapes. The report identifies this limit rather than reporting generic parity as passed. Structural, model, datasheet, source, theme and notes checks remain active.
+The data-update route preserves the native donor's category/series slots. The structure-plan route below prepares supported changes to those slots. Both use an internal embedded datasheet and require native save/reopen plus visual review. Native-cache parity is **not implemented** for these specialized charts: waterfall Office caches encode offsets, and Mekko charts render as native shapes. Structural, model, datasheet, source, theme and notes checks remain active.
 
 ## Waterfall
 
@@ -8,7 +8,7 @@ The request matrix retains literal `"e"` cells, while `expected_model.series_val
 
 For a standard forward bridge, 100 + 20 - 5 gives a total of 115. For a backward build-down with an equals total first, infer that total from the signed steps and their actual connector direction. For an intermediate subtotal, do not add the subtotal again to the running total. Compute each expected value from the specific donor's connector structure; do not use a universal cumulative-sum formula on arbitrary waterfalls.
 
-Inspect the render for grounded totals, connector direction, signed steps and mixed-sign stacks. This release does not add or reroute connectors, change which segments are equals, or certify arbitrary waterfall topology.
+Inspect the render for grounded totals, connector direction, signed steps and mixed-sign stacks. The existing-data route preserves connectors and equals positions. Use a structure plan for adding a step, subtotal or series.
 
 ## Mekko with percent axis
 
@@ -18,6 +18,27 @@ The matrix uses nonnegative absolute segment values. Each expected column width 
 
 The matrix's second row is the native X extent row. Change this row and `expected_model.column_widths` together. Widths must be positive. Heights and widths are independent: increasing width must not silently increase the segment heights. Nonnegative absolute segment heights are supported.
 
-For both Mekko types, check displayed width ratios and segment shares/heights after generation. Zero/negative widths, signed heights, category/series count changes and chart-type conversion require another contract. The same generic sequence-family label does not imply support for these cases.
+For both Mekko types, check displayed width ratios and segment shares/heights after generation. The structure-plan route supports category additions and width changes. Zero/negative widths, signed heights and chart-type conversion still need a separate contract.
+
+## Structure plans
+
+`scripts/structure_plans/build_structure_plan.py --request <canonical.json>
+--operation <operation> --output-plan <fresh.json>` builds a typed plan. Use
+`--help` for the operation-specific names, values, widths and subtotal range.
+`build_add_step_job.py` also builds the official job for a waterfall step.
+These helpers prepare inputs; they do not by themselves certify a presentation.
+
+Supported controls include waterfall step addition, an intermediate subtotal
+over a prefix range without an existing equals cell, and series addition while
+retaining the reserved row. Literal `e` cells stay literal; expected values
+are independently computed. Subtotal and series additions passed subsequent
+data changes with totals, connectors and grounds retained.
+
+Percent Mekko category additions calculate widths from the supplied segment
+totals. Units Mekko category additions and width edits preserve independent
+heights. Both passed changed-data model/datasheet readback and native reopen.
+Use the plan's `request` object as the transformed canonical data request.
+Run that request through official regeneration and the specialized
+contract, then review the final chart before delivering it.
 
 Official semantics: [waterfall](https://www.think-cell.com/en/resources/manual/waterfall), [Mekko](https://www.think-cell.com/en/resources/manual/mekko).

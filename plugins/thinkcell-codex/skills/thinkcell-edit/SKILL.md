@@ -33,4 +33,16 @@ Run `doctor` once for a new environment or after a dependency failure. See [setu
 - Preserve whole native slides and their dependencies. Do not write PowerPoint's chart cache, think-cell values, styles or axes directly. Only the guarded coordinate adapter in the existing-slide route may edit exclusive geometry fields on copies, followed by official regeneration and native verification. If the request exceeds a verified operation, state the specific gap and continue independent supported work.
 - Inputs, reports and outputs must stay distinct. After a timeout or uncertain native write, inspect the recorded state instead of retrying blindly. Close only task-owned presentations; never quit PowerPoint.
 
+## Guarded native controls
+
+For a supported existing chart, use the relevant reference before selecting a
+specialized adapter: secondary-axis ranges and series colors; semantic scalar
+and percentage labels; existing or new axis breaks; bounded CAGR annotations;
+series connectors; Gantt milestones/taskbars; existing Excel-link rebinding;
+and authentic error-bar, legend, or trendline donors. Each route has a narrow
+native-structure contract. Preserve the user-supplied donor, use separate
+working/output artifacts, and release only after its documented model and
+native readback checks pass. Do not represent a prepared candidate, an
+unverified donor, or a static overlay as a completed native update.
+
 Keep routine replies short: result, relevant limitation, file. Ask only for missing information that changes the update. Follow the user's instructions over skill preferences; do not add approval pauses for already-authorized copy work. Shared-file writes, sends and publication follow the user's existing authorization rules. Use parallel read-only work only when it saves time; serialize Office mutations. This skill does not override the selected model or reasoning effort.

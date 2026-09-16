@@ -1,0 +1,18 @@
+{
+  "status": "native_ratio_and_independent_review_pass",
+  "fixture_sha256": "aed1b65f82f8c8f9cf0fcc78778549da60fe4bffc2b1c76f0c85c42a34753a1b",
+  "native_model_version": 38764,
+  "scope": "selected dual label in the supplied stacked percent-axis sequence donor; zero-decimal percentage; parentheses retained",
+  "native_controls": {
+    "25/200": "(13%)",
+    "30/200": "(15%)",
+    "25/250": "(10%)"
+  },
+  "independent_review": "percent-only-evidence/independent-review.md",
+  "packaged_canary": {
+    "report": "percent-only-evidence/percent-root-canary-v2-report.json",
+    "evidence": "percent-only-evidence/percent-root-canary-v2-evidence.json",
+    "scope": "parameterized native 25 (13%) input converted and updated to (15%), saved actual30/200",
+    "output_sha256": "445F85C610FAAAECED821C2CAD0B9223C2504ECB10CB37A744E73972A343C55E"
+  }
+}

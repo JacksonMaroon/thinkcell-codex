@@ -362,8 +362,41 @@ def _node_value(owner: etree._Element | None, tag: str) -> str | None:
     return raw.strip() if isinstance(raw, str) else None
 
 
+_CURRENT_PERCENT_AXIS_VERSION = 38764
+
+
+def _typed_axis_value(node: etree._Element | None, expected: float) -> bool:
+    """Current regeneration's bounded replacement for legacy m_bPercentage."""
+    try:
+        return node is not None and node.get("type") == "1" and float(node.get("val")) == expected
+    except (TypeError, ValueError):
+        return False
+
+
+def _percent_axis(chart: etree._Element, ids: dict[str, etree._Element], version: int | None) -> bool | None:
+    axis_reference = chart.find("m_daxisPrimaryValue")
+    axis = ids.get(axis_reference.get("idref")) if axis_reference is not None else None
+    percent_value = _node_value(axis, "m_bPercentage")
+    if percent_value is not None:
+        return percent_value not in {"0", "false", "False"}
+    precision = axis.find("m_precUser") if axis is not None else None
+    migrated_current_signature = (
+        axis is not None and axis.tag == "CSequenceChartDataAxis"
+        and _typed_axis_value(axis.find("m_fMinValue"), 0.0)
+        and _typed_axis_value(axis.find("m_fMaxValue"), 1.0)
+        and _typed_axis_value(axis.find("m_fUserScaleUnit"), 0.5)
+        and _node_value(axis, "m_edaxistype") == "1"
+        and _node_value(precision, "m_strSuffix17909") == "%"
+    )
+    return True if version is not None and version >= _CURRENT_PERCENT_AXIS_VERSION and migrated_current_signature else None
+
+
 def sequence_tables(root: etree._Element) -> list[dict[str, object]]:
     ids = _id_map(root)
+    try:
+        version = int(root.find("version").get("val"))
+    except (AttributeError, TypeError, ValueError):
+        version = None
     charts_by_table: dict[str, etree._Element] = {}
     for chart in root.findall("CSequenceChartSE"):
         table_reference = chart.find("m_dtable")
@@ -400,13 +433,7 @@ def sequence_tables(root: etree._Element) -> list[dict[str, object]]:
         chart = charts_by_table.get(table.get("id") or "")
         orientation_code = _node_value(chart, "m_eorient")
         orientation = {"0": "vertical", "1": "horizontal"}.get(orientation_code)
-        percent_axis = None
-        if chart is not None:
-            axis_reference = chart.find("m_daxisPrimaryValue")
-            axis = ids.get(axis_reference.get("idref")) if axis_reference is not None else None
-            percent_value = _node_value(axis, "m_bPercentage")
-            if percent_value is not None:
-                percent_axis = percent_value not in {"0", "false", "False"}
+        percent_axis = _percent_axis(chart, ids, version) if chart is not None else None
         result.append(
             {
                 "id": table.get("id"),

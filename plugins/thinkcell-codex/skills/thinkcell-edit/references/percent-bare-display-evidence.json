@@ -1,0 +1,47 @@
+{
+  "feature": "bounded bare percentage display with U+200B wrappers",
+  "adapter": {
+    "path": "scripts/percent_labels/prepare_bare_display_candidate.py",
+    "sha256": "1fb67ccb65be87a1a53e0ed07200a58777e3b0085eda5a1564343da40f7bcf57",
+    "runtime_resolution": "relative installed scripts rail; no staged-plugin ancestor"
+  },
+  "fresh_staging_candidate": {
+    "path": "work/feature-expansion-v8/release-prep/bare-zero-width-staging.pptx",
+    "sha256": "e2917f26cf7e825441a2e775cde9ce6a04081e442374e9af3c56f17296de1561",
+    "report": "work/feature-expansion-v8/release-prep/bare-zero-width-staging.json",
+    "report_sha256": "1e120e0bca32bce7201a0a789fbe7df0218a0a49c2c7a41d8bb81d1f9169c87d"
+  },
+  "fresh_staging_candidate_v2": {
+    "path": "work/feature-expansion-v8/release-prep/bare-zero-width-staging-v2.pptx",
+    "sha256": "6f7629e19e46bea05ca8f2c166b9f4f148e101b0878f42927b340c1b454903e5",
+    "report": "work/feature-expansion-v8/release-prep/bare-zero-width-staging-v2.json",
+    "report_sha256": "943289512eae49a6cd4b373658a913ae63cdb39583a502f08862e3abca47ae7a"
+  },
+  "native_reference": {
+    "candidate_sha256": "9f6b3a8cb30cffba6d5924227f37f432f986c63205c315c03f6381d8a846f0a5",
+    "native_output_sha256": "1961d0e6298d0a36f70aaba3dfc483fc51667ef61c1f1e456a228767b08e9ff2",
+    "audit_sha256": "7b119da2f8a98609e2b232681de859be5fce68a62a6ba85d6d6c12beaf599cf0",
+    "strict_status": "NATIVE_BARE_PERCENT_RATIO_PASS"
+  },
+  "semantic_comparison": {
+    "zip_member_count": 144,
+    "unrelated_zip_members_changed": [],
+    "selected_model_and_physical_selection_equal": true,
+    "ole_stream_count": 3,
+    "ole_stream_content_equal": true,
+    "status": "PASS"
+  },
+  "scope": {
+    "initial_ratio": "25/200 = 12.5%",
+    "changed_denominator_ratio": "25/250 = 10.0%",
+    "wrapper": "U+200B ZERO WIDTH SPACE",
+    "native_grader_policy": "require --allow-zero-width-wrapper and check raw prefix/suffix",
+    "parenthesized_route_preserved": true
+  },
+  "grader": {
+    "path": "scripts/percent_labels/audit_native_bare_candidate.py",
+    "sha256": "608975e6ee1542b05f49135a011c1ca026a25e94f067cfeeb90ac9228eb6a37c",
+    "invocation": "python scripts/percent_labels/audit_native_bare_candidate.py --source <source.pptx> --candidate <prepared.pptx> --candidate-sha256 <candidate-sha> --source-sha256 <source-sha> --input <native-reopened.pptx> --plan <plan.json> --chart-part <chart-part> --category <category> --series <series> --wrapper bare --allow-zero-width-wrapper --numerator <n> --denominator <d> --precision 1 --out <audit.json>",
+    "gate": "all checks must pass"
+  }
+}

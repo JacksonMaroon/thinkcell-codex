@@ -1,0 +1,32 @@
+{
+  "scope": {
+    "donor": "existing native Min/Max/Marker range",
+    "excluded": "clean-line insertion and new cap styling",
+    "supported": "authentic donor create/update"
+  },
+  "adapter": {
+    "path": "scripts/errorbars/reusable_errorbar_route.py",
+    "sha256": "63c56138dd196b89c2e9afc56807aaad303319c539b365858410b3a73de7b44c"
+  },
+  "feature": "authentic installed donor error-bar update",
+  "native_proof": {
+    "marker_fixed": true,
+    "grader_sha256": "a115f612ee86af41f477598ea21257d6a13e650f0733434b51cd685a1e82bac1",
+    "axis": "0-11 on changed render",
+    "changed_min_max_move": true,
+    "baseline_sha256": "259c8979b8937910dfbbce6acda7a45677ed1c0a392a55f40a2c0a68c8e6f0a",
+    "changed_sha256": "28dac0797029c6e494f08bed8b8f572a02f98a245089c3ce11fffcf5a7db65a5",
+    "semantic_series": [
+      "Min",
+      "Max",
+      "Marker"
+    ],
+    "status": "PASS"
+  },
+  "render_index_patch": {
+    "parameter": "RenderSlideIndex",
+    "path": "scripts/thinkcell_no_click/implementation/native_verify_scoped.ps1",
+    "sha256": "fbba5fe72abebf656df0ec3b011fcfaa12964ee15fe8796f717f5875bcba9870",
+    "default": 1
+  }
+}

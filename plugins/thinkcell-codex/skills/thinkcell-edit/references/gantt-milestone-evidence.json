@@ -1,0 +1,60 @@
+{
+  "feature": "bounded Gantt milestone date and marker update",
+  "adapter": {
+    "path": "scripts/gantt/milestone_adapter.py",
+    "sha256": "e34bb91c883144b47e05769147d0784a7051eaf3af28dadecfe8f0e98cfb6e3d"
+  },
+  "cli": {
+    "path": "scripts/gantt/run_milestone_edit.py",
+    "sha256": "1a1e64ffdc89f9e3b704dbf45d775812db16a664ea697eff15ee73addb0ff7f5"
+  },
+  "stream_helper": {
+    "path": "scripts/gantt/replace_ole_stream.ps1",
+    "sha256": "b15a3a45281ec69b2494e0f241e3fca84ca8972c5c2e6eeacf4fe07e3f5a1e61"
+  },
+  "control": {
+    "source_sha256": "ebb0c12106f31a4781f68fc5839966e022044f96e8140441b68540f29903f1ff",
+    "prepared_output_sha256": "f8a80b84541084aee8c58c99fb7a6259545dec2dafadc936fdd1bc3e9f295321",
+    "native_saved_output_sha256": "15053f7299885c840e90f4020315895a6a94a9f5ec90dbe2c2c4988d6d4d5476",
+    "selector": {
+      "milestone_id": "174",
+      "date_value": "2012-02-06",
+      "style": "triangle"
+    },
+    "new_date": "2012-02-13",
+    "expected_model_bounds": [4053, 3416, 4165, 3528],
+    "expected_visible_center": 6523038
+  },
+  "reports": {
+    "integration_test": {
+      "path": "lanes/gantt/high/integration/INTEGRATION_TEST.json",
+      "sha256": "8bbe14b0d98e697f81c1b355db99eb9de24d116c9c3659ed6ef147d69557b490"
+    },
+    "native_reopen": {
+      "path": "lanes/gantt/high/integration/milestone-candidate4-saved.native.json",
+      "sha256": "386c56a473dfbeb8c0cbe603a5f0d333488599b7385d1a458a580678217e4da6",
+      "pass": true
+    },
+    "independent_grader": {
+      "path": "lanes/gantt/high/integration/milestone-candidate4-saved-grader.json",
+      "sha256": "f6e05e513502ca4629320d67b0fe0d3778de92eb0b2cb21d579543dc106f7f62",
+      "pass": true
+    }
+  },
+  "package_identity": {
+    "staging_cli_output": "work/feature-expansion-v8/release-prep/milestone-candidate4-staging.pptx",
+    "staging_cli_output_sha256": "10b4b971b8a0de15c57962af129fef72f1b01417e4047b462d44115cef3d3cc2",
+    "staging_cli_report": "work/feature-expansion-v8/release-prep/milestone-candidate4-staging.report.json",
+    "staging_cli_report_sha256": "497477ed94234bf0a33356f4076d71018609ef832158b6b0e5ca7af0dd166253",
+    "reference_output": "work/feature-expansion-v8/lanes/gantt/high/integration/milestone-candidate4.pptx",
+    "zip_members": 189,
+    "member_sets_equal": true,
+    "different_members": ["ppt/embeddings/oleObject13.bin"],
+    "volatile_header_byte_offsets": [1132, 1133, 1134, 1135, 1136, 1137],
+    "zip_member_content_equal_except_volatile_header": true,
+    "ole_stream_sets_equal": true,
+    "ole_stream_count": 3,
+    "ole_stream_content_equal": true,
+    "status": "PASS_SEMANTIC_PACKAGE_IDENTITY"
+  }
+}

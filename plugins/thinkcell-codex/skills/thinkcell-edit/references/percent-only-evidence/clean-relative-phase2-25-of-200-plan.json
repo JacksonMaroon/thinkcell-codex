@@ -1,0 +1,13 @@
+{
+  "allow_sequence_count_change": false,
+  "targets": [
+    {
+      "selector": {"slide_number": 1, "shape_tag": "tpMAVi87XwuZW.7OXCpysuw"},
+      "name": "TC_AUTO_74EDF5BF7FB0_561_8",
+      "data": {
+        "matrix": [[null, "Gross Profit", "Revenues", "Customer Count"], [null, 200, 200, 200], ["Not Mapped", 50, 20, 20], ["High risk", 70, 30, 30], ["Medium Risk", 55, 40, 40], ["Low risk", 25, 110, 110]],
+        "expected_model": {"categories": ["Gross Profit", "Revenues", "Customer Count"], "series_names": ["Not Mapped", "High risk", "Medium Risk", "Low risk"], "series_values": [[50, 20, 20], [70, 30, 30], [55, 40, 40], [25, 110, 110]], "category_extents": [200, 200, 200]}
+      }
+    }
+  ]
+}

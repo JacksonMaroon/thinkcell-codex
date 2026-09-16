@@ -1,7 +1,7 @@
 {
   "name": "thinkcell-codex",
-  "version": "0.3.0",
-  "description": "Create and position native think-cell charts from donors and update their data with automatic naming and native verification.",
+  "version": "0.4.0",
+  "description": "Create, position, format, and update native think-cell charts from user-supplied donors with native verification.",
   "author": {
     "name": "Jackson Maroon"
   },
@@ -11,7 +11,7 @@
   "interface": {
     "displayName": "Think-cell for Codex",
     "shortDescription": "Create and update native think-cell charts",
-    "longDescription": "A Windows desktop toolkit for donor-based native chart creation, JSON data updates, optional native style defaults, experimental automatic naming, and scoped data and native-render verification.",
+    "longDescription": "A Windows desktop toolkit for donor-based native chart creation, guarded feature updates, optional style defaults, automatic naming, and scoped native verification.",
     "developerName": "Jackson Maroon",
     "category": "Productivity",
     "capabilities": [
