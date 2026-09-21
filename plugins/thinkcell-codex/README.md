@@ -23,7 +23,7 @@ Creation uses a real donor slide. The [finished-slide route](skills/thinkcell-ed
 
 ## Install in Codex
 
-The private [GitHub repository](https://github.com/JacksonMaroon/thinkcell-codex) includes a local marketplace:
+The [GitHub repository](https://github.com/JacksonMaroon/thinkcell-codex) includes a local marketplace:
 
 1. Clone the repository.
 2. From its root folder, run:
@@ -79,6 +79,6 @@ The skill loads only its entrypoint initially, then the needed data or handoff r
 
 Please credit **Jackson Maroon, Think-cell for Codex** when sharing or adapting the toolkit. Attribution metadata is provided in [CITATION.cff](CITATION.cff); the code is under the [MIT license](LICENSE). Dependencies retain their own licenses. Think-cell, Microsoft PowerPoint and OpenAI Codex are third-party products; this is an independent project and does not imply their endorsement.
 
-The ZIP is a private release artifact, not proof of acceptance into a public plugin directory. Public listing requires a separate submission.
+The ZIP is a release artifact, not proof of acceptance into a public plugin directory. Public listing requires a separate submission.
 
 Official references: [think-cell JSON automation](https://www.think-cell.com/en/resources/manual/jsondataautomation), [element naming](https://www.think-cell.com/en/resources/manual/introductionautomation), [OpenAI plugin packaging](https://developers.openai.com/plugins/build/plugins), [skill authoring](https://learn.chatgpt.com/docs/build-skills).
