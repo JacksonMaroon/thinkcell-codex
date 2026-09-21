@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-21",
+  "environment": {
+    "windows": "11 Enterprise 10.0.26200",
+    "powerpoint": "16.0.20326.20140",
+    "thinkcell": "14.0.38.772",
+    "python": "3.12.14"
+  },
+  "offline_fixture_checks": "pass",
+  "cases": [
+    {
+      "file": "02-controlled-percent-windows.pptx",
+      "sha256": "df29dd1347a423f6c6c1575ff09f5b010af1d1e4c10ec0714eae1b53c1da7abd",
+      "route": "native_reopen",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "other_presentations_unchanged": true,
+      "visual_target_percent": 50
+    },
+    {
+      "file": "03-numerator-change-windows.pptx",
+      "sha256": "846d747e6a5584421c760bc4ad264b2b4ea39dbeca302cf529e739334423024a",
+      "route": "native_reopen",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "other_presentations_unchanged": true,
+      "visual_target_percent": 67
+    },
+    {
+      "file": "04-denominator-change-windows.pptx",
+      "sha256": "00c9fbf1f3665e49cb98f90b6dfad5b01437b08a83730bab175196663e859006",
+      "route": "native_reopen",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "other_presentations_unchanged": true,
+      "visual_target_percent": 50
+    },
+    {
+      "file": "05-reopened-saved-windows.pptx",
+      "sha256": "ec788b30270d6e4671c946ff72b0a8da240f7262ced88f9db8bd1be1e9d7e82c",
+      "route": "native_reopen",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "other_presentations_unchanged": true,
+      "visual_target_percent": 50
+    },
+    {
+      "file": "json-same.pptx",
+      "sha256": "19573941f450ebe9900f51673ca9e9da04def75c10b6c3a227d948622e04276a",
+      "route": "official_json_regeneration",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "exact_data_pass": true,
+      "native_cache_parity": "pass",
+      "visual_target_percent": 50
+    },
+    {
+      "file": "json-numerator.pptx",
+      "sha256": "8769c94da610733d8269647ba11e254c593f5eaf2581113ea3e4f8b18841ddf5",
+      "route": "official_json_regeneration",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "exact_data_pass": true,
+      "native_cache_parity": "pass",
+      "visual_target_percent": 67
+    },
+    {
+      "file": "json-denominator.pptx",
+      "sha256": "c21ca3efa9363fbaaf4926514fe830ff220f345b82078279e00620d4cda2197d",
+      "route": "official_json_regeneration",
+      "native_reopen_pass": true,
+      "source_unchanged": true,
+      "exact_data_pass": true,
+      "native_cache_parity": "pass",
+      "visual_target_percent": 50
+    }
+  ],
+  "native_datasheet_ui": "not_run",
+  "absolute_to_percentage_toolbar_conversion": "not_run"
+}
