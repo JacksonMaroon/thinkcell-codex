@@ -36,3 +36,13 @@ python -m unittest discover -s plugins/thinkcell-codex/tests -q
 Use a new output directory. Office writes run sequentially under the existing lock. Raw reports can name other open presentations; review and sanitize before publishing. Review all seven previews after the run.
 
 The public portable suite passes 72 tests, including eight new discovery tests. Field-backed selection has synthetic guard coverage only; a real distributable field-backed PPTX regression fixture remains outstanding.
+
+## Integrated feature validation
+
+The main CLI now includes automatic native percentage preservation on `update`, an explicit `--require-native-percent` precondition, and `create --native-percent --data-json` for a complete donor-copy/data-update/native-verification operation.
+
+On this same Windows build, the integrated creation command copied fixture 02 and applied the numerator change. All nine labels passed the preservation contract; the rendered target was 67%. A subsequent update applied the denominator change; all nine labels passed again and the target rendered 50%. Source preservation, exact data, native reopen and native/cache parity passed. Visual review confirmed no clipping and unchanged sibling-category labels. See `feature-results.json` and the `feature-*.png` previews.
+
+A native edit of Label Content on an absolute-only chart remains separate research. The documented Windows API does not expose a general label-content conversion method. Existing partial-delete conversion requires an already-bound relative field and therefore cannot convert an arbitrary absolute-only label.
+
+Integrated feature regression suite: **83 tests pass**, including native contract retention, precision-loss rejection, exact target matching, mixed-deck exclusions and one-command creation preflight.

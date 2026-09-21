@@ -8,6 +8,8 @@ Choose a real native donor supplied or authorized by the user. Match chart type,
 python scripts/thinkcell.py create --input donor.pptx --expected-sha256 HASH --slide-number 1 --output-directory new-chart --execute
 ```
 
+Use `--native-percent --data-json request.json` to create, populate and verify a single native percentage donor chart in one operation. See [native percentage labels](native-percentage-labels.md). The data request uses the ordinary canonical matrix and expected-model contract.
+
 Add `--style-file company-style.xml` to bind native style defaults. Read the returned output path, inspect that new file, generate its request, update the data, and review the preview. Creation includes the donor slide's existing text and notes: revise ordinary titles and source text to match the user's content using the presentation workflow. Do not treat inherited donor copy as a finished client slide.
 
 The donor determines the type and starting geometry. For a chart added to a finished chartless slide, use the separate [existing-slide composition route](existing-slide.md), which includes experimental movement and resizing. Use a donor with the required point/series counts for the single-target route. The separate [multi-chart route](multi-chart.md) passed a four-series/three-category ordinary sequence update and a fixed-topology waterfall with an ordinary sibling; other count changes or waterfall topologies still require equivalent readback and visual evidence. Gantt/timeline and other native elements can be copied, but their dates, tasks and dependencies cannot be edited through this JSON wrapper.

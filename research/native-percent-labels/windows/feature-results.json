@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-21",
+  "cases": [
+    {
+      "operation": "create_native_percent_with_data",
+      "output_sha256": "aeb72d67dd7f47b7b575615bff38f9d63ceef8830204191be2dd038b577c49ba",
+      "native_reopen_pass": true,
+      "exact_data_pass": true,
+      "native_percentage_status": "native_percentage_preserved",
+      "percentage_checks": {
+        "chart_shape_tag_preserved": true,
+        "chart_family_preserved": true,
+        "label_indices_preserved": true,
+        "label_count_preserved": true,
+        "category_count_preserved": true,
+        "series_count_preserved": true,
+        "all_after_labels_verified": true,
+        "direct_precision_preserved": true
+      },
+      "label_count": 9,
+      "visual_target_percent": 67
+    },
+    {
+      "operation": "subsequent_data_update",
+      "output_sha256": "38be1256c9c76a3249d750e95e1e379c57cf06dfa485bd259470ce385bcfe07f",
+      "native_reopen_pass": true,
+      "exact_data_pass": true,
+      "native_percentage_status": "native_percentage_preserved",
+      "percentage_checks": {
+        "chart_shape_tag_preserved": true,
+        "chart_family_preserved": true,
+        "label_indices_preserved": true,
+        "label_count_preserved": true,
+        "category_count_preserved": true,
+        "series_count_preserved": true,
+        "all_after_labels_verified": true,
+        "direct_precision_preserved": true
+      },
+      "label_count": 9,
+      "visual_target_percent": 50
+    }
+  ]
+}

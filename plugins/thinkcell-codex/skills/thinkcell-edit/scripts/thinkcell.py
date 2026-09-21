@@ -21,6 +21,20 @@ def write_json(path, data):
 def hash_file(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest().upper()
 
+def percent_contract():
+    from percent_labels import native_percent_contract
+    return native_percent_contract
+
+def percent_target(charts, source_target):
+    """Resolve a regenerated chart through the original exact frame tag."""
+    from prepare_thinkcell_name import need
+    frames = source_target.get('frames', [])
+    need(len(frames) == 1 and frames[0].get('shape_tag'), 'Percentage target requires one exact frame tag.')
+    tag = frames[0]['shape_tag']
+    matches = [c for c in charts if any(f.get('shape_tag') == tag for f in c.get('frames', []))]
+    need(len(matches) == 1, 'Native percentage target identity did not survive regeneration.')
+    return matches[0]
+
 def select(candidates, a):
     from prepare_thinkcell_name import choose
     return choose(candidates, a.slide_id, a.slide_number, a.shape_id, a.shape_tag)
@@ -112,6 +126,8 @@ def inspect(a):
             row['reason'] = str(e)
         if a.data:
             row['model'] = model_of(c)
+        percent = percent_contract().snapshot(path, c)
+        row['native_percentage_labels'] = {k:percent[k] for k in ('status', 'label_count')}
         rows.append(row)
     result = {'source_sha256':hashlib.sha256(data).hexdigest().upper(), 'charts':rows, 'read_only':True}
     if a.request_out:
@@ -143,6 +159,9 @@ def update(a):
     need(hash_file(src) == a.expected_sha256.upper(), 'Source hash changed; inspect again.')
     _, charts, _ = inventory(src.read_bytes())
     target = select(charts,a)
+    percentage_before = percent_contract().snapshot(src, target)
+    if getattr(a, 'require_native_percent', False):
+        need(percentage_before['status'] == 'native_percentage', 'Target has no verified native percentage labels; select a native percentage donor.')
     if a.named_only:
         need(bool(target['owner_name']), 'Named-only mode requires an existing automation name.')
     for c in charts:
@@ -153,7 +172,7 @@ def update(a):
         dry = run(src,a.expected_sha256,generated,request,a.slide_id,a.slide_number,a.shape_id,a.shape_tag,False)
         return {'status':'DRY_RUN_PASS','automation_name':dry['preparation']['automation_name'],
                 'experimental_naming_needed':not dry['preparation']['reused_existing_name'], 'output':str(out),
-                'data_contract':dry['json_layout_contract'], 'writes':False}
+                'data_contract':dry['json_layout_contract'], 'native_percentage_labels':percentage_before, 'writes':False}
     need(os.name == 'nt', 'Execution requires Windows desktop PowerPoint and licensed think-cell.')
     exe = Path(a.ppttc).resolve() if a.ppttc else find_ppttc()
     need(exe is not None and exe.is_file(), 'Run doctor; ppttc.exe was not found.')
@@ -175,6 +194,11 @@ def update(a):
         need(native['native_reopen_pass'] and native['other_presentations_unchanged'] and native['source_unchanged'], 'Native verification did not pass.')
         prepared = Path(generation['staging_directory'])/'prepared.pptx'
         validation = validate_output(prepared,verified,generation['preparation']['automation_name'],request)
+        if percentage_before['status'] == 'native_percentage':
+            _, after_charts, _ = inventory(verified.read_bytes())
+            percentage_result = percent_contract().verify(percentage_before, verified, percent_target(after_charts, target))
+        else:
+            percentage_result = percentage_before
         need(hash_file(src) == a.expected_sha256.upper(), 'Source changed during update; candidate not delivered.')
         with out.open('xb') as f:
             f.write(verified.read_bytes())
@@ -182,6 +206,7 @@ def update(a):
                       source_unchanged=True,automation_name=generation['preparation']['automation_name'],
                       experimental_namer_used=not generation['preparation']['reused_existing_name'],
                       integrity_scope=validation['integrity_scope'],
+                      native_percentage_labels=percentage_result,
                       render=str(render),work_directory=str(work),exact_data_pass=True,native_reopen_pass=True,
                       visual_review='Inspect the preview for clipping, labels and layout before delivery.',
                       elapsed_seconds=round(time.perf_counter()-start,2))
@@ -203,7 +228,7 @@ def selectors(p):
 def create(a):
     """Create a new native slide from a user-supplied donor, preserving features."""
     import zipfile
-    from prepare_thinkcell_name import logical_slides, need
+    from prepare_thinkcell_name import logical_slides, need, inventory
     source=a.input.resolve();destination=a.output_directory.resolve()
     need(not destination.exists(), 'Use a new output directory.')
     need(not destination.is_relative_to(HERE.parent), 'Output must be outside the installed skill.')
@@ -212,10 +237,31 @@ def create(a):
         need(1<=a.slide_number<=len(logical_slides(z)), 'Slide number out of range.')
     if a.style_file:
         need(a.style_file.is_file(), 'Style file does not exist.')
+    chart = None
+    percentage_before = None
+    data_path = getattr(a, 'data_json', None)
+    if getattr(a, 'native_percent', False) or data_path:
+        _, charts, _ = inventory(source.read_bytes())
+        matches = [c for c in charts if c['doc']['slide_number'] == a.slide_number]
+        need(len(matches) == 1, 'Feature creation requires exactly one chart on the donor slide.')
+        chart = matches[0]
+        percentage_before = percent_contract().snapshot(source, chart)
+        if getattr(a, 'native_percent', False):
+            need(percentage_before['status'] == 'native_percentage', 'Donor does not have verified native percentage labels.')
+        if data_path:
+            # Validate the complete request and link contract before opening Office.
+            from update_thinkcell_json import validate_request, canonical_sequence_contract
+            from prepare_thinkcell_name import link_contract
+            link_contract(chart)
+            data_request = json.loads(data_path.read_text(encoding='utf-8-sig'))
+            validate_request(data_request, chart['owner'].tag)
+            canonical_sequence_contract(source, data_request,
+                target={'slide_id':chart['doc']['slide_id'], **chart['frames'][0]})
     if not a.execute:
         return {'status':'CREATE_PREFLIGHT_PASS','writes':False,'method':'native_whole_slide_donor_copy',
                 'data_update':'Inspect the new slide, then update its exact chart.',
-                'style_scope':'Optional defaults for new elements; donor formatting is preserved.'}
+                'style_scope':'Optional defaults for new elements; donor formatting is preserved.',
+                'native_percentage_labels':percentage_before, 'data_request_validated':bool(data_path)}
     cmd=[powershell(),'-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(HERE/'extract_slide.ps1'),
          '-InputFile',str(source),'-SlideNumber',str(a.slide_number),'-OutputDirectory',str(destination)]
     proc=run_locked_subprocess(cmd,operation='native-extract',timeout_seconds=240,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,env=powershell_env(),creationflags=subprocess.CREATE_NO_WINDOW)
@@ -230,6 +276,24 @@ def create(a):
         result['style']=json.loads((style_out/'style.json').read_text(encoding='utf-8-sig'))
         result['output']=result['style']['output']
     need(hash_file(source)==a.expected_sha256.upper(), 'Source changed during creation.')
+    if chart is not None:
+        created = Path(result['output'])
+        _, copied_charts, _ = inventory(created.read_bytes())
+        copied_target = percent_target(copied_charts, chart)
+        if percentage_before['status'] == 'native_percentage':
+            result['native_percentage_labels'] = percent_contract().verify(percentage_before, created, copied_target)
+        if data_path:
+            updated = update(argparse.Namespace(input=created, output=destination/'populated.pptx',
+                data_json=data_path, report=destination/'populated.report.json',
+                expected_sha256=hash_file(created), slide_id=None, slide_number=1,
+                shape_id=None, shape_tag=copied_target['frames'][0]['shape_tag'],
+                named_only=False, ppttc=None, execute=True,
+                require_native_percent=getattr(a, 'native_percent', False)))
+            updated['creation_method'] = 'native_whole_slide_donor_copy_then_json_update'
+            updated['donor_sha256'] = a.expected_sha256.upper()
+            need(hash_file(source)==a.expected_sha256.upper(), 'Donor source changed during creation and data update.')
+            write_json(destination/'creation.json', updated)
+            return updated
     result.update(status='CREATED_FROM_DONOR_REVIEW_REQUIRED',output_sha256=hash_file(Path(result['output'])),
                   next_step='Inspect the created file, update chart data, then review the native preview.')
     return result
@@ -254,6 +318,8 @@ def main():
     c.add_argument('--slide-number',type=int,required=True)
     c.add_argument('--output-directory',type=Path,required=True)
     c.add_argument('--style-file',type=Path)
+    c.add_argument('--native-percent',action='store_true',help='Require and verify native percentage labels on the donor chart.')
+    c.add_argument('--data-json',type=Path,help='Populate the single donor chart and verify it in the same operation.')
     c.add_argument('--execute',action='store_true')
     i = sub.add_parser('inspect',help='List charts; optionally write a canonical request template.')
     i.add_argument('--input',type=Path,required=True)
@@ -267,6 +333,7 @@ def main():
     u.add_argument('--report',type=Path)
     u.add_argument('--ppttc',help='Optional installed ppttc.exe path.')
     u.add_argument('--named-only',action='store_true',help='Disable experimental naming; require an existing name.')
+    u.add_argument('--require-native-percent',action='store_true',help='Reject charts without verified native percentage labels.')
     u.add_argument('--execute',action='store_true')
     selectors(u)
     v = sub.add_parser('verify',help='Check an exported or reopened candidate against its prepared source and intended data.')

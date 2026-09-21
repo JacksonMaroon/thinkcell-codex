@@ -1,5 +1,7 @@
 # Native percentage-only labels, bounded route
 
+For charts already using direct native percentages, or new charts from compatible donors, prefer [native percentage labels](native-percentage-labels.md). The bounded field-backed routes below remain for existing configurations; do not add wrappers to a verified direct-native chart.
+
 `scripts/run_percent_only_parentheses.py` converts an existing dual label
 `value<line-break>(percent%)` to `(percent%)` by deleting only the absolute
 field and separator through PowerPoint. The surviving percentage is a genuine
