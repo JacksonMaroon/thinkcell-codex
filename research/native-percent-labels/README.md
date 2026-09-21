@@ -61,3 +61,7 @@ Read-only discovery now reports direct precision, exact owning-chart identity, n
 The floating Label Content toolbar could not be captured reliably through the available Mac computer-use interface. Therefore absolute-to-percent conversion, combined labels, custom formats, and removal of the existing workaround remain unproven. This experiment used default native percentage labels instead. The initial Mac experiment did not test Windows COM or `.ppttc` regeneration; the subsequent [Windows run](windows/README.md) covers these exact fixtures and build only. Do not patch production labels by copying chart-cache formatting or removing validation checks.
 
 Official background: https://www.think-cell.com/en/resources/manual/textlabels
+
+## Conversion continuation
+
+A subsequent same-chart conversion adapter now passes native save/reopen and changed-data checks for the guarded absolute 3x3 stacked-column profile. It converts one or all nine labels to genuine bare relative fields, without changing the native plot or absolute axis. See [conversion evidence and real field-backed fixtures](conversion/README.md). The earlier missing-conversion findings above describe the initial direct-label experiment, not this later adapter.

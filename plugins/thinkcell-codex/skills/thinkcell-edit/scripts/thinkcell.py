@@ -128,6 +128,9 @@ def inspect(a):
             row['model'] = model_of(c)
         percent = percent_contract().snapshot(path, c)
         row['native_percentage_labels'] = {k:percent[k] for k in ('status', 'label_count')}
+        from percent_labels import native_relative_contract
+        relative = native_relative_contract.snapshot(path,c)
+        row['native_relative_labels'] = {'status':relative['status'],'label_count':len(relative['labels'])}
         rows.append(row)
     result = {'source_sha256':hashlib.sha256(data).hexdigest().upper(), 'charts':rows, 'read_only':True}
     if a.request_out:
@@ -160,6 +163,8 @@ def update(a):
     _, charts, _ = inventory(src.read_bytes())
     target = select(charts,a)
     percentage_before = percent_contract().snapshot(src, target)
+    from percent_labels import native_relative_contract
+    relative_before = native_relative_contract.snapshot(src, target)
     if getattr(a, 'require_native_percent', False):
         need(percentage_before['status'] == 'native_percentage', 'Target has no verified native percentage labels; select a native percentage donor.')
     if a.named_only:
@@ -199,6 +204,11 @@ def update(a):
             percentage_result = percent_contract().verify(percentage_before, verified, percent_target(after_charts, target))
         else:
             percentage_result = percentage_before
+        if relative_before['status'] == 'native_relative_fields':
+            _, relative_charts, _ = inventory(verified.read_bytes())
+            relative_result = native_relative_contract.verify(relative_before, verified, percent_target(relative_charts, target))
+        else:
+            relative_result = relative_before
         need(hash_file(src) == a.expected_sha256.upper(), 'Source changed during update; candidate not delivered.')
         with out.open('xb') as f:
             f.write(verified.read_bytes())
@@ -207,6 +217,7 @@ def update(a):
                       experimental_namer_used=not generation['preparation']['reused_existing_name'],
                       integrity_scope=validation['integrity_scope'],
                       native_percentage_labels=percentage_result,
+                      native_relative_labels=relative_result,
                       render=str(render),work_directory=str(work),exact_data_pass=True,native_reopen_pass=True,
                       visual_review='Inspect the preview for clipping, labels and layout before delivery.',
                       elapsed_seconds=round(time.perf_counter()-start,2))
@@ -308,10 +319,76 @@ def verify(a):
             'theme_and_notes_unchanged':result['bound_theme_and_notes_unchanged'],
             'read_only':True, 'native_reopen_and_visual_review':'Separate checks; this command does not open Office.'}
 
+@serialized_office
+def convert_percent(a):
+    """Convert supported absolute labels to genuine bare relative fields."""
+    from percent_labels.prepare_native_relative_candidate import prepare
+    from percent_labels.native_relative_contract import geometry
+    from prepare_thinkcell_name import inventory, need
+    source=a.input.resolve();dest=a.output_directory.resolve()
+    need(not dest.exists(), 'Use a new output directory.')
+    need(not dest.is_relative_to(HERE.parent), 'Output must be outside the installed skill.')
+    need(hash_file(source)==a.expected_sha256.upper(), 'Source hash changed; inspect again.')
+    all_labels=getattr(a,'all_labels',False)
+    if all_labels:
+        need(a.category_index is None and a.series_index is None,'Use either --all-labels or exact indices.')
+    else:
+        need(a.category_index is not None and a.series_index is not None,'Provide both zero-based indices or --all-labels.')
+    original_geometry=geometry(source)
+    dest.mkdir(parents=True)
+    report={'status':'STARTED','source_sha256':a.expected_sha256.upper()}
+    try:
+        targets=[(cat,ser) for cat in range(3) for ser in range(3)] if all_labels else [(a.category_index,a.series_index)]
+        current=source
+        for index,(category,series) in enumerate(targets):
+            candidate=dest/('candidate-'+str(index)+'.pptx')
+            preparation=prepare(current,candidate,dest/('preparation-'+str(index)+'.json'),expected_sha=hash_file(current),
+                category_index=category,series_index=series)
+            current=candidate
+        _, charts, _=inventory(candidate.read_bytes());need(len(charts)==1,'Expected one candidate chart.')
+        request=baseline_request(candidate,charts[0]);request_path=dest/'baseline-request.json';write_json(request_path,request)
+        result=update(argparse.Namespace(input=candidate,output=dest/'verified-candidate.pptx',report=dest/'update.report.json',
+            expected_sha256=hash_file(candidate),data_json=request_path,slide_id=None,slide_number=1,shape_id=None,
+            shape_tag=charts[0]['frames'][0]['shape_tag'],execute=True,named_only=False,ppttc=None))
+        need(result['native_relative_labels']['status']=='native_relative_fields_preserved','Converted relative binding failed.')
+        final_geometry=geometry(Path(result['output']))
+        frame_changed=final_geometry['bounds_emu']!=original_geometry['bounds_emu']
+        # With every label moved into genuine native text fields, think-cell
+        # recomputes its chart-cache container. Native plot coordinates, type,
+        # data and axis must still match exactly. Partial conversion keeps the
+        # stricter original frame requirement.
+        invariant=lambda value:{k:v for k,v in value.items() if k!='bounds_emu'}
+        need(invariant(final_geometry)==invariant(original_geometry),
+             'Conversion changed chart type, axis or native plot geometry.')
+        need(not frame_changed or (all_labels and len(result['native_relative_labels']['after']['labels'])==9),
+             'Partial conversion unexpectedly changed the chart-cache frame.')
+        need(hash_file(source)==a.expected_sha256.upper(),'Source changed during conversion.')
+        final=dest/'converted.pptx'
+        with final.open('xb') as output:
+            output.write(Path(result['output']).read_bytes())
+        result.update(conversion='absolute_to_bare_native_relative_field',source_sha256=a.expected_sha256.upper(),
+            converted_label_count=len(targets),
+            output=str(final),output_sha256=hash_file(final),chart_type_axis_geometry_preserved=True,
+            chart_cache_frame_recomputed=frame_changed,
+            geometry_before=original_geometry,geometry_after=final_geometry,
+            candidate_sha256=preparation.get('output_sha256'),source_unchanged=True)
+        write_json(dest/'conversion.json',result)
+        return result
+    except Exception as error:
+        report.update(status='FAILED',error=str(error));write_json(dest/'conversion-failure.json',report)
+        raise
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest='command',required=True)
     sub.add_parser('doctor',help='Read-only runtime and dependency discovery.')
+    cp=sub.add_parser('convert-percent',help='Convert supported absolute segment labels to bare native percentages on a copy.')
+    cp.add_argument('--input',type=Path,required=True)
+    cp.add_argument('--expected-sha256',required=True)
+    cp.add_argument('--category-index',type=int)
+    cp.add_argument('--series-index',type=int)
+    cp.add_argument('--all-labels',action='store_true',help='Convert all nine labels of the tested 3x3 chart in one regeneration.')
+    cp.add_argument('--output-directory',type=Path,required=True)
     c = sub.add_parser('create',help='Create a new native slide from a donor; preserves its chart types and features.')
     c.add_argument('--input',type=Path,required=True)
     c.add_argument('--expected-sha256',required=True)
@@ -343,7 +420,7 @@ def main():
     v.add_argument('--automation-name',required=True)
     a = p.parse_args()
     try:
-        result = {'doctor':lambda:doctor(),'create':lambda:create(a),'inspect':lambda:inspect(a),'update':lambda:update(a),'verify':lambda:verify(a)}[a.command]()
+        result = {'doctor':lambda:doctor(),'create':lambda:create(a),'inspect':lambda:inspect(a),'update':lambda:update(a),'verify':lambda:verify(a),'convert-percent':lambda:convert_percent(a)}[a.command]()
         print(json.dumps(result,ensure_ascii=False,allow_nan=False))
     except (Exception, SystemExit) as e:
         print(json.dumps({'status':'REJECTED','error':str(e)}),file=sys.stderr)

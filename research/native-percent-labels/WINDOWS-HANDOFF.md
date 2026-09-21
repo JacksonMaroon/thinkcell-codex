@@ -47,3 +47,7 @@ The Mac experiment established dynamic default percentage labels. The Windows co
 ## Suggested prompt for your Windows Codex task
 
 > Read research/native-percent-labels/README.md and WINDOWS-HANDOFF.md. Reproduce the read-only fixture checks, compare the saved discovery source hash with current code, then implement direct-rendered percentage-label discovery while preserving existing field-backed guards. Use the committed fixtures for regression coverage. Report what was validated on Windows separately from the saved Mac evidence. Do not implement conversion or claim native UI validation unless you can actually verify it.
+
+## Conversion handoff update
+
+The [experimental same-chart relative-field adapter](conversion/README.md) now passes single-label and all-nine conversion, native save/reopen, numerator/denominator updates, exact data, source binding and geometry gates. Real field-backed regression fixtures are committed. This is a coherent native-model adapter, not a captured toolbar operation; the UI-specific boxes above remain open for that independent route.
