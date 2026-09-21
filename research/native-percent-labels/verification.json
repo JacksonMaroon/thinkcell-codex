@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "scope": "six local Mac fixtures; no Windows or JSON regeneration proof",
+  "checks": [
+    {
+      "file": "02-controlled-percent.pptx",
+      "result": "pass",
+      "target_ratio": 0.5
+    },
+    {
+      "file": "03-numerator-change.pptx",
+      "result": "pass",
+      "target_ratio": 0.6666666666666666
+    },
+    {
+      "file": "04-denominator-change.pptx",
+      "result": "pass",
+      "target_ratio": 0.5
+    },
+    {
+      "file": "05-reopened-saved.pptx",
+      "result": "pass",
+      "target_ratio": 0.5
+    }
+  ]
+}

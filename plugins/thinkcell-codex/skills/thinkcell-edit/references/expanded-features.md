@@ -1,5 +1,7 @@
 # Additional native chart controls
 
+For charts already using direct native percentages, or new charts from compatible donors, prefer [native percentage labels](native-percentage-labels.md). The bounded field-backed routes below remain for existing configurations; do not add wrappers to a verified direct-native chart.
+
 Use the chart already on the slide as the formatting authority. These adapters
 edit the native model and its bound PowerPoint shapes, then require official
 regeneration, native reopen and feature readback. Use fresh outputs and the

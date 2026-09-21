@@ -1,0 +1,7 @@
+{
+  "selector_error": "selected label tag does not resolve exactly one physical shape",
+  "source_sha256": "afa9de02d1a975fbe911f8d53f0303715798cc043fe143e5df63936416bbb411",
+  "category": 2024,
+  "series": "Series 3",
+  "note": "Expected limitation of the existing field-based selector; does not prove conversion adapter support."
+}

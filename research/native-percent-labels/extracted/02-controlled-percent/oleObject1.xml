@@ -1,0 +1,97 @@
+<root reqver="32687">
+  <version val="38775"/>
+  <CSmartGrid id="1">
+    <m_setguidGridlines/>
+    <m_stylestreams>
+      <m_istreamStyleXML val="think-cellChild0"/>
+      <m_mappathistream/>
+    </m_stylestreams>
+    <m_mru>
+      <m_eaxisbreakstyle val="1"/>
+    </m_mru>
+    <m_cadvisesink/>
+    <m_setpartgrdlnpairConstraint/>
+    <m_grdlnpairconstraints>
+      <m_setgrdlnpairAlignConstraint/>
+    </m_grdlnpairconstraints>
+    <m_veclineshape length="0"/>
+    <m_containerse idref="2"/>
+    <m_cgenconn/>
+    <m_ppversion type="2">
+      <elem val="16"/>
+      <elem val="113"/>
+      <elem val="26091740"/>
+    </m_ppversion>
+    <m_echarwidthKatakana val="0"/>
+    <m_echarwidthLatin val="0"/>
+  </CSmartGrid>
+  <CContainerSE id="2">
+    <m_nGid val="0"/>
+    <m_vecgidGroup length="0"/>
+    <m_agrdlnanchor>
+      <elem idref="3"/>
+      <elem idref="4"/>
+      <elem idref="5"/>
+      <elem idref="6"/>
+    </m_agrdlnanchor>
+    <m_cse length="5">
+      <elem idref="0"/>
+      <elem idref="0"/>
+      <elem idref="0"/>
+      <elem idref="0"/>
+      <elem idref="0"/>
+    </m_cse>
+  </CContainerSE>
+  <CContainerSEGridlineAnchor id="6">
+    <m_grdlnBinding idref="7"/>
+  </CContainerSEGridlineAnchor>
+  <CGridline id="7">
+    <m_bFixed endver="36456" val="0"/>
+    <m_eorient val="1"/>
+    <m_euserfixed endver="38068" val="0"/>
+    <m_euserfixed reqver="38068" val="0"/>
+    <m_ecompatfixed val="2"/>
+    <m_gveps>
+      <m_gvValue val="4.32000000000000000000E+03"/>
+    </m_gveps>
+  </CGridline>
+  <CContainerSEGridlineAnchor id="5">
+    <m_grdlnBinding idref="8"/>
+  </CContainerSEGridlineAnchor>
+  <CGridline id="8">
+    <m_bFixed endver="36456" val="0"/>
+    <m_eorient val="0"/>
+    <m_euserfixed endver="38068" val="0"/>
+    <m_euserfixed reqver="38068" val="0"/>
+    <m_ecompatfixed val="2"/>
+    <m_gveps>
+      <m_gvValue val="7.68000000000000000000E+03"/>
+    </m_gveps>
+  </CGridline>
+  <CContainerSEGridlineAnchor id="4">
+    <m_grdlnBinding idref="9"/>
+  </CContainerSEGridlineAnchor>
+  <CGridline id="9">
+    <m_bFixed endver="36456" val="0"/>
+    <m_eorient val="1"/>
+    <m_euserfixed endver="38068" val="0"/>
+    <m_euserfixed reqver="38068" val="0"/>
+    <m_ecompatfixed val="2"/>
+    <m_gveps>
+      <m_gvValue val="0.00000000000000000000E+00"/>
+    </m_gveps>
+  </CGridline>
+  <CContainerSEGridlineAnchor id="3">
+    <m_grdlnBinding idref="10"/>
+  </CContainerSEGridlineAnchor>
+  <CGridline id="10">
+    <m_bFixed endver="36456" val="0"/>
+    <m_eorient val="0"/>
+    <m_euserfixed endver="38068" val="0"/>
+    <m_euserfixed reqver="38068" val="0"/>
+    <m_ecompatfixed val="2"/>
+    <m_gveps>
+      <m_gvValue val="0.00000000000000000000E+00"/>
+    </m_gveps>
+  </CGridline>
+</root>

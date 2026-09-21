@@ -1,0 +1,749 @@
+<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:c16r2="http://schemas.microsoft.com/office/drawing/2015/06/chart">
+  <c:date1904 val="0"/>
+  <c:lang val="en-US"/>
+  <c:roundedCorners val="0"/>
+  <mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <mc:Choice xmlns:c14="http://schemas.microsoft.com/office/drawing/2007/8/2/chart" Requires="c14">
+      <c14:style val="102"/>
+    </mc:Choice>
+    <mc:Fallback>
+      <c:style val="2"/>
+    </mc:Fallback>
+  </mc:AlternateContent>
+  <c:chart>
+    <c:autoTitleDeleted val="0"/>
+    <c:plotArea>
+      <c:layout>
+        <c:manualLayout>
+          <c:layoutTarget val="inner"/>
+          <c:xMode val="edge"/>
+          <c:yMode val="edge"/>
+          <c:x val="1.117798796216681E-2"/>
+          <c:y val="7.3328267477203654E-2"/>
+          <c:w val="0.97764402407566642"/>
+          <c:h val="0.85334346504559266"/>
+        </c:manualLayout>
+      </c:layout>
+      <c:barChart>
+        <c:barDir val="col"/>
+        <c:grouping val="stacked"/>
+        <c:varyColors val="0"/>
+        <c:ser>
+          <c:idx val="0"/>
+          <c:order val="0"/>
+          <c:spPr>
+            <a:solidFill>
+              <a:schemeClr val="accent3"/>
+            </a:solidFill>
+            <a:ln>
+              <a:noFill/>
+            </a:ln>
+          </c:spPr>
+          <c:invertIfNegative val="0"/>
+          <c:dLbls>
+            <c:dLbl>
+              <c:idx val="0"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.5197568389057751E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000000-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="1"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000001-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="2"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000002-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:spPr>
+              <a:noFill/>
+              <a:ln>
+                <a:noFill/>
+              </a:ln>
+              <a:effectLst/>
+            </c:spPr>
+            <c:showLegendKey val="0"/>
+            <c:showVal val="0"/>
+            <c:showCatName val="0"/>
+            <c:showSerName val="0"/>
+            <c:showPercent val="0"/>
+            <c:showBubbleSize val="0"/>
+            <c:extLst>
+              <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                <c15:showLeaderLines val="0"/>
+              </c:ext>
+            </c:extLst>
+          </c:dLbls>
+          <c:val>
+            <c:numRef>
+              <c:f>Sheet1!$A$1:$C$1</c:f>
+              <c:numCache>
+                <c:formatCode>General</c:formatCode>
+                <c:ptCount val="3"/>
+                <c:pt idx="0">
+                  <c:v>50</c:v>
+                </c:pt>
+                <c:pt idx="1">
+                  <c:v>82</c:v>
+                </c:pt>
+                <c:pt idx="2">
+                  <c:v>72</c:v>
+                </c:pt>
+              </c:numCache>
+            </c:numRef>
+          </c:val>
+          <c:extLst>
+            <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+              <c16:uniqueId val="{00000003-D698-9744-94D9-EB4C8620DE65}"/>
+            </c:ext>
+          </c:extLst>
+        </c:ser>
+        <c:ser>
+          <c:idx val="1"/>
+          <c:order val="1"/>
+          <c:spPr>
+            <a:solidFill>
+              <a:schemeClr val="accent2"/>
+            </a:solidFill>
+            <a:ln>
+              <a:noFill/>
+            </a:ln>
+          </c:spPr>
+          <c:invertIfNegative val="0"/>
+          <c:dLbls>
+            <c:dLbl>
+              <c:idx val="0"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000004-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="1"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000005-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="2"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000006-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:spPr>
+              <a:noFill/>
+              <a:ln>
+                <a:noFill/>
+              </a:ln>
+              <a:effectLst/>
+            </c:spPr>
+            <c:showLegendKey val="0"/>
+            <c:showVal val="0"/>
+            <c:showCatName val="0"/>
+            <c:showSerName val="0"/>
+            <c:showPercent val="0"/>
+            <c:showBubbleSize val="0"/>
+            <c:extLst>
+              <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                <c15:showLeaderLines val="0"/>
+              </c:ext>
+            </c:extLst>
+          </c:dLbls>
+          <c:val>
+            <c:numRef>
+              <c:f>Sheet1!$A$2:$C$2</c:f>
+              <c:numCache>
+                <c:formatCode>General</c:formatCode>
+                <c:ptCount val="3"/>
+                <c:pt idx="0">
+                  <c:v>18.75</c:v>
+                </c:pt>
+                <c:pt idx="1">
+                  <c:v>5.0000000000000044</c:v>
+                </c:pt>
+                <c:pt idx="2">
+                  <c:v>7.9999999999999964</c:v>
+                </c:pt>
+              </c:numCache>
+            </c:numRef>
+          </c:val>
+          <c:extLst>
+            <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+              <c16:uniqueId val="{00000007-D698-9744-94D9-EB4C8620DE65}"/>
+            </c:ext>
+          </c:extLst>
+        </c:ser>
+        <c:ser>
+          <c:idx val="2"/>
+          <c:order val="2"/>
+          <c:spPr>
+            <a:solidFill>
+              <a:schemeClr val="accent1"/>
+            </a:solidFill>
+            <a:ln>
+              <a:noFill/>
+            </a:ln>
+          </c:spPr>
+          <c:invertIfNegative val="0"/>
+          <c:dLbls>
+            <c:dLbl>
+              <c:idx val="0"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000008-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="1"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.1398176291793312E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{00000009-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:dLbl>
+              <c:idx val="2"/>
+              <c:layout>
+                <c:manualLayout>
+                  <c:x val="0"/>
+                  <c:y val="-1.5197568389057751E-3"/>
+                </c:manualLayout>
+              </c:layout>
+              <c:numFmt formatCode="#,##0&quot;%&quot;;&quot;-&quot;#,##0&quot;%&quot;" sourceLinked="0"/>
+              <c:spPr>
+                <a:noFill/>
+                <a:ln>
+                  <a:noFill/>
+                </a:ln>
+              </c:spPr>
+              <c:txPr>
+                <a:bodyPr wrap="none"/>
+                <a:lstStyle/>
+                <a:p>
+                  <a:pPr>
+                    <a:defRPr sz="1400" kern="1200">
+                      <a:solidFill>
+                        <a:schemeClr val="bg1"/>
+                      </a:solidFill>
+                      <a:latin typeface="+mn-lt"/>
+                      <a:ea typeface="+mn-ea"/>
+                      <a:cs typeface="+mn-cs"/>
+                    </a:defRPr>
+                  </a:pPr>
+                  <a:endParaRPr lang="en-US"/>
+                </a:p>
+              </c:txPr>
+              <c:dLblPos val="ctr"/>
+              <c:showLegendKey val="0"/>
+              <c:showVal val="1"/>
+              <c:showCatName val="0"/>
+              <c:showSerName val="0"/>
+              <c:showPercent val="0"/>
+              <c:showBubbleSize val="0"/>
+              <c:extLst>
+                <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                  <c15:spPr xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart">
+                    <a:prstGeom prst="rect">
+                      <a:avLst/>
+                    </a:prstGeom>
+                  </c15:spPr>
+                </c:ext>
+                <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+                  <c16:uniqueId val="{0000000A-D698-9744-94D9-EB4C8620DE65}"/>
+                </c:ext>
+              </c:extLst>
+            </c:dLbl>
+            <c:spPr>
+              <a:noFill/>
+              <a:ln>
+                <a:noFill/>
+              </a:ln>
+              <a:effectLst/>
+            </c:spPr>
+            <c:showLegendKey val="0"/>
+            <c:showVal val="0"/>
+            <c:showCatName val="0"/>
+            <c:showSerName val="0"/>
+            <c:showPercent val="0"/>
+            <c:showBubbleSize val="0"/>
+            <c:extLst>
+              <c:ext xmlns:c15="http://schemas.microsoft.com/office/drawing/2012/chart" uri="{CE6537A1-D6FC-4f65-9D91-7224C49458BB}">
+                <c15:showLeaderLines val="0"/>
+              </c:ext>
+            </c:extLst>
+          </c:dLbls>
+          <c:val>
+            <c:numRef>
+              <c:f>Sheet1!$A$3:$C$3</c:f>
+              <c:numCache>
+                <c:formatCode>General</c:formatCode>
+                <c:ptCount val="3"/>
+                <c:pt idx="0">
+                  <c:v>31.25</c:v>
+                </c:pt>
+                <c:pt idx="1">
+                  <c:v>13</c:v>
+                </c:pt>
+                <c:pt idx="2">
+                  <c:v>20.000000000000007</c:v>
+                </c:pt>
+              </c:numCache>
+            </c:numRef>
+          </c:val>
+          <c:extLst>
+            <c:ext xmlns:c16="http://schemas.microsoft.com/office/drawing/2014/chart" uri="{C3380CC4-5D6E-409C-BE32-E72D297353CC}">
+              <c16:uniqueId val="{0000000B-D698-9744-94D9-EB4C8620DE65}"/>
+            </c:ext>
+          </c:extLst>
+        </c:ser>
+        <c:dLbls>
+          <c:showLegendKey val="0"/>
+          <c:showVal val="0"/>
+          <c:showCatName val="0"/>
+          <c:showSerName val="0"/>
+          <c:showPercent val="0"/>
+          <c:showBubbleSize val="0"/>
+        </c:dLbls>
+        <c:gapWidth val="80"/>
+        <c:overlap val="100"/>
+        <c:axId val="721282239"/>
+        <c:axId val="1"/>
+      </c:barChart>
+      <c:catAx>
+        <c:axId val="721282239"/>
+        <c:scaling>
+          <c:orientation val="minMax"/>
+        </c:scaling>
+        <c:delete val="0"/>
+        <c:axPos val="b"/>
+        <c:majorGridlines>
+          <c:spPr>
+            <a:ln>
+              <a:noFill/>
+            </a:ln>
+          </c:spPr>
+        </c:majorGridlines>
+        <c:majorTickMark val="none"/>
+        <c:minorTickMark val="none"/>
+        <c:tickLblPos val="none"/>
+        <c:spPr>
+          <a:ln w="9525" cmpd="sng" algn="ctr">
+            <a:solidFill>
+              <a:schemeClr val="tx1"/>
+            </a:solidFill>
+            <a:prstDash val="solid"/>
+          </a:ln>
+        </c:spPr>
+        <c:crossAx val="1"/>
+        <c:crosses val="min"/>
+        <c:auto val="0"/>
+        <c:lblAlgn val="ctr"/>
+        <c:lblOffset val="100"/>
+        <c:noMultiLvlLbl val="0"/>
+      </c:catAx>
+      <c:valAx>
+        <c:axId val="1"/>
+        <c:scaling>
+          <c:orientation val="minMax"/>
+          <c:max val="100"/>
+          <c:min val="0"/>
+        </c:scaling>
+        <c:delete val="0"/>
+        <c:axPos val="l"/>
+        <c:majorGridlines>
+          <c:spPr>
+            <a:ln>
+              <a:noFill/>
+            </a:ln>
+          </c:spPr>
+        </c:majorGridlines>
+        <c:numFmt formatCode="General" sourceLinked="1"/>
+        <c:majorTickMark val="none"/>
+        <c:minorTickMark val="none"/>
+        <c:tickLblPos val="none"/>
+        <c:spPr>
+          <a:ln>
+            <a:noFill/>
+          </a:ln>
+        </c:spPr>
+        <c:crossAx val="721282239"/>
+        <c:crosses val="min"/>
+        <c:crossBetween val="between"/>
+      </c:valAx>
+    </c:plotArea>
+    <c:plotVisOnly val="0"/>
+    <c:dispBlanksAs val="gap"/>
+    <c:showDLblsOverMax val="1"/>
+  </c:chart>
+  <c:externalData r:id="rId1">
+    <c:autoUpdate val="0"/>
+  </c:externalData>
+</c:chartSpace>

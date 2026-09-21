@@ -15,6 +15,10 @@ For a chart added to a finished slide that contains no think-cell content, read 
 
 For a new chart, use `create` to copy an authorized native donor slide matching the chart type, layout and desired features. Optionally load a user-supplied style file for new-element defaults. Then follow the data-update path below. Read [creation-and-features.md](references/creation-and-features.md) for creation, styling, or features beyond data. Never equate a slide clone with generating an arbitrary chart from scratch.
 
+For clean dynamic percentage labels, prefer an existing verified native percentage chart or a compatible native percentage donor. `update` automatically checks direct percentage-label preservation after native regeneration. Use `create --native-percent --data-json <request.json>` to copy, populate and verify a single-chart donor in one operation, or `update --require-native-percent` when native percentages are mandatory. Follow [native-percentage-labels.md](references/native-percentage-labels.md). Do not apply the field-wrapper workaround to a chart already using verified direct native percentage labels.
+
+For an existing ordinary absolute stacked-column chart matching the verified 3x3 profile, `convert-percent` converts one selected segment or all nine labels to bare native relative fields while retaining the absolute axis and native plot. This is preferred over the invisible-wrapper workaround for eligible charts. The command executes on a new local copy and requires native regeneration/reopen and field-binding checks. Later `update` calls automatically verify these converted fields too. See the conversion profile and limits in [native-percentage-labels.md](references/native-percentage-labels.md).
+
 ## Fast path
 
 1. Resolve the exact slide and chart from the user's request. Use `scripts/thinkcell.py inspect --input <file>` for compact chart identities and the source SHA-256. Add `--data` only when the values are needed. Do not load the implementation into context unless diagnosing a failure.

@@ -1,0 +1,466 @@
+{
+  "date": "2026-09-21",
+  "route": "experimental_same_chart_relative_binding_then_official_json_and_native_reopen",
+  "environment": {
+    "powerpoint": "16.0.20326.20140",
+    "thinkcell": "14.0.38.772",
+    "model_version": 38775
+  },
+  "all_nine_geometry_audit": {
+    "before_frame_emu": {
+      "left": 2268538,
+      "top": 1260475,
+      "width": 7513637,
+      "height": 4173538
+    },
+    "after_frame_emu": {
+      "left": 2268538,
+      "top": 1484313,
+      "width": 7513637,
+      "height": 3725862
+    },
+    "frame_drift_is_outer_cache_only": true,
+    "unchanged_native_identity": {
+      "owner": "7",
+      "table": "20",
+      "sequence": "17",
+      "plot_area": "16",
+      "axis": "19",
+      "plot_grids": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    "unchanged_plot_grid_coordinates": {
+      "left": [
+        "1.48100000000000000000E+03",
+        "0"
+      ],
+      "top": [
+        "9.87000000000000000000E+02",
+        "1"
+      ],
+      "right": [
+        "6.10998999999999978172E+03",
+        "0"
+      ],
+      "bottom": [
+        "3.23000000000000000000E+03",
+        "1"
+      ]
+    },
+    "unchanged_chart_profile": {
+      "chart_type": "0",
+      "orientation": "0",
+      "gap_width": "80",
+      "series_type": "0"
+    },
+    "unchanged_axis": {
+      "min": "0.00000000000000000000E+00",
+      "max": "4.64000000000000056843E+01",
+      "scale_unit": "0.00000000000000000000E+00",
+      "axis_type": "1",
+      "user_axis_type": "0",
+      "precision_suffix": null
+    },
+    "scalar_rectangle_evidence": {
+      "count": 9,
+      "cpptr_rectangle_base_stores_bounds": false,
+      "all_resolved_shape_tags_unchanged": true,
+      "all_m_bPlaced_values_unchanged": true
+    },
+    "manual_plot_layout": {
+      "before": {
+        "x": 0.0109866892,
+        "y": 0.0734119437,
+        "w": 0.9780266216,
+        "h": 0.8531761126
+      },
+      "after": {
+        "x": 0.0109866892,
+        "y": 0.0221559438,
+        "w": 0.9780266216,
+        "h": 0.9556881125
+      },
+      "interpretation": "Native layout cache compensates for the regenerated outer frame while preserving the plot grid."
+    },
+    "visual_segment_bbox_evidence": {
+      "image_size": [
+        1920,
+        1080
+      ],
+      "comparison": "baseline preview versus final preview",
+      "all_component_bounding_boxes_identical": true,
+      "components": {
+        "rgb_25_107_36": [
+          [
+            1227,
+            383,
+            1441,
+            806
+          ],
+          [
+            842,
+            544,
+            1055,
+            806
+          ],
+          [
+            456,
+            627,
+            669,
+            806
+          ]
+        ],
+        "rgb_233_113_50": [
+          [
+            1227,
+            296,
+            1441,
+            382
+          ],
+          [
+            456,
+            566,
+            669,
+            626
+          ],
+          [
+            842,
+            497,
+            1055,
+            543
+          ]
+        ],
+        "rgb_21_96_130": [
+          [
+            842,
+            433,
+            1055,
+            496
+          ],
+          [
+            1227,
+            247,
+            1441,
+            295
+          ],
+          [
+            456,
+            523,
+            669,
+            565
+          ]
+        ]
+      },
+      "pixel_difference_interpreted_as": "percentage-label text and antialiasing overlays"
+    }
+  },
+  "cases": [
+    {
+      "file": "01-all-native-percent.pptx",
+      "sha256": "42fb6468f2b2b1fddf916bd53b3a9e79b764110d5772aec44eef9f27e6b26ff5",
+      "native_reopen_pass": true,
+      "exact_data_pass": true,
+      "source_unchanged": true,
+      "native_cache_parity": "pass",
+      "relative_contract": "native_relative_fields_preserved",
+      "labels": [
+        {
+          "category_index": 2,
+          "series_index": 0,
+          "shape_tag": "tMy0igIpRaV.6WerFdKA7Ug",
+          "source_guid": "1b47c8a0-837b-4d1e-881d-bbbdd7ab0b31",
+          "digits": 0,
+          "numerator": 4.1,
+          "denominator": 46.400000000000006,
+          "display": "9%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 1,
+          "shape_tag": "tR3gJUq8SREr0wP8rHoK3iA",
+          "source_guid": "b3c0aa41-4490-4b8a-b0d4-1931eeba3131",
+          "digits": 0,
+          "numerator": 7.2,
+          "denominator": 46.400000000000006,
+          "display": "16%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 2,
+          "shape_tag": "t71BZhYfdZZr2kVeczOkX2g",
+          "source_guid": "d1cc0184-5e00-49f8-a647-89af7a45bbf5",
+          "digits": 0,
+          "numerator": 35.1,
+          "denominator": 46.400000000000006,
+          "display": "76%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 0,
+          "shape_tag": "tYucO0bCpGpmuScMDR_Bltw",
+          "source_guid": "0fc7fce1-17d3-4b23-8b89-d262cb3589b8",
+          "digits": 0,
+          "numerator": 5.3,
+          "denominator": 31.0,
+          "display": "17%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 1,
+          "shape_tag": "tgEK0eCqD1WXu9AMzwYxpow",
+          "source_guid": "80ce18fd-9c25-4891-bd4f-29fcd81d2231",
+          "digits": 0,
+          "numerator": 3.9,
+          "denominator": 31.0,
+          "display": "13%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 2,
+          "shape_tag": "tGb3EUrA6PnAZaD5pShowSg",
+          "source_guid": "179e65d8-a7d3-476c-96a7-3f42b229c8f1",
+          "digits": 0,
+          "numerator": 21.8,
+          "denominator": 31.0,
+          "display": "70%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 0,
+          "shape_tag": "tIvonmU0d0ayV5gfPcpMV8A",
+          "source_guid": "9f4f193e-ecbc-4c56-9164-3ec81c21cfd2",
+          "digits": 0,
+          "numerator": 3.5,
+          "denominator": 23.5,
+          "display": "15%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 1,
+          "shape_tag": "tS_PYo9qwmCtTHhD_5JkS6A",
+          "source_guid": "dc4eb984-7638-41f9-8854-8a1020877789",
+          "digits": 0,
+          "numerator": 5.1,
+          "denominator": 23.5,
+          "display": "22%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 2,
+          "shape_tag": "tsC2JdviO0v7wyBUd0_Bejw",
+          "source_guid": "3f2b7f5c-5f0f-46ce-ba66-d56664cad1a3",
+          "digits": 0,
+          "numerator": 14.9,
+          "denominator": 23.5,
+          "display": "63%"
+        }
+      ]
+    },
+    {
+      "file": "02-numerator.pptx",
+      "sha256": "98153a2f404e311564c9191887dbe4752402b9ffa0c627611eb2ab5d9c3b7e4c",
+      "native_reopen_pass": true,
+      "exact_data_pass": true,
+      "source_unchanged": true,
+      "native_cache_parity": "pass",
+      "relative_contract": "native_relative_fields_preserved",
+      "labels": [
+        {
+          "category_index": 2,
+          "series_index": 0,
+          "shape_tag": "tMy0igIpRaV.6WerFdKA7Ug",
+          "source_guid": "1b47c8a0-837b-4d1e-881d-bbbdd7ab0b31",
+          "digits": 0,
+          "numerator": 4.1,
+          "denominator": 46.400000000000006,
+          "display": "9%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 1,
+          "shape_tag": "tR3gJUq8SREr0wP8rHoK3iA",
+          "source_guid": "b3c0aa41-4490-4b8a-b0d4-1931eeba3131",
+          "digits": 0,
+          "numerator": 7.2,
+          "denominator": 46.400000000000006,
+          "display": "16%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 2,
+          "shape_tag": "t71BZhYfdZZr2kVeczOkX2g",
+          "source_guid": "d1cc0184-5e00-49f8-a647-89af7a45bbf5",
+          "digits": 0,
+          "numerator": 35.1,
+          "denominator": 46.400000000000006,
+          "display": "76%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 0,
+          "shape_tag": "tYucO0bCpGpmuScMDR_Bltw",
+          "source_guid": "0fc7fce1-17d3-4b23-8b89-d262cb3589b8",
+          "digits": 0,
+          "numerator": 5.3,
+          "denominator": 31.0,
+          "display": "17%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 1,
+          "shape_tag": "tgEK0eCqD1WXu9AMzwYxpow",
+          "source_guid": "80ce18fd-9c25-4891-bd4f-29fcd81d2231",
+          "digits": 0,
+          "numerator": 3.9,
+          "denominator": 31.0,
+          "display": "13%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 2,
+          "shape_tag": "tGb3EUrA6PnAZaD5pShowSg",
+          "source_guid": "179e65d8-a7d3-476c-96a7-3f42b229c8f1",
+          "digits": 0,
+          "numerator": 21.8,
+          "denominator": 31.0,
+          "display": "70%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 0,
+          "shape_tag": "tIvonmU0d0ayV5gfPcpMV8A",
+          "source_guid": "9f4f193e-ecbc-4c56-9164-3ec81c21cfd2",
+          "digits": 0,
+          "numerator": 3.5,
+          "denominator": 33.6,
+          "display": "10%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 1,
+          "shape_tag": "tS_PYo9qwmCtTHhD_5JkS6A",
+          "source_guid": "dc4eb984-7638-41f9-8854-8a1020877789",
+          "digits": 0,
+          "numerator": 5.1,
+          "denominator": 33.6,
+          "display": "15%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 2,
+          "shape_tag": "tsC2JdviO0v7wyBUd0_Bejw",
+          "source_guid": "3f2b7f5c-5f0f-46ce-ba66-d56664cad1a3",
+          "digits": 0,
+          "numerator": 25.0,
+          "denominator": 33.6,
+          "display": "74%"
+        }
+      ]
+    },
+    {
+      "file": "03-denominator.pptx",
+      "sha256": "7be24c2a0fbc1d311189cdfc4e5cf1673013b9b0339d676ced90e40c3aa73bcc",
+      "native_reopen_pass": true,
+      "exact_data_pass": true,
+      "source_unchanged": true,
+      "native_cache_parity": "pass",
+      "relative_contract": "native_relative_fields_preserved",
+      "labels": [
+        {
+          "category_index": 2,
+          "series_index": 0,
+          "shape_tag": "tMy0igIpRaV.6WerFdKA7Ug",
+          "source_guid": "1b47c8a0-837b-4d1e-881d-bbbdd7ab0b31",
+          "digits": 0,
+          "numerator": 4.1,
+          "denominator": 46.400000000000006,
+          "display": "9%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 1,
+          "shape_tag": "tR3gJUq8SREr0wP8rHoK3iA",
+          "source_guid": "b3c0aa41-4490-4b8a-b0d4-1931eeba3131",
+          "digits": 0,
+          "numerator": 7.2,
+          "denominator": 46.400000000000006,
+          "display": "16%"
+        },
+        {
+          "category_index": 2,
+          "series_index": 2,
+          "shape_tag": "t71BZhYfdZZr2kVeczOkX2g",
+          "source_guid": "d1cc0184-5e00-49f8-a647-89af7a45bbf5",
+          "digits": 0,
+          "numerator": 35.1,
+          "denominator": 46.400000000000006,
+          "display": "76%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 0,
+          "shape_tag": "tYucO0bCpGpmuScMDR_Bltw",
+          "source_guid": "0fc7fce1-17d3-4b23-8b89-d262cb3589b8",
+          "digits": 0,
+          "numerator": 5.3,
+          "denominator": 31.0,
+          "display": "17%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 1,
+          "shape_tag": "tgEK0eCqD1WXu9AMzwYxpow",
+          "source_guid": "80ce18fd-9c25-4891-bd4f-29fcd81d2231",
+          "digits": 0,
+          "numerator": 3.9,
+          "denominator": 31.0,
+          "display": "13%"
+        },
+        {
+          "category_index": 1,
+          "series_index": 2,
+          "shape_tag": "tGb3EUrA6PnAZaD5pShowSg",
+          "source_guid": "179e65d8-a7d3-476c-96a7-3f42b229c8f1",
+          "digits": 0,
+          "numerator": 21.8,
+          "denominator": 31.0,
+          "display": "70%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 0,
+          "shape_tag": "tIvonmU0d0ayV5gfPcpMV8A",
+          "source_guid": "9f4f193e-ecbc-4c56-9164-3ec81c21cfd2",
+          "digits": 0,
+          "numerator": 13.5,
+          "denominator": 43.6,
+          "display": "31%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 1,
+          "shape_tag": "tS_PYo9qwmCtTHhD_5JkS6A",
+          "source_guid": "dc4eb984-7638-41f9-8854-8a1020877789",
+          "digits": 0,
+          "numerator": 5.1,
+          "denominator": 43.6,
+          "display": "12%"
+        },
+        {
+          "category_index": 0,
+          "series_index": 2,
+          "shape_tag": "tsC2JdviO0v7wyBUd0_Bejw",
+          "source_guid": "3f2b7f5c-5f0f-46ce-ba66-d56664cad1a3",
+          "digits": 0,
+          "numerator": 25.0,
+          "denominator": 43.6,
+          "display": "57%"
+        }
+      ]
+    }
+  ]
+}
