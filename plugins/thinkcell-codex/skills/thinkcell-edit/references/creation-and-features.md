@@ -12,7 +12,7 @@ Use `--native-percent --data-json request.json` to create, populate and verify a
 
 Add `--style-file company-style.xml` to bind native style defaults. Read the returned output path, inspect that new file, generate its request, update the data, and review the preview. Creation includes the donor slide's existing text and notes: revise ordinary titles and source text to match the user's content using the presentation workflow. Do not treat inherited donor copy as a finished client slide.
 
-The donor determines the type and starting geometry. For a chart added to a finished chartless slide, use the separate [existing-slide composition route](existing-slide.md), which includes experimental movement and resizing. Use a donor with the required point/series counts for the single-target route. The separate [multi-chart route](multi-chart.md) passed a four-series/three-category ordinary sequence update and a fixed-topology waterfall with an ordinary sibling; other count changes or waterfall topologies still require equivalent readback and visual evidence. Gantt/timeline and other native elements can be copied, but their dates, tasks and dependencies cannot be edited through this JSON wrapper.
+The donor determines the type and starting geometry. For a chart added to a finished chartless slide, use the separate [existing-slide composition route](existing-slide.md), which includes experimental movement and resizing. Use a donor with the required point/series counts for the single-target route. The separate [multi-chart route](multi-chart.md) passed a four-series/three-category ordinary sequence update and a fixed-topology waterfall with an ordinary sibling; other count changes or waterfall topologies still require equivalent readback and visual evidence. Gantt edits use the separate taskbar and milestone adapters in [expanded controls](expanded-features.md), not this JSON wrapper.
 
 Use only donors and style files that the user supplies or is authorized to use. This package does not bundle proprietary templates or branded style references.
 
@@ -41,17 +41,17 @@ A native series fill survived an unchanged-data refresh but reverted after the d
 | Mekko width and composition | Specialized absolute-input contracts for percent and units variants |
 | Existing native text size | Experimental `feature_api.py` route with exact source hash, every chart explicit, complete data baseline, official regeneration, native verification and retention readback |
 | Primary absolute axis maximum and major unit | Experimental `axis_range.py` route only for one selected exclusive zero-minimum axis; no axis break, secondary axis, negative values, or shared series group |
-| Colors, number formats, label placement, legend, axes | Preserve the donor; optional style defaults for future inserted elements |
+| Colors, number formats, label placement, legend, axes | Use the matching adapter in [reliable features](reliable-features.md) or [expanded controls](expanded-features.md), preserving unrelated donor formatting; style files set defaults for future elements |
 | Series RGB fill requests | Verified for ordinary horizontal stacked-bar and stacked 100%-column donors through the datasheet-fill pipeline; point overrides await native certification |
 | Existing native axis-break position | Use `axis_break_position.py` for the verified one-break profile; see [broken-axis.md](broken-axis.md). |
 | Existing numeric total decimal places | Use `total_label_precision` with its one-category contract and exact dynamic-field verification; see [total-label-precision.md](total-label-precision.md). |
 | New CAGR arrows and axis breaks | Bounded insertion routes are verified: [native dynamic CAGR](new-cagr.md) and [new axis break](new-axis-break.md). Respect each route's exact profile and native gates. |
-| Difference arrows, error bars, trendlines, series connectors, reference lines | Prefer an authorized donor containing the feature. Other new insertion is not yet verified for delivery; user-authorized extension work follows [native-feature-research.md](native-feature-research.md). |
+| Difference arrows, error bars, trendlines, series connectors, reference lines | Check [expanded controls](expanded-features.md) for matching donor updates and bounded insertion routes, including series connectors. For an uncovered operation, follow [native feature research](native-feature-research.md) as part of the authorized chart request. |
 | Label text insertion or editing | Not supported; edited native label text did not survive official regeneration |
-| Gantt dates, task bars, milestones and dependencies | Native donor copy only; specialized editing is not implemented |
-| Excel/Tableau links | Persistent or unknown external links rejected by the update route |
+| Gantt dates, task bars, milestones and dependencies | Existing taskbar start/end dates and milestone dates/markers have bounded adapters in [expanded controls](expanded-features.md). Other restructuring or dependency edits require a matching separate route or isolated investigation |
+| Excel/Tableau links | Internal-data JSON updates reject persistent or unknown links. Existing Excel-workbook rebinding has its own [link-preserving adapter](expanded-features.md#existing-linked-workbook-rebind); investigate other link operations separately |
 | Move/resize a one-chart native donor | Experimental exclusive plot/legend coordinate adapter, official regeneration and native readback in the existing-slide route |
-| Type conversion, shared/grouped constraints, general element insertion | Not implemented; choose a compatible donor or a separately supported native route |
+| Type conversion, shared/grouped constraints, general element insertion | Outside the ordinary JSON route; use a compatible donor or matching native adapter, or investigate a bounded candidate on copies |
 
 Presence is not correctness: after a data update, review retained annotations, automatic labels, ranges, scale breaks and clipping against the requested result. Feature inventory is slide-level and does not prove each feature belongs to the selected chart or remains meaningful.
 

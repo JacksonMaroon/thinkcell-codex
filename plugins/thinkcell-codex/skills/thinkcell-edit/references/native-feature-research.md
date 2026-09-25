@@ -1,8 +1,11 @@
 # Extending native features without clicking
 
 The capability matrix describes verified adapters, not what is possible in
-think-cell. When the user asks to extend an operation, investigate it rather
-than treating the current matrix as proof of impossibility.
+think-cell. When completing an authorized chart request needs an uncovered
+operation, investigate a bounded candidate on isolated copies without requiring
+a separate request to extend the toolkit. Inspect matching specialized adapters
+before treating the ordinary JSON route's limits as a blocker. Preserve the
+original presentation and isolate linked workbooks for data-changing experiments.
 
 Read [native-feature-findings.md](native-feature-findings.md) before repeating
 break, percentage-field or CAGR experiments. It records discriminating
@@ -35,8 +38,9 @@ controls and failed approaches from the current native model version.
   shape: geometry type, bounds, text styles and native tags. Insert fields after
   paragraph properties, retain run formatting, and align precision with the
   cached display. A field binding alone does not prove this agreement.
-- Require the correct selected visible feature, native save/reopen, exact data,
-  untouched sources/siblings and a second changed-data update.
+- Require the correct selected visible feature, native save/reopen, exact data
+  and untouched sources/siblings. Use a second changed-data update when the
+  feature should recalculate or persist through data changes, on isolated copies.
 - For formatting-only requests, verify the requested appearance with unchanged
   data. Never change user data merely to force a refresh.
 - For insertion, require a new physical native feature with correct linked
