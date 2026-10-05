@@ -1,3 +1,9 @@
+# Build verification for 0.4.0+codex.20260930astra
+
+Verified October 5, 2026. All 91 portable tests passed with Python 3.12 and the declared dependencies. This build synchronizes the plugin version and skill display label, clarifies routing between dedicated chart skills, and repairs a skill-local percentage-conversion documentation link. Chart runtime scripts match the prior GitHub main branch.
+
+Plugin JSON, packaged documentation links, and the release integrity manifest were checked. No new native Office or think-cell execution was performed for this metadata and documentation update. The earlier native evidence and its limits are retained below.
+
 # Validation for 0.3.0
 
 Validation date: September 15, 2026. This is an experimental Windows desktop release.

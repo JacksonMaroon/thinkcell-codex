@@ -1,4 +1,4 @@
-# Think-cell for Codex 0.4.0
+# Think-cell for Codex 0.4.0+codex.20260930astra
 
 By Jackson Maroon. A focused Codex plugin for donor-based native chart creation, guarded feature updates, and scoped data changes.
 

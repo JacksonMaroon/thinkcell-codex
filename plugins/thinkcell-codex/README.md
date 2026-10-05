@@ -2,7 +2,7 @@
 
 **Create chart slides from native think-cell donors and update their data with Codex.**
 
-Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.0**, experimental desktop release.
+Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.0+codex.20260930astra**, experimental desktop release.
 
 This plugin contains one focused skill, `thinkcell-edit`, and local Python/PowerShell helpers. It uses think-cell's official JSON automation for data changes. An experimental namer identifies unnamed charts and assigns their automation names on working copies by default. A `--named-only` option disables that step.
 

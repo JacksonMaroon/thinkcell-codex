@@ -1,20 +1,20 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.0+codex.20260930astra",
   "files": {
     ".agents/plugins/marketplace.json": "87dca3686e87bfd7d0ade7173a088e8136da189c55a2af11196f9bf02c7ed4e4",
     ".gitattributes": "cdc2643b851dd91820f0f24a200e45c73d18c94200099753816915b722bc12b9",
-    "plugins/thinkcell-codex/.codex-plugin/plugin.json": "de1ca34981319595ba53df3d0d5f2d7807ac50d51c2eb64e60e771689bdcdec1",
+    "plugins/thinkcell-codex/.codex-plugin/plugin.json": "0cfaf8b3eb4df173e84a3002f3326ce621fbba5fd9dc4ac9029a493851625e59",
     "plugins/thinkcell-codex/.gitignore": "57535eebac4af89137e07319d0006a6f4e09cfd8adcf2b7dc98f6d4273c7626b",
     "plugins/thinkcell-codex/CITATION.cff": "9b10319092a284375c1879a8c0a8895f0eb955bbeea7cea546c355102fdc4c25",
     "plugins/thinkcell-codex/LICENSE": "4ffedfb187ebbb992f63ae113f2df8c29545e687d76999b71d81a88ba38108ac",
-    "plugins/thinkcell-codex/plugin.json": "f534144641710471f27f702309ad9f6104c641fe03543f9b58b1e6db381d4983",
-    "plugins/thinkcell-codex/README.md": "b050fea037fe015500f1c5d378687a25ed4b5483ae18bec01a8ca869fbacdd8b",
-    "plugins/thinkcell-codex/skills/thinkcell-edit/agents/openai.yaml": "a501d5f731d7b73dbf9de1a56b1872a7051eb9de0b2d0aca24e6fefc07adc79e",
+    "plugins/thinkcell-codex/plugin.json": "a8474d334793e4b209e2ca2627366b3dc3bc5ba3d464ee210f24ac78a65f1c4a",
+    "plugins/thinkcell-codex/README.md": "f5ac1530cc1dde8dfe3c573076ad9e7270ce3edc0c614f04c7e5cf65d82139f3",
+    "plugins/thinkcell-codex/skills/thinkcell-edit/agents/openai.yaml": "653326a2f2859b5f57503b440116646f7c98102c2824953074aa3b99419cc3eb",
     "plugins/thinkcell-codex/skills/thinkcell-edit/examples/pie-update.json": "db2632eb03b617e98d19478374217f5056f61de693b82ac14b607c782a484762",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/broken-axis.md": "42b56d277ac402aad2e4db6aca65f95e07902fb28b2d58e77bdec24ecc08fac9",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/cagr-line-family-evidence.json": "771abc34f432c8a7e4dc05fe09f9c88f4853ed2301e1f9b26950a5d88f75440b",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/cagr-v4-semantic-identity.json": "4f877e965b757b160195562dcfa740bb2be9f49ad2dd44ce0a60b61ca1f04577",
-    "plugins/thinkcell-codex/skills/thinkcell-edit/references/capability-matrix.md": "38e54c59bf197aa8cdeae10e0d9579e805cbce95873d566bff73ab6743c7e6b2",
+    "plugins/thinkcell-codex/skills/thinkcell-edit/references/capability-matrix.md": "b4332cdb00c42a05ad2e17010e13df5e17f07f112ced4ce254d5b1ae356d303c",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/creation-and-features.md": "58adec305c6eecba0cd59a9c76b2379d5ac779ee7d880b98028e9ef5de3a8c7f",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/data-contract.md": "67d13a728e1d3640fd097f9dc72202f121f021a1f859faaad1916fdf2f135906",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/errorbar-evidence.json": "d32a872177839deff6474b8f9820c28edb4f405ac47e3c81962cbe5bf53feb06",
@@ -166,7 +166,7 @@
     "plugins/thinkcell-codex/skills/thinkcell-edit/scripts/total_label_precision.py": "516c2736a6f2a46744087dfa7871ef153c6bcc80441247fb0de42f251418258e",
     "plugins/thinkcell-codex/skills/thinkcell-edit/scripts/trace_percent_semantics.py": "7666bc78533e2ed3069a1d913800f20cdd30529c9b30dd960f1b960d8d0b43b3",
     "plugins/thinkcell-codex/skills/thinkcell-edit/scripts/trendline/portable_trendline_implementation.py": "e1543f6a7702f35248ad67c7bd2c87a1cb92413d185c36a6babdf77589a5b1f6",
-    "plugins/thinkcell-codex/skills/thinkcell-edit/SKILL.md": "8ea48e3c8112213811c4f55a558a595d0117f37c59c89a390571d4fc709966f1",
+    "plugins/thinkcell-codex/skills/thinkcell-edit/SKILL.md": "b4580580b94749275631155a0a2c878250cd3ac54a38b42d9855c43619644b87",
     "plugins/thinkcell-codex/tests/test_contracts.py": "7d07df88b3aaf9ea19fef8b414d5902c1a257dc5c02e18a20eb34dcef1648815",
     "plugins/thinkcell-codex/tests/test_data_modes.py": "655fd4041da2165b541910d3d8c8aba72dd658788beb2de870ca0eba146c4974",
     "plugins/thinkcell-codex/tests/test_insertion.py": "aaa58a69cc36ea93a48b4d608375d258df84e49cc69c1db97d435be923ffb3ed",
@@ -174,7 +174,7 @@
     "plugins/thinkcell-codex/tests/test_placement.py": "47be958c6106cc3eae4aae455ae5ebf5d7f49765243d7dc89276f8447b49e5b9",
     "plugins/thinkcell-codex/tests/test_specialized.py": "1c8203f7f4ba1ea4427fd56bf64dc0ae05ea724612927cc456f7de155ea16b26",
     "plugins/thinkcell-codex/THIRD_PARTY.md": "131b86394e2fb4c7692a42e4a75b181570f3c94944465fe27f782a2a1f5da014",
-    "plugins/thinkcell-codex/VALIDATION.md": "e792dd153973b76c5656dfd1e7517757a32c26e7aa67c997aa54933c243dac67",
-    "README.md": "426ed6bb43c69efd044550365eaf04a0c79a7ee007128a9db1048115d07f9c18"
+    "plugins/thinkcell-codex/VALIDATION.md": "2bc291817488680894f19af2303e68f668cdb6f1933ab26b7da772d63738d05b",
+    "README.md": "9fd22c91fb1d41446ae468f52ae16120267ce31a18cd6681e7ef8574736d1142"
   }
 }

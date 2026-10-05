@@ -9,6 +9,8 @@ Use the bundled scripts to update existing native charts without flattening them
 
 For ordinary presentation creation, slide writing, and non-think-cell PowerPoint edits, use the separate PowerPoint for Codex companion. Keep think-cell chart operations in this skill.
 
+When a dedicated organization or client chart skill is available, follow the selected skill's operation-specific routes rather than combining restrictions from both bundles. Preserve client branding when a client deck controls.
+
 ## Choose the route
 
 For a chart added to a finished slide that contains no think-cell content, read [existing-slide.md](references/existing-slide.md). Follow explicit user guidance and infer only the missing chart/layout choices from the slide and supplied data. The experimental route uses native donor composition, exclusive plot/legend anchors and preservation checks. It creates a new one-slide copy.
