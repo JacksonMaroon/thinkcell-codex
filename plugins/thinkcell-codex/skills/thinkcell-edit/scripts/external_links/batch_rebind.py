@@ -1,7 +1,7 @@
 """Stage distinct existing-link rebinds, publishing only after all checks pass.
 
-Each request uses portable_rebind's existing equal-UTF16-byte-length contract.
-No moniker format inference, new-link creation, Office call or native claim.
+Each request uses portable_rebind's guarded native file-moniker or opaque
+equal-UTF16-byte-length contract. No Office call or native certification claim.
 """
 from __future__ import annotations
 import argparse

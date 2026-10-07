@@ -2,11 +2,12 @@
 
 This is a bounded portable adapter. It discovers one linked OLE carrier by its model
 fields, optionally narrows the selection with caller-supplied identity guards,
-and replaces only the UTF-16 workbook path in the binary moniker. Arbitrary
-length changes remain deliberately unsupported: the replacement path must have
-the same UTF-16 byte length as the discovered path.
+and replaces the standard file-moniker component through documented Windows
+serialization. Its item-moniker/range identity is preserved byte for byte.
+Opaque legacy monikers retain the equal-UTF16-byte-length fallback.
 
-No Office, COM, UI, or production file is touched by this module.
+No Office application or UI is touched. Windows COM is used only for moniker
+serialization and structured storage on disposable files.
 """
 from __future__ import annotations
 
@@ -17,11 +18,14 @@ import io
 import json
 import ntpath
 import re
+import subprocess
+import tempfile
 import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
 import olefile
+from native_moniker import composite_file, serialize_file, item_name, COMPOSITE_CLSID
 
 
 FIELDS = (
@@ -55,6 +59,9 @@ def _moniker(value: str | None) -> tuple[str, bytes]:
         return "", b""
     encoded = value.strip() + "=" * ((-len(value.strip())) % 4)
     payload = base64.b64decode(encoded, validate=True)
+    if payload.startswith(COMPOSITE_CLSID):
+        _, end, path = composite_file(payload)
+        return path + ';' + item_name(payload, end), payload
     runs = [m.group(0).decode("utf-16-le", "ignore") for m in re.finditer(rb"(?:[\x20-\x7e]\x00){3,}", payload)]
     for _, _, path in _path_runs(payload):
         if path not in runs:
@@ -93,6 +100,10 @@ def _path_runs(payload: bytes) -> list[tuple[int, int, str]]:
             if excel_extension and boundary:
                 found.append((start, end, text))
                 break
+    if not found and payload.startswith(COMPOSITE_CLSID):
+        start, end, path = composite_file(payload)
+        if re.fullmatch(r"[A-Za-z]:\\[^\x00-\x1f]+\.(?:xlsx|xlsm|xlsb|xls)", path, re.IGNORECASE):
+            found.append((start, end, path))
     return found
 
 
@@ -216,9 +227,19 @@ def rebind_xml(xml: bytes, payload: bytes, new_path: str) -> tuple[bytes, str]:
         raise RuntimeError("target workbook path is already bound; refusing a no-op output")
     replacement = new_path.encode("utf-16-le")
     start, old_end, _ = path_runs[index]
-    if len(replacement) != old_end - start:
-        raise RuntimeError(f"equal-moniker-UTF16-byte-length guard: discovered path has {old_end - start} bytes, target has {len(replacement)}")
-    payload2 = payload[:start] + replacement + payload[old_end:]
+    if payload.startswith(COMPOSITE_CLSID):
+        file_start, file_end, native_old_path = composite_file(payload)
+        if native_old_path != old_path:
+            raise RuntimeError('native moniker and discovered path disagree')
+        native_file = serialize_file(new_path)
+        payload2 = payload[:file_start] + native_file + payload[file_end:]
+        _, rebound_end, native_new_path = composite_file(payload2)
+        if native_new_path.casefold() != new_path.casefold() or payload2[rebound_end:] != payload[file_end:]:
+            raise RuntimeError('file-moniker rebind changed the item-moniker identity')
+    else:
+        if len(replacement) != old_end - start:
+            raise RuntimeError(f"equal-moniker-UTF16-byte-length guard for opaque legacy moniker: discovered path has {old_end - start} bytes, target has {len(replacement)}")
+        payload2 = payload[:start] + replacement + payload[old_end:]
     markers = list(re.finditer(rb"<m_vecbMoniker>([^<]*)</m_vecbMoniker>", xml))
     if len(markers) != 1:
         raise RuntimeError("m_vecbMoniker serialization not found")
@@ -228,23 +249,49 @@ def rebind_xml(xml: bytes, payload: bytes, new_path: str) -> tuple[bytes, str]:
     encoded = base64.b64encode(payload2)
     if not marker.group(1).endswith(b"="):
         encoded = encoded.rstrip(b"=")
-    if len(encoded) != len(marker.group(1)):
-        raise RuntimeError("moniker base64 length changed")
     xml2 = xml[:marker.start(1)] + encoded + xml[marker.end(1):]
-    if len(xml2) != len(xml):
-        raise RuntimeError("think-cell XML length changed")
     return xml2, old_path
 
 
 def patch_part(raw: bytes, xml: bytes, payload: bytes, new_path: str) -> tuple[bytes, str]:
     xml2, old_path = rebind_xml(xml, payload, new_path)
-    buffer = io.BytesIO(raw)
-    writer = olefile.OleFileIO(buffer, write_mode=True)
-    try:
-        writer.write_stream(["think-cellXML"], xml2)
-    finally:
-        writer.close()
-    return buffer.getvalue(), old_path
+    return replace_xml_stream(raw, xml2), old_path
+
+
+def replace_xml_stream(raw: bytes, xml: bytes) -> bytes:
+    """Replace one stream, using Windows IStorage when its size changes.
+
+    Re-read every stream and storage CLSID to prove the whole OLE closure stayed
+    intact. The helper touches only temporary structured-storage files.
+    """
+    def snapshot(value):
+        with olefile.OleFileIO(io.BytesIO(value)) as ole:
+            streams = {tuple(path): ole.openstream(path).read() for path in ole.listdir()}
+            storages = {tuple(path): ole.getclsid(path) for path in ole.listdir(streams=False, storages=True)}
+            storages[()] = ole.root.clsid
+            return streams, storages
+    before, storage_ids = snapshot(raw)
+    if len(xml) == len(before[('think-cellXML',)]):
+        buffer = io.BytesIO(raw)
+        with olefile.OleFileIO(buffer, write_mode=True) as writer:
+            writer.write_stream(['think-cellXML'], xml)
+        result = buffer.getvalue()
+    else:
+        helper = Path(__file__).resolve().parents[1] / 'thinkcell_no_click/implementation/replace_ole_stream.ps1'
+        with tempfile.TemporaryDirectory(prefix='thinkcell-moniker-') as folder:
+            storage, data = Path(folder) / 'carrier.bin', Path(folder) / 'xml.bin'
+            storage.write_bytes(raw); data.write_bytes(xml)
+            completed = subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass',
+                                        '-File', str(helper), '-StoragePath', str(storage), '-StreamBytesPath', str(data)],
+                                       capture_output=True, text=True, timeout=60)
+            if completed.returncode:
+                raise RuntimeError('structured-storage stream replacement failed: ' + completed.stderr[-2000:])
+            result = storage.read_bytes()
+    after, after_ids = snapshot(result)
+    expected = dict(before); expected[('think-cellXML',)] = xml
+    if after != expected or storage_ids != after_ids:
+        raise RuntimeError('structured-storage readback changed an unrelated stream or storage identity')
+    return result
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -288,7 +335,7 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(f"source workbook SHA-256 mismatch: expected {args.source_workbook_sha256.upper()}, got {source_workbook_hash}")
     selected = discover(input_path, args.guid, args.link_id, args.range_name)
     moniker_tail = selected["moniker_text"].split(";")[-1]
-    if moniker_tail.startswith("W"):
+    if not selected['payload'].startswith(COMPOSITE_CLSID) and moniker_tail.startswith("W"):
         moniker_tail = moniker_tail[1:]
     if "!" not in moniker_tail:
         raise RuntimeError("linked moniker has no worksheet/name identity")
@@ -349,7 +396,11 @@ def main(argv: list[str] | None = None) -> int:
         "identity_before": selected["fields"],
         "identity_after": rebound["fields"],
         "moniker_after": rebound["moniker_text"],
-        "guards": {"guid": args.guid, "link_id": args.link_id, "range_name": args.range_name, "equal_moniker_length": True, "named_range_compatibility": {"target": target_named_range, "source": source_named_range, "expected_range": _norm_ref(args.expected_range) if args.expected_range else None}},
+        "guards": {"guid": args.guid, "link_id": args.link_id, "range_name": args.range_name,
+                   "equal_moniker_length": len(selected['xml']) == len(rebound['xml']),
+                   "moniker_route": 'WINDOWS_FILE_MONIKER' if selected['payload'].startswith(COMPOSITE_CLSID) else 'OPAQUE_EQUAL_UTF16',
+                   "item_moniker_preserved": True,
+                   "named_range_compatibility": {"target": target_named_range, "source": source_named_range, "expected_range": _norm_ref(args.expected_range) if args.expected_range else None}},
         "preservation_after_readback": preservation,
         "native_certification": "NOT_PERFORMED_OFFLINE_ADAPTER_ONLY",
     }
