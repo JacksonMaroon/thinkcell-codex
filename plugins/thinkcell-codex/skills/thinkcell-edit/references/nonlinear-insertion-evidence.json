@@ -1,0 +1,320 @@
+{
+  "schema": "tc.nonlinear-insertion-evidence.v1",
+  "controls": {
+    "2-baseline": {
+      "sha256": "8067E8254B190042737396F9C1CA718B2288B81B3A592CE1B4AC9B941FC4AE3D",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "exponential-trendline",
+        "series": "Lower-end",
+        "reference_constant": 0.6202726585593982,
+        "reference_slope": 0.5356764616682798,
+        "physical_forecast": {
+          "actual_upper_x": 4.77347400977944,
+          "reference_upper_x": 4.773474009779441,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent OLS checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "2-changed": {
+      "sha256": "E75B3EFCEE63C5DA46CA857BEB1F63C5D3CACFA7D16FD8EEED722F80507472A2",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "exponential-trendline",
+        "series": "Lower-end",
+        "reference_constant": 1.2405453171187961,
+        "reference_slope": 0.5356764616682799,
+        "physical_forecast": {
+          "actual_upper_x": 3.8960719529819787,
+          "reference_upper_x": 3.8960719529819787,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent OLS checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "3-baseline": {
+      "sha256": "79C9E55993B7EB6E10415E03385E1E4A295145EB2E6BA81E4468FC47F2646AAE",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "logarithmic-trendline",
+        "series": "Lower-end",
+        "reference_constant": 1.6116329393079853,
+        "reference_slope": 1.4969274658071272,
+        "physical_forecast": {
+          "actual_upper_x": 9.0,
+          "reference_upper_x": 9.0,
+          "fit_limits_visible_endpoint": false
+        },
+        "fit_evidence": "independent OLS checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "3-changed": {
+      "sha256": "F4763CB843642C77BE5BCB7168CAFD3A18EAE94A9E9FA3EEF54C2B5ADAEB9454",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "logarithmic-trendline",
+        "series": "Lower-end",
+        "reference_constant": 3.2232658786159707,
+        "reference_slope": 2.9938549316142544,
+        "physical_forecast": {
+          "actual_upper_x": 9.0,
+          "reference_upper_x": 9.0,
+          "fit_limits_visible_endpoint": false
+        },
+        "fit_evidence": "independent OLS checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "3-discriminating": {
+      "sha256": "F67FBA97F8B9A9A41A568F8962695F61DDB5D2BBB4EBB086006EF1BEE8773F6A",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "logarithmic-trendline",
+        "series": "Lower-end",
+        "reference_constant": 5.298447983469879,
+        "reference_slope": 2.9938549316142553,
+        "physical_forecast": {
+          "actual_upper_x": 4.808574822433828,
+          "reference_upper_x": 4.808574822433828,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent OLS checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "6-baseline": {
+      "sha256": "278042C329655054F6EA6E9D541BD50B90A393DF1AD8422252E0BA5A1D9DB344",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "quadratic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          -0.8317675318609217,
+          2.8187901737060628,
+          -0.500961944796591
+        ],
+        "polynomial_order": 2,
+        "physical_forecast": {
+          "actual_upper_x": 5.314327858200813,
+          "reference_upper_x": 5.314327858201,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "6-changed": {
+      "sha256": "4B6266552F7020D74A06F454B721CDCEA457D728CC4F186F1F4F8CE568F3D64C",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "quadratic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          -0.8317675318609425,
+          3.3187901737060894,
+          -0.5009619447965978
+        ],
+        "polynomial_order": 2,
+        "physical_forecast": {
+          "actual_upper_x": 6.36393651258992,
+          "reference_upper_x": 6.36393651259,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "7-baseline": {
+      "sha256": "280526723E990FB715D1E992ADF2220408AF8139C010BFEE87965AC525D0C1CD",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "cubic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          5.337703206357397,
+          -14.32763715235069,
+          10.65684622798634,
+          -2.048085165726723
+        ],
+        "polynomial_order": 3,
+        "physical_forecast": {
+          "actual_upper_x": 3.344762392582917,
+          "reference_upper_x": 3.344762392583,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "7-changed": {
+      "sha256": "885C28E2D2BE86C42E596BEE6CFCEC7145E98868B6EF1B1FBB74B72F4EB6439C",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "cubic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          5.337703206357305,
+          -13.827637152350462,
+          10.656846227986202,
+          -2.048085165726699
+        ],
+        "polynomial_order": 3,
+        "physical_forecast": {
+          "actual_upper_x": 3.477242913586783,
+          "reference_upper_x": 3.477242913587,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "8-baseline": {
+      "sha256": "5983B7826037B00E033CCAC9B63A7FDFB85BEFE615A2D830A6F993E59EF07AEE",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "quartic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          79.22674816073632,
+          -262.07438642284313,
+          254.75173820217702,
+          -96.53968265983946,
+          12.639533322270413
+        ],
+        "polynomial_order": 4,
+        "physical_forecast": {
+          "actual_upper_x": 3.1402494667082186,
+          "reference_upper_x": 3.140249466697,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    },
+    "8-changed": {
+      "sha256": "A0AE89478CF6FFB235D502C207C7FC5274886B22196B970971C335FB1663BBA1",
+      "inspection": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "quartic-trendline",
+        "series": "Lower-end",
+        "reference_coefficients_ascending": [
+          79.2267481608854,
+          -261.574386423343,
+          254.75173820266951,
+          -96.5396826600301,
+          12.639533322295911
+        ],
+        "polynomial_order": 4,
+        "physical_forecast": {
+          "actual_upper_x": 3.105230473600668,
+          "reference_upper_x": 3.105230473592,
+          "fit_limits_visible_endpoint": true
+        },
+        "fit_evidence": "independent polynomial least squares checked against observed physical forecast clipping; native model does not serialize fit coefficients"
+      },
+      "gates": {
+        "source_unchanged": true,
+        "exact_requested_data": true,
+        "native_saved_reopen": true,
+        "native_cache_parity": "pass",
+        "higher_end_group_unchanged": true,
+        "current_preview_visual_review": "pass",
+        "visual_review_scope": "Curve shape and visible plot-boundary clipping, point/label/legend retention; preexisting template instruction box crops excluded"
+      }
+    }
+  },
+  "limitations": [
+    "All coefficients are independent fitted references, not serialized native fields",
+    "Log baseline/Y times2 endpoint9 is axis-limited; additional discriminating control supplies fit-dependent clipping",
+    "Polynomial controls use selected Lower-end Y plus0.5X; Higher-end unchanged",
+    "Preexisting template instruction-box cropping excluded from visual control",
+    "Only authenticated native enum/order profiles shipped; enum4/5 hypotheses rejected",
+    "Exponential/logarithmic finite increasing reference fits, unique linear X/Y axes and explicit bounds only",
+    "Polynomial degree2..4 requires distinct X count at least degree+1, full rank/conditioning guard, unique linear X/Y axes with explicit min/max and no forced intercept",
+    "Observed OOXML fit-dependent clipping plus visual shape is bounded evidence, not exact curve-point or general-engine certification"
+  ]
+}

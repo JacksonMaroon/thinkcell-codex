@@ -109,7 +109,7 @@ def prepare(source: Path, output: Path, plan: dict):
 
 def _close(got, want, tol):
     return len(got) == len(want) and all(
-        math.isclose(float(a), float(b), abs_tol=tol) for a, b in zip(got, want)
+        math.isclose(float(a), float(b), rel_tol=0, abs_tol=tol) for a, b in zip(got, want)
     )
 
 
@@ -149,15 +149,15 @@ def grade(path: Path, plan: dict):
 def grade_repeat(same: Path, changed: Path, plan: dict):
     same_result = grade(same, plan)
     changed_result = grade(changed, plan)
+    geometry_retained = (
+        _close(same_result["physical_bounds"], changed_result["physical_bounds"], PHYSICAL_TOLERANCE_PT) and
+        _close(same_result["model_text"]["model_bounds"], changed_result["model_text"]["model_bounds"], PHYSICAL_TOLERANCE_PT) and
+        _close(same_result["model_text"]["text_bounds"], changed_result["model_text"]["text_bounds"], PHYSICAL_TOLERANCE_PT))
     return {
-        "status": "PASS" if same_result["status"] == changed_result["status"] == "PASS" else "FAIL",
+        "status": "PASS" if same_result["status"] == changed_result["status"] == "PASS" and geometry_retained else "FAIL",
         "same_data": same_result,
         "changed_data": changed_result,
-        "geometry_retained": (
-            same_result["physical_bounds"] == changed_result["physical_bounds"] and
-            same_result["model_text"]["model_bounds"] == changed_result["model_text"]["model_bounds"] and
-            same_result["model_text"]["text_bounds"] == changed_result["model_text"]["text_bounds"]
-        ),
+        "geometry_retained": geometry_retained,
     }
 
 

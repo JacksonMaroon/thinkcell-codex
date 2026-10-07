@@ -382,6 +382,11 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest='command',required=True)
     sub.add_parser('doctor',help='Read-only runtime and dependency discovery.')
+    cap = sub.add_parser('capabilities', help='Read-only scoped capability and packaged-route discovery.')
+    cap.add_argument('--id', help='Inspect one exact capability ID.')
+    route = sub.add_parser('route', help='Run an explicit packaged capability adapter with its normal guards.')
+    route.add_argument('capability_id')
+    route.add_argument('arguments', nargs=argparse.REMAINDER)
     cp=sub.add_parser('convert-percent',help='Convert supported absolute segment labels to bare native percentages on a copy.')
     cp.add_argument('--input',type=Path,required=True)
     cp.add_argument('--expected-sha256',required=True)
@@ -420,6 +425,13 @@ def main():
     v.add_argument('--automation-name',required=True)
     a = p.parse_args()
     try:
+        if a.command == 'capabilities':
+            from capabilities import discover
+            print(json.dumps(discover(a.id), ensure_ascii=False, allow_nan=False))
+            return 0
+        if a.command == 'route':
+            from capabilities import dispatch
+            return dispatch(a.capability_id, a.arguments)
         result = {'doctor':lambda:doctor(),'create':lambda:create(a),'inspect':lambda:inspect(a),'update':lambda:update(a),'verify':lambda:verify(a),'convert-percent':lambda:convert_percent(a)}[a.command]()
         print(json.dumps(result,ensure_ascii=False,allow_nan=False))
     except (Exception, SystemExit) as e:

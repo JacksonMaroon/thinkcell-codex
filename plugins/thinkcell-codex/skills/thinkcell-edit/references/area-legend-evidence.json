@@ -1,0 +1,101 @@
+{
+  "schema": "tc.area-legend-evidence.v1",
+  "validation_date_local": "2026-10-06",
+  "status": "BOUNDED_NATIVE_CONTROLS_PASS",
+  "profile": {
+    "chart": "stacked-area",
+    "owner_m_estDefault": "2",
+    "series": 4,
+    "categories": 5,
+    "native_cache_type": "areaChart"
+  },
+  "controls": {
+    "clean-control": {
+      "native_saved_sha256": "769277e989c80391f66af74987daaa50da72965186e0bccfe2eb3f8b8b1a4050",
+      "candidate_sha256": "08fa6991da7308d6969f3ded1371816d4927dcade7c34064b5449ed2c8189eb5",
+      "native_legend_count": 0,
+      "owner_area_profile": true,
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true,
+      "exact_datasheet_cells": true,
+      "model_and_native_cache_pass": true,
+      "theme_and_notes_preserved": true,
+      "appearance_fills_sha256": "3948EB8DC99CE8E028574FD397F34B4A826E0108854076812AFF61DD0086D67B"
+    },
+    "authentic4": {
+      "native_saved_sha256": "54b9ec6316901a4da1d916b6e80f03d40a52fca84a9fa0220019f8a3db3a373d",
+      "candidate_sha256": "05b4225dcd7d16aa09101adc3d4feca845cbd1b8f75fa5b554b57ad44213b508",
+      "native_legend_count": 1,
+      "owner_area_profile": true,
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true,
+      "exact_datasheet_cells": true,
+      "model_and_native_cache_pass": true,
+      "theme_and_notes_preserved": true,
+      "appearance_fills_sha256": "3948EB8DC99CE8E028574FD397F34B4A826E0108854076812AFF61DD0086D67B",
+      "feature": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "legend",
+        "series_names": [
+          "BPO",
+          "Consulting",
+          "Implementation",
+          "Managed services"
+        ]
+      }
+    },
+    "authentic4repeat": {
+      "native_saved_sha256": "e8e219de13efb3ce29a0c94871de5a152580b6daee1b739ec0e76255dc57a967",
+      "candidate_sha256": "54b9ec6316901a4da1d916b6e80f03d40a52fca84a9fa0220019f8a3db3a373d",
+      "native_legend_count": 1,
+      "owner_area_profile": true,
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true,
+      "exact_datasheet_cells": true,
+      "model_and_native_cache_pass": true,
+      "theme_and_notes_preserved": true,
+      "appearance_fills_sha256": "3948EB8DC99CE8E028574FD397F34B4A826E0108854076812AFF61DD0086D67B",
+      "feature": {
+        "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+        "feature": "legend",
+        "series_names": [
+          "BPO revised",
+          "Consulting",
+          "Implementation",
+          "Managed services"
+        ]
+      }
+    }
+  },
+  "repeat": {
+    "series_name_before": "BPO",
+    "series_name_after": "BPO revised",
+    "first_value_before": 4683.812634,
+    "first_value_after": 5000.125
+  },
+  "cache_contract": {
+    "finite_numeric_max_ulps": 32,
+    "exact": [
+      "complete numeric point indexes",
+      "counts",
+      "model/datasheet series and category labels",
+      "physical legend labels",
+      "fills"
+    ],
+    "unique_full_numeric_series_value_vector_binding_required": true
+  },
+  "visual_review": {
+    "current_native_previews_reviewed": true,
+    "result": "PASS",
+    "private_renders_bundled": false
+  },
+  "limits": [
+    "Only this four-series/five-category stacked-area profile is covered",
+    "Earlier three-series direct-inline and different-target authentic candidates remain rejected historical profiles",
+    "No broader legend profile or donor-independent constructor is certified",
+    "Artifacts, private report paths and unrelated presentation identities are excluded"
+  ]
+}

@@ -107,6 +107,8 @@ def compare_semantics(output: dict[str, object], proof: dict[str, object]) -> bo
             raise RuntimeError(f"semantic identity mismatch for {key}: {output[key]!r} vs {proof[key]!r}")
     out_parts = {p["series"]: p for p in output["partitions"]}
     proof_parts = {p["series"]: p for p in proof["partitions"]}
+    if len(out_parts) != len(output["partitions"]) or len(proof_parts) != len(proof["partitions"]):
+        raise RuntimeError("ambiguous duplicate trendline partition series")
     if set(out_parts) != set(proof_parts):
         raise RuntimeError("semantic partition series differ from native-proven candidate")
     for series in out_parts:
@@ -154,7 +156,11 @@ def build(source: Path, output: Path, implementation: Path, expected_source_sha2
         raise RuntimeError(f"source SHA mismatch: {source_sha} vs {expected_source_sha256.upper()}")
     _, candidates, _ = naming.inventory(raw)
     selected = naming.choose(candidates, slide_number=slide_number, shape_tag=shape_tag)
+    if selected["owner"].tag != "CScatterChartSE":
+        raise RuntimeError("trendline donor must be a native scatter chart")
     source_identity = semantic_identity(raw, naming, slide_number, shape_tag)
+    if not source_identity["partitions"]:
+        raise RuntimeError("trendline donor has no existing native partitions")
     target_series_names = sorted(expected_series_names or source_identity["series_labels"])
     if source_identity["series_labels"] != target_series_names:
         raise RuntimeError(f"expected series names do not match source donor: {target_series_names!r} vs {source_identity['series_labels']!r}")
@@ -187,6 +193,7 @@ def build(source: Path, output: Path, implementation: Path, expected_source_sha2
         if package_repair is None:
             raise RuntimeError("package is missing [Content_Types].xml")
     output_identity = semantic_identity(output.read_bytes(), naming, slide_number, shape_tag)
+    compare_semantics(output_identity, source_identity)
     if output_identity["series_labels"] != target_series_names:
         raise RuntimeError(f"output semantic series identity is wrong: {output_identity['series_labels']!r} vs {target_series_names!r}")
     if source.read_bytes() != raw:

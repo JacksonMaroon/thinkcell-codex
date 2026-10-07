@@ -10,11 +10,21 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-import bisect, json, posixpath, re, subprocess, tempfile, zipfile
+import bisect, json, os, posixpath, re, subprocess, sys, tempfile, zipfile
+
+_SCRIPTS_DIR = Path(__file__).resolve().parents[1]
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+from runtime import powershell, powershell_env
 
 # Bundle `replace_ole_stream.ps1` next to this module. This keeps the adapter
 # relocatable when a skill is installed outside the research workspace.
 REPLACE_STREAM=Path(__file__).with_name('replace_ole_stream.ps1')
+def require_distinct_paths(source, output, report):
+    paths = [os.path.normcase(str(Path(p).resolve())) for p in (source, output, report)]
+    if len(set(paths)) != 3:
+        raise ValueError('source, output and report paths must be distinct')
+
 @dataclass
 class Bar:
     id:str; row:int; start:str; end:str; line_id:str; shape_name:str; line_rect:tuple
@@ -24,7 +34,10 @@ class Axis:
 
 class GanttPackage:
   def __init__(self,path):
-    self.path=Path(path); self.z=zipfile.ZipFile(self.path); self.blobs={n:self.z.read(n) for n in self.z.namelist()}; self.entries=self.z.infolist(); self.ole_part,self.model=self._load_model(); self._bars=self._discover_bars(); self.axis=self._discover_axis()
+    self.path=Path(path)
+    with zipfile.ZipFile(self.path) as z:
+      self.entries=z.infolist(); self.blobs={e.filename:z.read(e.filename) for e in self.entries}
+    self.ole_part,self.model=self._load_model(); self._bars=self._discover_bars(); self.axis=self._discover_axis()
   def _load_model(self):
     found=[]
     for n,b in self.blobs.items():
@@ -96,6 +109,7 @@ class GanttPackage:
   def _shape(self,name):
     t=self.blobs['ppt/slides/slide1.xml'].decode('utf8')
     rels=self.blobs['ppt/slides/_rels/slide1.xml.rels'].decode('utf8')
+    matches=[]
     for b in re.findall(r'<p:sp>.*?</p:sp>',t,re.S):
       rid=re.search(r'<p:tags r:id="([^"]+)"',b); nm=re.search(r'<p:cNvPr[^>]* name="([^"]+)"',b)
       if not rid: continue
@@ -105,23 +119,40 @@ class GanttPackage:
       tv=re.search(r'name="THINKCELLSHAPEDONOTDELETE" val="([^"]+)"',tag)
       if tv and tv.group(1)==name:
        tr=re.search(r'<a:off x="(\d+)" y="(\d+)"/><a:ext cx="(\d+)" cy="(\d+)"',b)
-       return b, list(map(int,tr.groups())) if tr else None
-    raise ValueError(f'visible tagged shape not found for {name}')
+       matches.append((b, list(map(int,tr.groups())) if tr else None))
+    if len(matches)!=1: raise ValueError(f'visible tagged shape {name} matched {len(matches)} physical shapes; expected exactly one')
+    return matches[0]
   def edit_bar(self,out,*,selector,new_start,new_end):
-    b=self.resolve_bar(**selector); old_line=b.line_rect; ml,mr=self.x_for(new_start,'start'),self.x_for(new_end,'end')
+    if len([n for n in self.blobs if re.fullmatch(r'ppt/slides/slide\d+\.xml', n)]) != 1:
+        raise ValueError('Gantt edits require an extracted one-slide package')
+    out=Path(out)
+    if out.resolve()==self.path.resolve() or out.exists(): raise ValueError('output must be a fresh path distinct from source')
+    if date.fromisoformat(new_start)>date.fromisoformat(new_end): raise ValueError('start date must not follow end date')
+    b=self.resolve_bar(**selector); old_line=b.line_rect;
+    if old_line[2]<=old_line[0]: raise ValueError('taskbar model width must be positive')
+    ml,mr=self.x_for(new_start,'start'),self.x_for(new_end,'end')
     q=re.search(r'<CGanttBar id="'+re.escape(b.id)+r'".*?</CGanttBar>',self.model,re.S); block=q.group(); old=re.findall(r'<m_datetime val="([^"]+)"',block)
-    block2=block.replace(old[0],new_start+'T00:00:00',1).replace(old[1],new_end+'T00:00:00',1); model=self.model[:q.start()]+block2+self.model[q.end():]
+    # Replace the two original date attribute spans from right to left. Values
+    # may repeat or overlap a replacement, so chained string replacement can
+    # accidentally replace the newly written start instead of the old end.
+    date_matches=list(re.finditer(r'<m_datetime val="([^"]+)"',block))
+    if len(date_matches)!=2: raise ValueError('taskbar must contain exactly two date fields')
+    block2=block
+    for match,value in reversed(list(zip(date_matches,(new_start+'T00:00:00',new_end+'T00:00:00')))):
+      block2=block2[:match.start(1)]+value+block2[match.end(1):]
+    model=self.model[:q.start()]+block2+self.model[q.end():]
     lq=re.search(r'<CPPTAutoShapeLine id="'+re.escape(b.line_id)+r'".*?</CPPTAutoShapeLine>',model,re.S); rect=re.search(r'<m_rectPPTShape left="(\d+)" top="(\d+)" right="(\d+)" bottom="(\d+)"',lq.group()); vals=list(map(int,rect.groups())); vals[0],vals[2]=ml,mr; lq2=lq.group().replace(rect.group(),f'<m_rectPPTShape left="{vals[0]}" top="{vals[1]}" right="{vals[2]}" bottom="{vals[3]}"',1); model=model[:lq.start()]+lq2+model[lq.end():]
-    _,tr=self._shape(b.shape_name); sl,sy,scy,sbot=tr
+    _,tr=self._shape(b.shape_name)
+    if tr is None or tr[2]<=0: raise ValueError('visible taskbar transform must have positive width')
     # shape transform is [left,top,cx,cy]; derive slide x from old model bounds.
     old_sl=tr[0]; old_sr=tr[0]+tr[2]; new_sl=round(old_sl+(ml-old_line[0])*(old_sr-old_sl)/(old_line[2]-old_line[0])); new_sr=round(old_sl+(mr-old_line[0])*(old_sr-old_sl)/(old_line[2]-old_line[0]))
     slide=self.blobs['ppt/slides/slide1.xml'].decode('utf8'); shape,_=self._shape(b.shape_name); tm=re.search(r'<a:off x="(\d+)" y="(\d+)"/><a:ext cx="(\d+)" cy="(\d+)"',shape); shape2=shape[:tm.start()]+f'<a:off x="{new_sl}" y="{tm.group(2)}"/><a:ext cx="{new_sr-new_sl}" cy="{tm.group(4)}"'+shape[tm.end():]; self.blobs['ppt/slides/slide1.xml']=slide.replace(shape,shape2,1).encode()
     with tempfile.TemporaryDirectory(dir=self.path.parent) as td:
-      td=Path(td); carrier=td/'carrier.bin'; xml=td/'model.xml'; carrier.write_bytes(self.blobs[self.ole_part]); xml.write_text(model,encoding='utf8'); p=subprocess.run(['powershell','-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(REPLACE_STREAM),'-StoragePath',str(carrier),'-StreamBytesPath',str(xml)],capture_output=True,text=True)
+      td=Path(td); carrier=td/'carrier.bin'; xml=td/'model.xml'; carrier.write_bytes(self.blobs[self.ole_part]); xml.write_text(model,encoding='utf8'); p=subprocess.run([powershell(),'-NoProfile','-ExecutionPolicy','RemoteSigned','-File',str(REPLACE_STREAM),'-StoragePath',str(carrier),'-StreamBytesPath',str(xml)],capture_output=True,text=True,env=powershell_env(),timeout=60)
       if p.returncode: raise RuntimeError(p.stderr or p.stdout)
       self.blobs[self.ole_part]=carrier.read_bytes()
     out=Path(out)
-    with zipfile.ZipFile(out,'w') as zout:
+    with zipfile.ZipFile(out,'x') as zout:
       for e in self.entries:zout.writestr(e,self.blobs[e.filename])
     return {'bar_id':b.id,'row':b.row,'old_dates':[b.start,b.end],'new_dates':[new_start+'T00:00:00',new_end+'T00:00:00'],'old_model_line':list(old_line),'new_model_line':[ml,old_line[1],mr,old_line[3]],'shape_name':b.shape_name,'new_visible_bounds':[new_sl,new_sr]}
 

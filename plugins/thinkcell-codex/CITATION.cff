@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Maroon
     given-names: Jackson
-version: 0.3.0
-date-released: 2026-09-15
+version: 0.4.3+codex.20261006gaps
+date-released: 2026-10-06
 license: MIT
 abstract: "A Codex skill and local automation toolkit for creating and updating native think-cell charts."

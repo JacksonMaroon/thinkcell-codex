@@ -6,7 +6,7 @@ import platform
 import shutil
 import sys
 
-REQUIRED = {'lxml': 'lxml', 'olefile': 'olefile', 'xlrd': 'xlrd', 'pyxlsb': 'pyxlsb', 'Pillow': 'PIL'}
+REQUIRED = {'lxml': 'lxml', 'olefile': 'olefile', 'xlrd': 'xlrd', 'pyxlsb': 'pyxlsb', 'Pillow': 'PIL', 'openpyxl': 'openpyxl'}
 
 def find_ppttc():
     override = os.environ.get('THINKCELL_PPTTC')

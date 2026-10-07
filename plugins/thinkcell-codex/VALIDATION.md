@@ -1,3 +1,137 @@
+# Current capability scope
+
+Use the [capability matrix](skills/thinkcell-edit/references/capability-matrix.md)
+for the maintained, operation-specific support list. It includes later bounded
+category/series changes, native annotation and break insertion, Gantt taskbar
+and milestone edits, and existing Excel-link updates/rebinding. These operations
+retain their recorded profile and native-runtime limits.
+
+The September 15 sections below preserve the original 0.3.0 evidence. Their
+limitations describe that historical release, rather than the aggregate current
+package. Neither the October 5 portable checks nor this documentation correction
+renew every earlier native certification.
+
+# Development validation for 0.4.3+codex.20261006gaps
+
+Validated October 6, 2026. Final portable test count: 343 unit tests executed: 342 passed and 1 Windows symlink test skipped. Two supplied historical fixture profiles passed offline; three unavailable fixture profiles remain explicitly skipped.
+Portable checks do not certify native Office behavior.
+
+[Area legend controls](skills/thinkcell-edit/references/area-legend-evidence.json)
+record a clean native zero-legend control and fresh authentic zero-to-one graft
+on one four-series/five-category stacked-area profile. BPO to BPO revised and
+4683.812634 to 5000.125 repeat controls retained native legend ownership, exact
+labels/raw datasheet/model, indexed areaChart cache values and matching fills.
+Official generation, native save/reopen, source preservation, unrelated open
+presentation state and current visual review passed. Finite area-cache numeric
+comparisons permit at most 32 ULPs; complete numeric point indexes/counts,
+model/datasheet series/category labels and physical legend labels/fills remain
+exact. Swatches require a unique full numeric series value-vector binding.
+Earlier three-series direct-inline and different-target authentic candidates
+remain rejected historical profiles. This does not certify broader area layouts.
+
+[Direct construction audit](skills/thinkcell-edit/references/direct-construction-audit.json)
+records current official manuals and read-only GetIDsOfNames on think-cell
+14.0.38.790. Five documented API names resolved; six tested candidate names
+returned 0x80020006. No methods were invoked by that probe. Name resolution does
+not authenticate argument contracts, construction behavior or every internal
+method's existence. No donor-independent chart result is claimed.
+
+[Gantt endpoint controls](skills/thinkcell-edit/references/gantt-endpoint-evidence.json)
+record initial genuine reciprocal finish/start anchor insertion, followed by
+explicit end/start equality updates from May 21 to May 28 to June 4. On the
+normalized current-schema four-visible-bar, seven-day fixed-calendar profile,
+full stable GUID graph, all dates, visibility, native/physical geometry, unrelated
+CFB streams and authenticated empty unbound Sheet1 remained correct. Official
+generation, native save/reopen, source/unrelated presentation state and current
+visual review passed. Hidden historical donor-item removal occurred only in
+separate donor preparation; the public adapter does not prune taskbars.
+Automatic date/dependency reflow and native scalar-anchor binding remain
+unverified. This invoked adapter changes both end/start endpoints explicitly;
+no native automatic scheduling, duration preservation or lag support is claimed.
+Installed-template creation, regular-bar legend insertion and prior native
+controls retain their original scoped evidence. The 0.4.2 and earlier sections
+below are historical records; their rejected area statement describes the
+earlier profiles. Proprietary artifacts and private paths remain excluded.
+
+# Development validation for 0.4.2+codex.20261006native
+
+Validated October 6, 2026. Final portable test count: 301 unit tests executed: 300 passed and 1 Windows symlink test skipped. The current runner
+also executes embedded portable regressions and reports fixture-dependent checks
+explicitly. Two supplied historical fixture profiles passed offline; three
+additional profiles remain unavailable. The Windows symlink test remains skipped
+because this session cannot create symlinks. These skips do not establish native
+coverage.
+
+[Current development evidence](skills/thinkcell-edit/references/native-development-evidence.json)
+records bounded native installed-template creation, authentic legend/range/cap
+insertion, supported scatter trendline insertion, guarded ordinary-object assembly
+and Excel-link workflows. New persistent links passed B2 10 to 15 to 20 refresh;
+unequal shorter/longer Unicode paths and two independent linked-carrier refresh
+controls passed identity/model/datasheet/cache and source/workbook preservation.
+See [persistent refresh](skills/thinkcell-edit/references/persistent-link-evidence.json),
+[expanded link controls](skills/thinkcell-edit/references/expanded-links-evidence.json)
+and [legend insertion](skills/thinkcell-edit/references/legend-insertion-evidence.json).
+
+[Nonlinear controls](skills/thinkcell-edit/references/nonlinear-insertion-evidence.json)
+record native exponential/logarithmic and polynomial degree2/3/4 baseline/repeat
+controls, including fit-dependent forecast clipping against independent reference
+fits. Coefficients are fitted references, not serialized native fields; clipping
+plus visual shape supplies bounded evidence, not an exact curve-point or general
+engine certificate. Operation-specific domains, rank/conditioning and axis guards
+remain required.
+
+Automatic Gantt dependency reflow remains unverified: a pristine date update
+reached native model and XLSB, while a rejected guessed scalar binding blocked the
+update. The public adapter ships native inspection and experimental authentic
+range-anchor preparation only. See [Gantt controls](skills/thinkcell-edit/references/gantt-dependency-evidence.json).
+No guessed scalar schema or arbitrary donor-independent constructor is shipped.
+Area legend insertion remains rejected; broader untested chart profiles remain
+outside proof. Installed-template output inherited thousands scaling and needs
+label revision before client use. Proprietary sources, templates, renders and
+private paths remain outside this distribution.
+
+The 0.4.1 and earlier sections below are historical records. Their statements
+about then-unimplemented links, paths and assembly describe those earlier
+profiles; current bounded routes and limitations are maintained in the
+[capability matrix](skills/thinkcell-edit/references/capability-matrix.md).
+
+# Development validation for 0.4.1+codex.20261006matrix
+
+Verified October 6, 2026 with Python 3.12.14 and the declared dependencies.
+The expanded runner executed 181 unit tests: 180 passed and one symlink test
+was skipped because this Windows session could not create symlinks. The
+standalone relationship allocator regression passed. Two supplied historical
+fixture profiles passed offline; three additional fixture profiles were
+unavailable and are reported as explicit skips.
+
+Current native controls passed for taskbar dates/geometry, triangle milestone
+dates/geometry, authentic error-bar same/changed data, one existing Excel link
+through the batch wrapper, and a two-slide complete-source sequence. Saved
+readback, source and sibling preservation, and rendered visual review passed.
+The error-bar gate also rejected tampered direction, cache-index and category
+position artifacts. See the sanitized [current native evidence](skills/thinkcell-edit/references/current-native-evidence.json).
+Proprietary presentations, workbooks, renders and private source paths remain
+outside the public package.
+
+The code adds executable capability discovery, selected-chart geometry commands,
+independent Gantt/error-bar readback, staged batch rebinding and complete source
+sequencing. It repairs overlapping date replacement, duplicate physical tags,
+source/output/report alias handling, label-plan overwrites, feature schemas,
+error-bar semantics and legend/trendline retention guards. Independent review
+found no unresolved blockers after those repairs.
+
+[Capability workflows](skills/thinkcell-edit/references/capability-workflows.md)
+distinguishes preparation from native delivery. Dependency reflow, arbitrary
+chart/feature creation, new links and arbitrary-length path rebinding remain
+research requirements. Multi-link native batches, surrogate-path native
+controls and general object-editing assembly are not newly certified.
+Historical evidence hashes below are retained as records of the implementations
+and profiles tested then. They do not certify every revised or unrelated route.
+
+The repository includes a Windows portable-validation workflow for release
+hashes, local documentation links, registry routes and portable regressions.
+It does not execute Office or claim native certification.
+
 # Build verification for 0.4.0+codex.20260930astra
 
 Verified October 5, 2026. All 91 portable tests passed with Python 3.12 and the declared dependencies. This build synchronizes the plugin version and skill display label, clarifies routing between dedicated chart skills, and repairs a skill-local percentage-conversion documentation link. Chart runtime scripts match the prior GitHub main branch.
@@ -75,4 +209,9 @@ python -m unittest discover -s tests -v
 
 Recorded runtime: Windows, PowerPoint 16.0.20228.20186, installed think-cell 14.0.38.764, Python 3.12.14. The installed file version does not independently prove which DLL an already-running Office process loaded.
 
-Not implemented: arbitrary chart generation from scratch, changing category/series/point counts, geometry outside the bounded donor route, adding/removing chart annotations or scale breaks, Gantt data changes, percent-input Mekko, mixed absolute/percentage pie inputs, persistent external-link updates, or atomic coauthoring conflict protection. Native reopen is distinct from manually double-clicking every datasheet in the UI. These limits appear in the skill and capability guide.
+At the September 15 validation date, count changes, feature insertion, Gantt
+data changes and persistent link updates were outside that release's implemented
+scope. Later bounded adapters are recorded in the current capability matrix.
+Arbitrary chart construction, unrestricted feature/layout changes and atomic
+coauthoring protection remain outside the package's demonstrated scope. Native
+reopen is distinct from manually double-clicking every datasheet in the UI.

@@ -1,0 +1,151 @@
+{
+  "schema": "tc.gantt-endpoint-evidence.v1",
+  "validation_date_local": "2026-10-06",
+  "status": "BOUNDED_INVOKED_ADAPTER_NATIVE_CONTROLS_PASS",
+  "profile": {
+    "schema": "38790 native Gantt",
+    "visible_taskbars": 4,
+    "stable_taskbar_guid_selection": true,
+    "timeline": [
+      "2025-01-01",
+      "2025-06-25"
+    ],
+    "includes_weekends": true,
+    "five_day_week": false,
+    "datasheet": "authenticated empty Sheet1, unbound from taskbars"
+  },
+  "contract": "Explicit adapter updates predecessor end and successor start to the requested equal date, retaining genuine reciprocal finish/start RangeItemAnchor graph",
+  "controls": {
+    "clean-initial": {
+      "status": "ADAPTER_ENDPOINT_NATIVE_PASS",
+      "parent_dates": [
+        "2025-05-07T00:00:00",
+        "2025-05-21T00:00:00"
+      ],
+      "child_dates": [
+        "2025-05-21T00:00:00",
+        "2025-06-25T00:00:00"
+      ],
+      "checks": {
+        "native_consistent": true,
+        "all_bar_guid_identities_preserved": true,
+        "all_exact_native_dates_match_request": true,
+        "all_bar_visibility_preserved": true,
+        "all_bar_native_rects_preserved": true,
+        "all_bar_physical_transforms_preserved": true,
+        "native_fs_graph_reciprocal": true,
+        "all_anchor_semantics_preserved": true,
+        "exact_endpoint_date_equality": true,
+        "model_endpoint_geometry_equal": true,
+        "physical_endpoint_geometry_equal": true,
+        "scalar_dates_unchanged": true,
+        "unrelated_datasheet_stream_hashes_equal": true
+      },
+      "prepared_sha256": "e3605a8674233975cc9e93d2b65900ee95722e1ae4badbbaf1690a0019539065",
+      "native_saved_sha256": "4be2b8769aa3cf2edacfcab2005189d92a643dd548724cfcbe9aae3830d4335e",
+      "native_bar_count": 4,
+      "datasheet_is_unbound_from_taskbars": true,
+      "geometry_tolerance": {
+        "native_model_units": 1,
+        "physical_emu": 2
+      },
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true
+    },
+    "clean-shift1": {
+      "status": "ADAPTER_ENDPOINT_NATIVE_PASS",
+      "parent_dates": [
+        "2025-05-07T00:00:00",
+        "2025-05-28T00:00:00"
+      ],
+      "child_dates": [
+        "2025-05-28T00:00:00",
+        "2025-06-25T00:00:00"
+      ],
+      "checks": {
+        "native_consistent": true,
+        "all_bar_guid_identities_preserved": true,
+        "all_exact_native_dates_match_request": true,
+        "all_bar_visibility_preserved": true,
+        "all_bar_native_rects_preserved": true,
+        "all_bar_physical_transforms_preserved": true,
+        "native_fs_graph_reciprocal": true,
+        "all_anchor_semantics_preserved": true,
+        "exact_endpoint_date_equality": true,
+        "model_endpoint_geometry_equal": true,
+        "physical_endpoint_geometry_equal": true,
+        "scalar_dates_unchanged": true,
+        "unrelated_datasheet_stream_hashes_equal": true
+      },
+      "prepared_sha256": "2632aaf9b3e31a68fa0759aea5a72265a19512c041bd30d04eee9cca57786316",
+      "native_saved_sha256": "9693b3c6b95e39af0fa46caad215f46c6e258e3865c40d5823c70c044eb937e4",
+      "native_bar_count": 4,
+      "datasheet_is_unbound_from_taskbars": true,
+      "geometry_tolerance": {
+        "native_model_units": 1,
+        "physical_emu": 2
+      },
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true
+    },
+    "clean-shift2": {
+      "status": "ADAPTER_ENDPOINT_NATIVE_PASS",
+      "parent_dates": [
+        "2025-05-07T00:00:00",
+        "2025-06-04T00:00:00"
+      ],
+      "child_dates": [
+        "2025-06-04T00:00:00",
+        "2025-06-25T00:00:00"
+      ],
+      "checks": {
+        "native_consistent": true,
+        "all_bar_guid_identities_preserved": true,
+        "all_exact_native_dates_match_request": true,
+        "all_bar_visibility_preserved": true,
+        "all_bar_native_rects_preserved": true,
+        "all_bar_physical_transforms_preserved": true,
+        "native_fs_graph_reciprocal": true,
+        "all_anchor_semantics_preserved": true,
+        "exact_endpoint_date_equality": true,
+        "model_endpoint_geometry_equal": true,
+        "physical_endpoint_geometry_equal": true,
+        "scalar_dates_unchanged": true,
+        "unrelated_datasheet_stream_hashes_equal": true
+      },
+      "prepared_sha256": "cd249222bc51f08ac945e5cba43058ef8b8ec2210d061237dce31ce8c3db48a1",
+      "native_saved_sha256": "3d4d1d0fa4b4ce1f05487279c80a8250d6e40f78291e5f0054d5313bd6383a07",
+      "native_bar_count": 4,
+      "datasheet_is_unbound_from_taskbars": true,
+      "geometry_tolerance": {
+        "native_model_units": 1,
+        "physical_emu": 2
+      },
+      "native_save_reopen_pass": true,
+      "source_preserved": true,
+      "unrelated_open_presentation_state_preserved": true
+    }
+  },
+  "visual_review": {
+    "current_native_previews_reviewed": true,
+    "result": "PASS",
+    "inherited_vendor_instruction_box_partly_off_slide": true,
+    "private_renders_bundled": false
+  },
+  "limits": [
+    "Automatic engine date/dependency reflow and native ScalarAnchor binding remain unverified",
+    "Explicit end/start equality does not preserve either task duration",
+    "No lag scheduling, arbitrary dependency graph, or donor-independent authoring is claimed",
+    "Hidden historical donor items were removed only in separate declared donor preparation; the public endpoint updater does not delete taskbars",
+    "Only the recorded seven-day fixed-timeline four-visible-bar current-schema profile is covered",
+    "Private paths, unrelated presentation identities and proprietary artifacts are excluded"
+  ],
+  "separate_donor_preparation": {
+    "status": "PASS",
+    "native_saved_sha256": "8f205a47652e3132a8fe5b3d27d524304431084008407566fbf1d4dc6a84d52f",
+    "all_recorded_checks_passed": true,
+    "taskbar_deletion_is_public_update_operation": false
+  }
+}

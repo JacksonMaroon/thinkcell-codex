@@ -1,0 +1,139 @@
+{
+  "schema": "tc.direct-construction-audit.v1",
+  "validation_date_local": "2026-10-06",
+  "status": "DIRECT_CONSTRUCTOR_UNAUTHENTICATED",
+  "installed_runtime_version": "14.0.38.790",
+  "official_sources": [
+    {
+      "title": "thinkcell API reference",
+      "url": "https://www.think-cell.com/en/resources/manual/api",
+      "observed": "Lists template/data automation, style and Mekko import functions; calls late-bound without type library; no arbitrary native constructor listed"
+    },
+    {
+      "title": "Import Mekko Graphics charts",
+      "url": "https://www.think-cell.com/en/resources/manual/import-mekko-graphics",
+      "observed": "Imports existing Mekko PowerPoint shapes; extracts their XML; does not document arbitrary data/XML authoring constructor"
+    }
+  ],
+  "read_only_dispatch_probe": {
+    "read_only": true,
+    "methods_invoked": [],
+    "addin_connected": true,
+    "name_resolution": [
+      {
+        "name": "LoadStyle",
+        "hresult": "00000000",
+        "dispid": 1020,
+        "resolved": true
+      },
+      {
+        "name": "GetStyleName",
+        "hresult": "00000000",
+        "dispid": 1029,
+        "resolved": true
+      },
+      {
+        "name": "RemoveStyles",
+        "hresult": "00000000",
+        "dispid": 1022,
+        "resolved": true
+      },
+      {
+        "name": "ImportMekkoGraphicsCharts",
+        "hresult": "00000000",
+        "dispid": 1027,
+        "resolved": true
+      },
+      {
+        "name": "GetMekkoGraphicsXML",
+        "hresult": "00000000",
+        "dispid": 1026,
+        "resolved": true
+      },
+      {
+        "name": "CreateChart",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      },
+      {
+        "name": "InsertChart",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      },
+      {
+        "name": "AddChart",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      },
+      {
+        "name": "CreateElement",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      },
+      {
+        "name": "InsertElement",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      },
+      {
+        "name": "Insert",
+        "hresult": "80020006",
+        "dispid": -1,
+        "resolved": false
+      }
+    ],
+    "evidence_limit": "A resolved name alone does not authenticate arguments or native construction behavior"
+  },
+  "installed_binary_observations": [
+    {
+      "architecture": "PE32",
+      "sha256": "3E6AC47EDCDB6241F4B39F482CB82FFFEB0098248560AE3088348B8A919D4A9F",
+      "export_names": [
+        "DllCanUnloadNow",
+        "DllGetClassObject"
+      ]
+    },
+    {
+      "architecture": "PE32+",
+      "sha256": "711065764AB4362F0957CF72E5B7C2AE13E45C5564A853B80021BFAB82CD6064",
+      "export_names": [
+        "DllCanUnloadNow",
+        "DllGetClassObject"
+      ]
+    }
+  ],
+  "schema_observation": {
+    "files": 9,
+    "names": [
+      "dml-chart.xsd",
+      "dml-chartDrawing.xsd",
+      "dml-diagram.xsd",
+      "dml-lockedCanvas.xsd",
+      "dml-main.xsd",
+      "dml-picture.xsd",
+      "shared-commonSimpleTypes.xsd",
+      "shared-relationshipReference.xsd",
+      "tcstyle.xsd"
+    ],
+    "finding": "No native authoring schema identified in inspected installed schema directory"
+  },
+  "limits": [
+    "Unknown-name results authenticate only six exact tested names on this runtime; not absence of every internal method",
+    "Resolved documented names authenticate name resolution, not argument contracts or execution",
+    "PE exports cannot enumerate late-bound COM functions",
+    "No donor-independent construction, native result, data parity or visual success is claimed",
+    "Installed-template generation remains explicitly template-derived"
+  ],
+  "candidate_dispatcher": {
+    "status": "DIRECT_CONSTRUCTOR_UNAUTHENTICATED",
+    "chart_created": false,
+    "fallback_performed": false,
+    "regression_controls_passed": 5,
+    "publicly_shipped": false
+  }
+}
