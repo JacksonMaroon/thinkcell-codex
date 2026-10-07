@@ -13,6 +13,15 @@ When a dedicated organization or client chart skill is available, follow the sel
 
 ## Choose the route
 
+Use `python scripts/thinkcell.py capabilities` to discover every recorded
+capability and its packaged route, validation requirements and remaining limits.
+Use `--id <capability-id>` for one exact operation. The command is read-only;
+route availability does not certify the local native runtime. Follow
+[capability workflows](references/capability-workflows.md) for explicit adapter
+dispatch, selected-chart geometry, Gantt readback, batch link rebinding and
+complete source-slide sequencing. Preparation helpers still require their
+operation-specific regeneration, native reopen and visual checks.
+
 For a chart added to a finished slide that contains no think-cell content, read [existing-slide.md](references/existing-slide.md). Follow explicit user guidance and infer only the missing chart/layout choices from the slide and supplied data. The experimental route uses native donor composition, exclusive plot/legend anchors and preservation checks. It creates a new one-slide copy.
 
 For a new chart, use `create` to copy an authorized native donor slide matching the chart type, layout and desired features. Optionally load a user-supplied style file for new-element defaults. Then follow the data-update path below. Read [creation-and-features.md](references/creation-and-features.md) for creation, styling, or features beyond data. Never equate a slide clone with generating an arbitrary chart from scratch.

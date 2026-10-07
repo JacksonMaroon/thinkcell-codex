@@ -1,0 +1,809 @@
+{
+  "schema": "tc.capabilities.v1",
+  "native_evidence_policy": "Registry path checks and portable tests establish packaged availability and guard behavior only. Historical native claims remain profile-specific. A prepared candidate is not a deliverable.",
+  "capabilities": [
+    {
+      "id": "multi-chart-update",
+      "title": "Existing ordinary sequence charts, several on one slide",
+      "status": "bounded_native",
+      "scope": "Supported through `multi_chart_update.py` when every chart is explicitly targeted. Requires `ALL_GATES_PASS`.",
+      "route": {
+        "script": "multi_chart_update.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "mixed-waterfall-update",
+      "title": "One fixed-topology waterfall plus ordinary sequence siblings",
+      "status": "bounded_native",
+      "scope": "Supported for explicit all-chart updates. The waterfall keeps its slot dimensions, equals cells, connectors and grounds; ordinary siblings receive model/datasheet parity checks. Requires `ALL_GATES_PASS`.",
+      "route": {
+        "script": "multi_chart_update.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "sequence-count-change",
+      "title": "Category/series changes on a simple ordinary sequence datasheet",
+      "status": "bounded_native",
+      "scope": "Supported only with `allow_sequence_count_change`; four series by three categories passed. Other layouts remain untested.",
+      "route": {
+        "script": "multi_chart_update.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "explicit-denominators",
+      "title": "Explicit `100%=` denominators",
+      "status": "bounded_native",
+      "scope": "Supported in the multi-chart ordinary-sequence contract. Positive supplied denominators must equal `category_extents`; blank cells mean calculated totals.",
+      "route": {
+        "script": "multi_chart_update.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "sequence-composition",
+      "title": "Compose one ordinary sequence donor into a receiver with N sequence charts",
+      "status": "bounded_native",
+      "scope": "Supported through `compose_sequence_charts.py --execute` only with matching model version/theme/dimensions and internal datasheets. Requires `ALL_GATES_PASS`; bar plus stacked column, three charts, duplicate donor, and portable pipeline passed. One fixed-topology waterfall plus two ordinary charts also passed the full native composition pipeline.",
+      "route": {
+        "script": "compose_sequence_charts.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "composition-identities",
+      "title": "Native composition identity",
+      "status": "bounded_native",
+      "scope": "Supported only when every native GUID and hidden shape name is unique before and after generation. The all-chart gate rejects a duplicate registry key and withholds the output.",
+      "route": {
+        "script": "compose_sequence_charts.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "chart-geometry",
+      "title": "Translate or set exact plot bounds for a selected chart in a multi-chart slide",
+      "status": "prepare_only",
+      "scope": "Supported by the exclusive-coordinate geometry adapter after official regeneration and native verification. Selected chart and attributable detached legend only.",
+      "route": {
+        "script": "chart_geometry_cli.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "primary-axis",
+      "title": "Primary value-axis range",
+      "status": "prepare_only",
+      "scope": "Supported through `axis_range.py` only for a selected, exclusive ordinary absolute sequence-chart axis with zero minimum, no break or secondary axis, nonnegative values, and a maximum that covers plotted data. Native gates passed at 12/2 and 40/10.",
+      "route": {
+        "script": "axis_range.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "broken-axis-update",
+      "title": "Existing one-break sequence donor",
+      "status": "bounded_native",
+      "scope": "`broken_axis_update.py` preserves one native break/two break shapes and checks exact model/datasheet values through successive native updates. Known vendor cache/model normalization only.",
+      "route": {
+        "script": "broken_axis_update.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "break-position",
+      "title": "Existing native break position",
+      "status": "prepare_only",
+      "scope": "`axis_break_position.py` edits one existing fraction, regenerates and verifies real native geometry. Same-data 0.2/0.8 and a subsequent changed-data 0.2 update passed. Insertion is a separate operation.",
+      "route": {
+        "script": "axis_break_position.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "break-insertion",
+      "title": "New native axis break, bounded clustered-column profile",
+      "status": "bounded_native",
+      "scope": "`run_native_axis_break_insert.py` adds a break to an existing no-break chart on a copy. Verified model 38764, one internal chart, 3 series by 4 categories, one outlier crossing one gap, 20% break fraction. Native generation, reopen, exact data and independent review passed; a 90-to-120 update retained the break. Use `--mode repeat` for this one-shape result, not the older two-shape donor wrapper. See [new-axis-break.md](new-axis-break.md).",
+      "route": {
+        "script": "run_native_axis_break_insert.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "multi-slide-assembly",
+      "title": "Native multi-slide assembly",
+      "status": "historical_only",
+      "scope": "Official template sequencing, explicit ordinary-object plans, saved source geometry/label/font/data/dependency checks. Three-slide repeat produced identical previews. A second three-slide fixture with changed data, custom colors and two charts on one slide also passed native assembly checks.",
+      "route": null,
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Historical evidence exists, but this public package has no complete standalone execution adapter for this operation"
+    },
+    {
+      "id": "annotation-preservation",
+      "title": "Existing annotations",
+      "status": "preservation_only",
+      "scope": "Regeneration can retain donor annotations; review their meaning and fit after every data change.",
+      "route": {
+        "script": "thinkcell.py",
+        "arguments": [
+          "update"
+        ],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "native-percentage-labels",
+      "title": "Native direct percentage labels, preferred existing/donor route",
+      "status": "bounded_native",
+      "scope": "`update` automatically verifies direct percentage-label preservation. `create --native-percent --data-json` copies and populates a single native percentage donor in one operation. All nine labels passed native save/reopen and a second data change in the tested 3-series/3-category 100% stacked-column profile. No wrapper characters. See [native percentage labels](native-percentage-labels.md).",
+      "route": {
+        "script": "thinkcell.py",
+        "arguments": [
+          "create"
+        ],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "absolute-to-percent",
+      "title": "Existing absolute segment labels to bare dynamic percentages",
+      "status": "bounded_native",
+      "scope": "`thinkcell.py convert-percent` converts one label or all nine labels in the guarded 3x3 absolute stacked-column profile. Own relative-source fields, unchanged native axis/plot, no wrapper characters. All-nine 63%/74%/57% changed-data controls passed native save/reopen and field gates. See [conversion scope and usage](native-percentage-labels.md#convert-an-existing-absolute-label-chart).",
+      "route": {
+        "script": "thinkcell.py",
+        "arguments": [
+          "convert-percent"
+        ],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "percentage-only-label",
+      "title": "Native percentage-only conversion, selected donor label",
+      "status": "bounded_native",
+      "scope": "`run_percent_only_parentheses.py` removes the absolute field from the documented stacked percent-axis donor's Low risk / Gross Profit dual label. Retains genuine relative field and parentheses; 25/200, 30/200 and 25/250 native controls passed. The packaged parameterized conversion also passed. The baseline zero-decimal route remains valid; `percent_labels` also supports semantic selection and verified one-decimal parentheses controls. See [percent-only.md](percent-only.md) and [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "run_percent_only_parentheses.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "bare-wrapper-label",
+      "title": "Bare percentage display, bounded zero-width wrapper route",
+      "status": "prepare_only",
+      "scope": "`percent_labels/prepare_bare_display_candidate.py` starts from the native parenthesized relative field and replaces only its physical wrapper runs with U+200B. Native 25/200 and 25/250 controls passed the strict per-label grader with one relative field, exact ratios, visible bare labels and sibling preservation. The grader must explicitly allow and check the raw U+200B prefix/suffix; a broader 12-label control exposed one stale label and is excluded. Prefer direct native labels when available; retain the parenthesized route for its supported field-backed configurations. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "percent_labels/prepare_bare_display_candidate.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "cagr-insertion",
+      "title": "New dynamic CAGR annotation, bounded column donor",
+      "status": "prepare_only",
+      "scope": "`experimental_cagr/insert_native_cagr.py` plus `native_cagr_gate.py` adds a complete second native annotation on the model-38764, one-series/eight-category internal column donor. Separate graph, two native arrows and numeric percent field; 8.3% to 11.2% value control and 5.4% date control passed regeneration/reopen. Requires `NATIVE_DYNAMIC_CAGR_GATES_PASS`. Same source/sink categories 1 and 7; January-1 dates and positive values only. See [new-cagr.md](new-cagr.md).",
+      "route": {
+        "script": "experimental_cagr/insert_native_cagr.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "native-font-size",
+      "title": "Existing tagged native text font size",
+      "status": "bounded_native",
+      "scope": "Supported through experimental `feature_api.py` as one non-null 1\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u015372 point size across tagged native text fields on a one-slide copy. Every chart must be explicit, then complete baseline regeneration, native verification, and retention readback must pass. A 9-point multi-chart font change survived changed data.",
+      "route": {
+        "script": "feature_api.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "total-precision",
+      "title": "Numeric total decimal places",
+      "status": "prepare_only",
+      "scope": "`total_label_precision.py` and feature kind `total_label_precision`; one chart/category/scalar group, 0\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u01533 decimal places, synchronized model/field formatting and exact selected dynamic-field readback. Same data 39.2 displayed as 39.20; a later data change independently recomputed 40.30. Both passed native reopen.",
+      "route": {
+        "script": "total_label_precision.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "series-fills",
+      "title": "Series RGB fills on ordinary bar/column and stacked 100%-column donors",
+      "status": "bounded_native",
+      "scope": "Supported through `feature_pipeline.py`: guarded native datasheet-fill enable, official JSON fill attributes, exact mapping readback, native reopen and preview. Four requested colors survived changed categories and totals. Direct Chart API recoloring remains unsupported.",
+      "route": {
+        "script": "feature_pipeline.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "point-fills",
+      "title": "Point RGB overrides",
+      "status": "bounded_native",
+      "scope": "One point override on the tested 100%-column donor passed official regeneration, changed data and native reopen while retaining other series colors. Broader point topologies require their own proof.",
+      "route": {
+        "script": "feature_pipeline.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "secondary-axis",
+      "title": "Secondary value-axis range",
+      "status": "prepare_only",
+      "scope": "`axis_range_secondary.py` discovers the selected secondary axis and series. Same and changed data passed at 0\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153150 / 25; primary axis retained. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "axis_range_secondary.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "line-colors",
+      "title": "Line series RGB colors",
+      "status": "bounded_native",
+      "scope": "`line_style_production.py` retains requested line colors through changed values and native reopen. The installed wrapper integration passed.",
+      "route": {
+        "script": "line_style_production.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "scalar-label-format",
+      "title": "Semantic scalar label format",
+      "status": "prepare_only",
+      "scope": "`native_label_controls.py` synchronizes the native numeric variable and its physical field. `$38.6m` \u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u2122 `$40.0m` \u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u2122 `$42.3m`, one decimal and 10-point bold styling passed, retaining the separate percentage field.",
+      "route": {
+        "script": "native_label_controls.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "cagr-endpoints",
+      "title": "Additional CAGR endpoints and midyear dates",
+      "status": "bounded_native",
+      "scope": "`cagr_endpoints/run_endpoint_expansion.py` discovers scalar endpoints and clones the annotation closure. 0\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u21226 value controls and a 6.5-year January-to-July date control passed; existing 1\u00c3\u00a2\u00e2\u20ac\u00a0\u00e2\u20ac\u21227 evidence remains valid. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "cagr_endpoints/run_endpoint_expansion.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "cagr-import",
+      "title": "CAGR import to a chart without a native CAGR",
+      "status": "prepare_only",
+      "scope": "`cagr_import/run_import_cagr.py` prepares the complete native closure. The clean one-series target passed changed data, one graph, 5.6% readback and native reopen. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "cagr_import/run_import_cagr.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "line-cagr-import",
+      "title": "CAGR import to a clean line chart, selected scalar series",
+      "status": "prepare_only",
+      "scope": "`cagr_import/portable_line_family_cagr.py` selects target and donor charts by semantic names, verifies the target's actual chart part is a line chart, and supports scalar endpoints with an optional explicit series index/name and required donor digest. Packaged v4 matches the natively proven v3 candidate semantically; base/changed CAGR readback passed. Aggregate totals and other chart families remain out of scope. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "cagr_import/portable_line_family_cagr.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "office-coordination",
+      "title": "Shared Office execution",
+      "status": "coordination",
+      "scope": "Cross-process lock with nested-operation support, child tracking and timeout quarantine. Parallel preparation remains available.",
+      "route": null,
+      "validation": [
+        "Shared Office lock, child tracking, timeout quarantine and checked recovery"
+      ],
+      "limitations": "Utility provided by office_operation_lock.py; no chart mutation is exposed through this registry entry"
+    },
+    {
+      "id": "gantt-taskbar",
+      "title": "Gantt taskbar dates and position",
+      "status": "prepare_only",
+      "scope": "`gantt/run_paired_gantt_edit.py` derives positions from native weekly calendar dates and updates both model and visible taskbar. Native reopen and repeated-date controls passed. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "gantt/run_paired_gantt_edit.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "gantt-milestone",
+      "title": "Gantt milestone date and marker position, bounded triangle donor",
+      "status": "prepare_only",
+      "scope": "`gantt/run_milestone_edit.py` selects one existing typed milestone by date and style, then updates the native date, model marker rectangle and bound visible marker. Candidate 4 passed native reopen, exact target date/bounds/marker tag and center movement, while preserving the other milestone, all taskbars and existing shapes. This route does not add milestones, reflow dependencies or support arbitrary marker styles. See [expanded controls](expanded-features.md) and the evidence manifest.",
+      "route": {
+        "script": "gantt/run_milestone_edit.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "waterfall-structure",
+      "title": "Waterfall step, subtotal and series additions",
+      "status": "prepare_only",
+      "scope": "`structure_plans` prepares canonical plans and expected topology. Official generation and changed-data native controls passed. See [specialized charts](specialized-charts.md).",
+      "route": {
+        "script": "structure_plans/build_structure_plan.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "mekko-structure",
+      "title": "Mekko category additions and width edits",
+      "status": "prepare_only",
+      "scope": "`structure_plans` preserves percent-width totals or independent units widths. Both chart types passed changed-data native readback and visual review.",
+      "route": {
+        "script": "structure_plans/build_structure_plan.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "multiple-breaks",
+      "title": "Multiple existing native breaks",
+      "status": "bounded_native",
+      "scope": "`multi_breaks/run_multi_break_repeat.py` retained two break owners and category bindings through changed data with recalculated automatic gaps. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "multi_breaks/run_multi_break_repeat.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "series-connector",
+      "title": "New native series connector",
+      "status": "prepare_only",
+      "scope": "`series_connector_adapter.py` imports a semantically selected connector and physical binding. Changed-data native readback and mathematically checked interior-boundary movement passed, preserving the pre-existing connector.",
+      "route": {
+        "script": "series_connector_adapter.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "excel-link-auto-update",
+      "title": "Existing Excel link auto-update",
+      "status": "historical_only",
+      "scope": "A disposable linked chart updated a number and series name while retaining link identity through native save/reopen. See [external link evidence](external-link-evidence.md). This evidence does not expose a general new-link creation adapter.",
+      "route": null,
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Historical evidence exists, but this public package has no complete standalone execution adapter for this operation"
+    },
+    {
+      "id": "excel-link-rebind",
+      "title": "Existing linked Excel workbook rebind",
+      "status": "prepare_only",
+      "scope": "`external_links/portable_rebind.py` discovers exactly one existing external carrier and replaces only its UTF-16 workbook path, with optional GUID, link-ID, range-name, workbook-hash and named-range guards. Offline v6 proof passed one changed OLE part, identity/range preservation and source/target readback; native canary passed 31 targeted checks. Equal UTF-16 byte length is required. New-link creation and arbitrary length changes remain unsupported. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "external_links/portable_rebind.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "errorbar-donor",
+      "title": "Authentic native error-bar donor update",
+      "status": "prepare_only",
+      "scope": "`errorbars/reusable_errorbar_route.py` selects an existing Min/Max/Marker donor by explicit slide and shape selector, verifies one native `CSequenceChartSeriesRange` plus the signed custom extent carrier, and prepares a fresh named copy. Native same-data and changed-data controls passed with Marker fixed and Min/Max movement; changed visual axis is 0\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u015311. Clean-line insertion and new cap styling remain outside the tested scope. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "errorbars/reusable_errorbar_route.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "legend-translation",
+      "title": "Existing native legend translation",
+      "status": "prepare_only",
+      "scope": "`legend_controls/legend_high_adapter.py` and its portable metric core move an existing tagged legend through native model and physical bounds, preserving the chart carrier and rejecting ambiguous grouped constraints. Normalized native baseline, translated same-data and changed-data controls, and portable semantic identity all passed. New legend creation remains outside the tested scope. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "legend_controls/legend_high_adapter.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "scatter-trendline",
+      "title": "Official scatter trendline donor update",
+      "status": "prepare_only",
+      "scope": "`trendline/portable_trendline_implementation.py` selects an explicit scatter chart by slide and physical tag, preserves the two existing visible linear partitions and their native closures, and prepares a fresh package. Native baseline/changed-data reopen and independent regression-shift grading passed, including sibling embedding preservation. Use explicit source, tag and output paths; other trendline types and insertion into a clean chart remain outside the tested scope. See [expanded controls](expanded-features.md).",
+      "route": {
+        "script": "trendline/portable_trendline_implementation.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact selected source and selectors; preserve sources and siblings",
+        "Operation-specific model and datasheet or linked-workbook readback",
+        "Native save/reopen and rendered semantic review before delivering a chart"
+      ],
+      "limitations": "Only the documented donor/model/topology profile is covered; preparation and portable checks do not renew historical native certification"
+    },
+    {
+      "id": "uncovered-native-structures",
+      "title": "Gantt automatic reflow/dependencies, arbitrary feature insertion, unknown external-link structures",
+      "status": "research",
+      "scope": "Research remains incomplete. The link guard prevents silent detachment.",
+      "route": null,
+      "validation": [
+        "Discover an authentic compatible native structure",
+        "Implement a coherent model/physical-shape adapter",
+        "Pass regeneration, native reopen, changed-data and preservation controls before promotion"
+      ],
+      "limitations": "Gantt dependency reflow, arbitrary feature insertion and unknown external-link structures need new native evidence and adapters"
+    },
+    {
+      "id": "gantt-dependency-reflow",
+      "title": "Gantt dependency creation and automatic reflow",
+      "status": "research",
+      "scope": "Inspected vendor Gantt carriers do not expose an identified dependency/link record; taskbar edits do not reflow dependencies",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Inspected vendor Gantt carriers do not expose an identified dependency/link record; taskbar edits do not reflow dependencies"
+    },
+    {
+      "id": "new-excel-link",
+      "title": "New persistent Excel link creation",
+      "status": "research",
+      "scope": "No supported creation adapter is shipped; UpdateBatch may break existing Excel links and cannot substitute for link preservation",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "No supported creation adapter is shipped; UpdateBatch may break existing Excel links and cannot substitute for link preservation"
+    },
+    {
+      "id": "variable-length-link-rebind",
+      "title": "Arbitrary-length workbook path rebinding",
+      "status": "research",
+      "scope": "Only equal UTF-16 byte-length moniker substitutions are verified; binary layout changes need new native controls",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Only equal UTF-16 byte-length moniker substitutions are verified; binary layout changes need new native controls"
+    },
+    {
+      "id": "new-legend",
+      "title": "New native legend creation",
+      "status": "research",
+      "scope": "Translation of an existing legend does not prove creation of a new native legend",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Translation of an existing legend does not prove creation of a new native legend"
+    },
+    {
+      "id": "clean-errorbar-insertion",
+      "title": "Error-bar insertion into a clean chart",
+      "status": "research",
+      "scope": "Authentic Min/Max/Marker donor updates do not prove insertion or new cap styling",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Authentic Min/Max/Marker donor updates do not prove insertion or new cap styling"
+    },
+    {
+      "id": "clean-trendline-insertion",
+      "title": "Trendline insertion into a clean chart",
+      "status": "research",
+      "scope": "Existing linear scatter partitions do not prove new trendline creation or other trendline families",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Existing linear scatter partitions do not prove new trendline creation or other trendline families"
+    },
+    {
+      "id": "arbitrary-chart-construction",
+      "title": "Arbitrary native chart construction",
+      "status": "research",
+      "scope": "Chart creation is donor-based; no arbitrary chart authoring API is implemented",
+      "route": null,
+      "validation": [
+        "Authentic native donor or documented API contract",
+        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+      ],
+      "limitations": "Chart creation is donor-based; no arbitrary chart authoring API is implemented"
+    },
+    {
+      "id": "excel-link-batch-rebind",
+      "title": "Batch existing linked-workbook rebinding",
+      "status": "prepare_only",
+      "scope": "Stage multiple uniquely selected linked carriers with individual workbook hashes and identity guards; publish only when every request and sealed input passes",
+      "route": {
+        "script": "external_links/batch_rebind.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Strict workbook moniker and defined-name identity",
+        "Exact changed carrier set and sealed input readback",
+        "Native save/reopen and link identity/readback before delivery"
+      ],
+      "limitations": "Equal UTF-16 byte length only; portable batch tests do not certify native multi-link updates or arbitrary-length/new-link creation"
+    },
+    {
+      "id": "source-slide-sequence",
+      "title": "Complete source-slide sequencing",
+      "status": "bounded_native",
+      "scope": "Sequence complete one-slide PPTX sources through official generation; exact full physical/native/dependency preservation and native reopen required",
+      "route": {
+        "script": "assemble_native_slides.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Source and manifest SHA-256 guards; task-owned generation clones",
+        "Exact slide/order/full native model, data, physical content, notes, theme/layout and dependency readback before and after native reopen",
+        "All-slide visual review and source/other-presentation preservation"
+      ],
+      "limitations": "Identical slide dimensions, internal dependencies and complete existing source content only; ordinary-object editing and unsupported vendor normalization are not included"
+    }
+  ]
+}

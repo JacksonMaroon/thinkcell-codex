@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
 from milestone_adapter import Package
+from portable_gantt_adapter import require_distinct_paths
 
 def sha(path: Path) -> str:
     h = hashlib.sha256()
@@ -22,6 +23,7 @@ def main() -> int:
     ap.add_argument("--milestone-id")
     ap.add_argument("--style")
     a = ap.parse_args()
+    require_distinct_paths(a.source,a.output,a.report)
     before = sha(a.source)
     if before.lower() != a.expected_sha256.lower():
         raise SystemExit("source SHA256 mismatch")
@@ -41,7 +43,8 @@ def main() -> int:
         "source_unchanged": before == sha(a.source),
         "edit": edit,
     }
-    a.report.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    with a.report.open("x", encoding="utf-8") as report_file:
+        report_file.write(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
     return 0
 

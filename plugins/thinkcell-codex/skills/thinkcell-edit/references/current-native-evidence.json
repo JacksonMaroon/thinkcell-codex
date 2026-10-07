@@ -1,0 +1,113 @@
+{
+  "schema": "tc.release-native-evidence.v1",
+  "release": "0.4.1+codex.20261006matrix",
+  "validation_date_local": "2026-10-06",
+  "controls": [
+    {
+      "operation": "gantt-bar",
+      "status": "PASS",
+      "native_output_sha256": "40c48953982782f9c402325007acd94e37a2d8405bcc67d038886afa51002ecc",
+      "readback_checks": {
+        "authored_offline_gate": true,
+        "native_model_exact": true,
+        "native_visible_slide_exact": true,
+        "native_shape_relationships_exact": true,
+        "native_all_ole_carriers_exact": true,
+        "native_part_set_exact": true,
+        "custom_xml_payload_multiset": true,
+        "custom_xml_schema_multiset": true,
+        "notes_master_only_dynamic_date": true,
+        "core_properties_only_save_metadata": true,
+        "all_other_parts_exact": true,
+        "target_dates_exact": true,
+        "target_model_bounds_exact": true,
+        "target_visible_bounds_exact": true
+      },
+      "visual_review": "PASS, selected date/shape retained and native chart remains coherent",
+      "normalization": "Only dynamic notes dates, save metadata and customXML numbering/GUIDs; payload/schema equality checked"
+    },
+    {
+      "operation": "gantt-milestone",
+      "status": "PASS",
+      "native_output_sha256": "334550d42df4cc7ee41966d71ffd51da4e34bb8e042361fbb163f5d066fda215",
+      "readback_checks": {
+        "authored_offline_gate": true,
+        "native_model_exact": true,
+        "native_visible_slide_exact": true,
+        "native_shape_relationships_exact": true,
+        "native_all_ole_carriers_exact": true,
+        "native_part_set_exact": true,
+        "custom_xml_payload_multiset": true,
+        "custom_xml_schema_multiset": true,
+        "notes_master_only_dynamic_date": true,
+        "core_properties_only_save_metadata": true,
+        "all_other_parts_exact": true,
+        "target_dates_exact": true,
+        "target_model_bounds_exact": true,
+        "target_visible_center_exact": true
+      },
+      "visual_review": "PASS, selected date/shape retained and native chart remains coherent",
+      "normalization": "Only dynamic notes dates, save metadata and customXML numbering/GUIDs; payload/schema equality checked"
+    },
+    {
+      "operation": "errorbar-donor-same-and-changed",
+      "status": "PASS",
+      "same_native_sha256": "62dd965a25ed1301cf79f3f0183c48a30393348f035f6c035da4758de92c5975",
+      "changed_native_sha256": "c2fd62233eb2ac7074347b309295a4b2fb61dab26ab11939449a9b07d02cac0a",
+      "readback": "Exact named datasheets and native caches, all seven Min/Max ranges changed, Marker values and cap retained",
+      "sibling_preservation": "10 chart caches, 19 embedding carriers and 7 slide drawings exact; relationship closure preserved",
+      "visual_review": "PASS, widened endpoints and retained numeric Marker values; axis maximum 10 to 11 rescales screen coordinates",
+      "normalization": "Equivalent Min/Max error owner and signed extent orientation accepted by exact endpoint mathematics"
+    },
+    {
+      "operation": "one-existing-link-through-batch-rebind",
+      "status": "PASS",
+      "native_output_sha256": "BA8967DE21FD50EE72A88B4D092DA3CE141985479DF543A5785E908DE97113DC",
+      "readback_checks": {
+        "identity_fields_preserved": true,
+        "moniker_payload_preserved": true,
+        "target_path_preserved": true,
+        "named_range_preserved": true,
+        "input_presentation_unchanged": true,
+        "source_workbook_unchanged": true,
+        "target_workbook_unchanged": true,
+        "prepared_candidate_unchanged": true,
+        "auto_update_remains_disabled": true
+      },
+      "identity_checks": {
+        "advisesink_idref": true,
+        "external_storage": true,
+        "range_name": true,
+        "needs_update_from_sheet_on_make_tc": true,
+        "advisesink_id": true,
+        "guid_link": true,
+        "link_id": true,
+        "auto_update": true,
+        "moniker_text": true
+      },
+      "range": "A1:C5",
+      "auto_update": false,
+      "scope": "One existing link, equal UTF-16 path length, workbook contents unchanged",
+      "not_certified": [
+        "multiple linked carriers in one batch",
+        "changed-data automatic updating",
+        "arbitrary-length path changes",
+        "new-link creation",
+        "surrogate-path native save/reopen"
+      ]
+    },
+    {
+      "operation": "complete-source-slide-sequence",
+      "status": "PASS",
+      "slide_count": 2,
+      "native_output_sha256": "238aff406b61a3e4132d72eb1a91928830a7f0a1c8f86fae23615aeb1f1c2f01",
+      "readback": "Complete slide and notes content, full native model graph/data, theme/layout, all carrier streams and dependency closures before and after native reopen and a second native saved copy",
+      "visual_review": "PASS on both slides",
+      "scope": "Complete existing source content only; no ordinary-object edits",
+      "normalization": "Verified Office creation/modification counters, notes-master dynamic datetime cache and CFB storage metadata only"
+    }
+  ],
+  "source_and_other_presentations_unchanged": true,
+  "proprietary_fixtures_published": false,
+  "limits": "These controls certify only the stated source profiles and operations. They do not renew unrelated historical native capabilities. Private source paths, presentations and workbooks are excluded."
+}

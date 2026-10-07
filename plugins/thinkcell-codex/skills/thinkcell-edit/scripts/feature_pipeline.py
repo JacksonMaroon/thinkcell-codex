@@ -7,7 +7,7 @@ before any write until their visual verification gates exist.
 """
 from __future__ import annotations
 
-import argparse, hashlib, json, os, sys
+import argparse, hashlib, json, os, re, sys
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -60,6 +60,11 @@ def _selection(feature):
     selection = feature.get("selector")
     need(isinstance(selection, dict) and set(selection) in ({"slide_number", "shape_tag"}, {"slide_id", "shape_tag"}),
          "Feature selector requires exactly slide_number/slide_id and shape_tag")
+    slide = selection.get("slide_number", selection.get("slide_id"))
+    need(isinstance(slide, int) and not isinstance(slide, bool) and slide > 0,
+         "Feature slide selector must be a positive integer")
+    need(isinstance(selection["shape_tag"], str) and bool(selection["shape_tag"].strip()),
+         "Feature shape_tag must be a nonempty string")
     return selection
 
 
@@ -67,7 +72,8 @@ def validate_plan(plan):
     """Validate the pure JSON contract without opening Office or a deck."""
     need(isinstance(plan, dict) and set(plan) == {"schema", "source_sha256", "data_plan", "features"},
          "Feature pipeline plan must contain schema, source_sha256, data_plan, features")
-    need(plan["schema"] == SCHEMA and isinstance(plan["source_sha256"], str) and len(plan["source_sha256"]) == 64,
+    need(plan["schema"] == SCHEMA and isinstance(plan["source_sha256"], str)
+         and re.fullmatch(r"[0-9A-Fa-f]{64}", plan["source_sha256"]) is not None,
          "Unsupported or incomplete feature pipeline plan")
     need(isinstance(plan["data_plan"], dict) and isinstance(plan["features"], list) and plan["features"],
          "data_plan and non-empty features are required")
@@ -83,7 +89,7 @@ def validate_plan(plan):
             "label_precision": {"kind", "selector", "decimal_digits"},
             "total_label_precision": {"kind", "selector", "decimal_digits"},
             "axis_break": {"kind", "selector", "fraction"},
-            "relative_label_content": {"kind", "relative_field_id"},
+            "relative_label_content": {"kind", "selector", "relative_field_id"},
         }[feature["kind"]]
         need(set(feature) == allowed, "Unexpected or missing feature fields")
         if feature["kind"] in {"label_precision", "total_label_precision"}:
@@ -99,17 +105,17 @@ def validate_plan(plan):
 
 
 def _make_preparation(current: Path, feature: dict):
-    _dependencies()
     kind = feature["kind"]
     if kind == "relative_label_content":
         raise ValueError("relative_label_content remains experimental because no post-regeneration verifier exists")
     if kind == "label_precision":
         raise ValueError("General label_precision is unverified; use total_label_precision for its bounded one-category total")
+    if kind == "axis_break":
+        raise ValueError("Use axis_break_position.py for the verified dedicated native break-position route")
+    _dependencies()
     if kind == "total_label_precision":
         import total_label_precision
         return total_label_precision, total_label_precision.make_plan(current, {"shape_tag": _selection(feature)["shape_tag"]}, feature["decimal_digits"])
-    if kind == "axis_break":
-        raise ValueError("Use axis_break_position.py for the verified dedicated native break-position route")
     if kind == "datasheet_fill_enable":
         return fill_enable, fill_enable.make_plan(current, _selection(feature))
     raise AssertionError(kind)
@@ -126,6 +132,12 @@ def _verify_fill(path: Path, prepared_plan):
 
 def run(input_path: Path, output_path: Path, report_path: Path, plan: dict, *, execute: bool, ppttc=None):
     validate_plan(plan)
+    # Reject unsupported operations before dependency loading or staging writes.
+    # Mixed plans must not leave a partially prepared deck behind.
+    unsupported = {"relative_label_content", "label_precision", "axis_break"}
+    for feature in plan["features"]:
+        if feature["kind"] in unsupported:
+            _make_preparation(None, feature)
     _dependencies()
     src, out, report = Path(input_path).resolve(), Path(output_path).resolve(), Path(report_path).resolve()
     need(src.is_file() and sha(src) == plan["source_sha256"].upper(), "Input hash mismatch")

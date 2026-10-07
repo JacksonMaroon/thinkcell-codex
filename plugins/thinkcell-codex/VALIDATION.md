@@ -11,6 +11,43 @@ limitations describe that historical release, rather than the aggregate current
 package. Neither the October 5 portable checks nor this documentation correction
 renew every earlier native certification.
 
+# Development validation for 0.4.1+codex.20261006matrix
+
+Verified October 6, 2026 with Python 3.12.14 and the declared dependencies.
+The expanded runner executed 180 unit tests: 179 passed and one symlink test
+was skipped because this Windows session could not create symlinks. The
+standalone relationship allocator regression passed. Two supplied historical
+fixture profiles passed offline; three additional fixture profiles were
+unavailable and are reported as explicit skips.
+
+Current native controls passed for taskbar dates/geometry, triangle milestone
+dates/geometry, authentic error-bar same/changed data, one existing Excel link
+through the batch wrapper, and a two-slide complete-source sequence. Saved
+readback, source and sibling preservation, and rendered visual review passed.
+The error-bar gate also rejected tampered direction, cache-index and category
+position artifacts. See the sanitized [current native evidence](skills/thinkcell-edit/references/current-native-evidence.json).
+Proprietary presentations, workbooks, renders and private source paths remain
+outside the public package.
+
+The code adds executable capability discovery, selected-chart geometry commands,
+independent Gantt/error-bar readback, staged batch rebinding and complete source
+sequencing. It repairs overlapping date replacement, duplicate physical tags,
+source/output/report alias handling, label-plan overwrites, feature schemas,
+error-bar semantics and legend/trendline retention guards. Independent review
+found no unresolved blockers after those repairs.
+
+[Capability workflows](skills/thinkcell-edit/references/capability-workflows.md)
+distinguishes preparation from native delivery. Dependency reflow, arbitrary
+chart/feature creation, new links and arbitrary-length path rebinding remain
+research requirements. Multi-link native batches, surrogate-path native
+controls and general object-editing assembly are not newly certified.
+Historical evidence hashes below are retained as records of the implementations
+and profiles tested then. They do not certify every revised or unrelated route.
+
+The repository includes a Windows portable-validation workflow for release
+hashes, local documentation links, registry routes and portable regressions.
+It does not execute Office or claim native certification.
+
 # Build verification for 0.4.0+codex.20260930astra
 
 Verified October 5, 2026. All 91 portable tests passed with Python 3.12 and the declared dependencies. This build synchronizes the plugin version and skill display label, clarifies routing between dedicated chart skills, and repairs a skill-local percentage-conversion documentation link. Chart runtime scripts match the prior GitHub main branch.

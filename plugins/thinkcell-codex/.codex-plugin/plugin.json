@@ -1,6 +1,6 @@
 {
   "name": "thinkcell-codex",
-  "version": "0.4.0+codex.20260930astra",
+  "version": "0.4.1+codex.20261006matrix",
   "description": "Create, position, format, and update native think-cell charts from user-supplied donors with native verification.",
   "author": {
     "name": "Jackson Maroon"

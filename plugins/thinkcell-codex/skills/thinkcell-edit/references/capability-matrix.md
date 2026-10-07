@@ -1,5 +1,20 @@
 # Verified scope
 
+The executable index is [capabilities.json](capabilities.json). Discover exact
+commands with `python scripts/thinkcell.py capabilities`, or inspect one entry
+with `--id`. [Capability workflows](capability-workflows.md) explains dispatch,
+preparation versus finished output, and current validation requirements.
+The index covers every row below and separates the remaining research tasks.
+
+The 0.4.1 development repairs Gantt geometry and date/output guards, feature-plan
+validation, label-plan overwrite protection, error-bar selection/readback,
+legend repeat grading and linked-workbook identity checks. It adds geometry
+commands, independent Gantt/error-bar gates, staged batch rebinding, complete
+source-slide sequencing and broader test discovery. Historical evidence hashes
+identify the implementations tested then; they are not hashes of amended code.
+Current release controls are recorded separately in
+[current-native-evidence.json](current-native-evidence.json).
+
 | Capability | Status and gate |
 |---|---|
 | Existing ordinary sequence charts, several on one slide | Supported through `multi_chart_update.py` when every chart is explicitly targeted. Requires `ALL_GATES_PASS`. |
@@ -14,6 +29,7 @@
 | Existing native break position | `axis_break_position.py` edits one existing fraction, regenerates and verifies real native geometry. Same-data 0.2/0.8 and a subsequent changed-data 0.2 update passed. Insertion is a separate operation. |
 | New native axis break, bounded clustered-column profile | `run_native_axis_break_insert.py` adds a break to an existing no-break chart on a copy. Verified model 38764, one internal chart, 3 series by 4 categories, one outlier crossing one gap, 20% break fraction. Native generation, reopen, exact data and independent review passed; a 90-to-120 update retained the break. Use `--mode repeat` for this one-shape result, not the older two-shape donor wrapper. See [new-axis-break.md](new-axis-break.md). |
 | Native multi-slide assembly | Official template sequencing, explicit ordinary-object plans, saved source geometry/label/font/data/dependency checks. Three-slide repeat produced identical previews. A second three-slide fixture with changed data, custom colors and two charts on one slide also passed native assembly checks. |
+| Complete source-slide sequencing | Public `source-slide-sequence` route uses `assemble_native_slides.py` and task-owned clones. A two-slide native control passed complete source content, full native model/data, theme/layout and dependency preservation before and after reopen. Every slide requires visual review. No ordinary-object edits are applied. |
 | Existing annotations | Regeneration can retain donor annotations; review their meaning and fit after every data change. |
 | Native direct percentage labels, preferred existing/donor route | `update` automatically verifies direct percentage-label preservation. `create --native-percent --data-json` copies and populates a single native percentage donor in one operation. All nine labels passed native save/reopen and a second data change in the tested 3-series/3-category 100% stacked-column profile. No wrapper characters. See [native percentage labels](native-percentage-labels.md). |
 | Existing absolute segment labels to bare dynamic percentages | `thinkcell.py convert-percent` converts one label or all nine labels in the guarded 3x3 absolute stacked-column profile. Own relative-source fields, unchanged native axis/plot, no wrapper characters. All-nine 63%/74%/57% changed-data controls passed native save/reopen and field gates. See [conversion scope and usage](native-percentage-labels.md#convert-an-existing-absolute-label-chart). |
@@ -37,7 +53,7 @@
 | Mekko category additions and width edits | `structure_plans` preserves percent-width totals or independent units widths. Both chart types passed changed-data native readback and visual review. |
 | Multiple existing native breaks | `multi_breaks/run_multi_break_repeat.py` retained two break owners and category bindings through changed data with recalculated automatic gaps. See [expanded controls](expanded-features.md). |
 | New native series connector | `series_connector_adapter.py` imports a semantically selected connector and physical binding. Changed-data native readback and mathematically checked interior-boundary movement passed, preserving the pre-existing connector. |
-| Existing Excel link auto-update | A disposable linked chart updated a number and series name while retaining link identity through native save/reopen. See [external link evidence](external-link-evidence.md). This evidence does not expose a general new-link creation adapter. |
+| Existing Excel link auto-update | Historical evidence: a disposable linked chart updated a number and series name while retaining link identity through native save/reopen. See [external link evidence](external-link-evidence.md). This package has no complete standalone auto-update adapter. The current rebind control retains its existing automatic-update setting; it does not certify automatic data refresh or new-link creation. |
 | Existing linked Excel workbook rebind | `external_links/portable_rebind.py` discovers exactly one existing external carrier and replaces only its UTF-16 workbook path, with optional GUID, link-ID, range-name, workbook-hash and named-range guards. Offline v6 proof passed one changed OLE part, identity/range preservation and source/target readback; native canary passed 31 targeted checks. Equal UTF-16 byte length is required. New-link creation and arbitrary length changes remain unsupported. See [expanded controls](expanded-features.md). |
 | Authentic native error-bar donor update | `errorbars/reusable_errorbar_route.py` selects an existing Min/Max/Marker donor by explicit slide and shape selector, verifies one native `CSequenceChartSeriesRange` plus the signed custom extent carrier, and prepares a fresh named copy. Native same-data and changed-data controls passed with Marker fixed and Min/Max movement; changed visual axis is 0–11. Clean-line insertion and new cap styling remain outside the tested scope. See [expanded controls](expanded-features.md). |
 | Existing native legend translation | `legend_controls/legend_high_adapter.py` and its portable metric core move an existing tagged legend through native model and physical bounds, preserving the chart carrier and rejecting ambiguous grouped constraints. Normalized native baseline, translated same-data and changed-data controls, and portable semantic identity all passed. New legend creation remains outside the tested scope. See [expanded controls](expanded-features.md). |
@@ -46,3 +62,38 @@
 
 This matrix describes the package's tested operations. It does not define all
 think-cell product capabilities.
+
+## Public route stages
+
+`bounded_native` entries provide their own bounded native pipeline. A
+`prepare_only` entry produces a plan or intermediate package and requires its
+documented regeneration, reopen and visual gates. `preservation_only` covers
+retaining existing features. `historical_only` has prior evidence but no complete
+public execution adapter for that whole operation. Registry checks prove files
+and contracts are present; they never renew native certification.
+
+The public batch rebind route is `excel-link-batch-rebind`. Portable tests cover
+multiple uniquely selected carriers; the current native control covers one
+existing link through the batch wrapper, with link identity retained and
+automatic updating disabled. Same UTF-16 byte length remains mandatory.
+
+`source-slide-sequence` is the current complete-content sequencing pipeline.
+The broader `multi-slide-assembly` registry entry remains historical for its
+separate ordinary-object editing implementation.
+
+## Remaining development requirements
+
+| Capability | Required evidence before promotion |
+|---|---|
+| Gantt dependency creation and automatic reflow | An identified authentic dependency graph and changed-date native reflow controls; current taskbar/milestone controls do not establish that graph |
+| New persistent Excel links | A link-creation adapter and native workbook/range identity and update controls |
+| Arbitrary-length workbook path rebind | A verified binary moniker layout and native controls for changed lengths; the current adapter substitutes equal UTF-16 byte lengths |
+| Multiple-carrier native rebind batches | Native controls covering more than one existing link with each range, identity and workbook preserved |
+| New legends | Native legend creation, owning bindings and changed-data controls; translation of an existing legend is separate |
+| Clean-chart error bars and new cap styling | Native range/shape insertion and independent endpoint/cap controls; the donor route updates existing ranges |
+| Clean-chart or nonlinear trendlines | Native structure insertion and mathematical changed-data controls; existing linear scatter partitions remain the tested route |
+| Arbitrary native chart construction | A supported authoring contract with donor-independent structure, data and editability controls |
+| General ordinary-object assembly edits | A complete public object-editing adapter with per-object preservation and native controls; source-slide sequencing preserves existing content |
+
+No row is marked complete solely because an adapter exists, portable tests pass,
+or its old evidence describes a narrower topology.

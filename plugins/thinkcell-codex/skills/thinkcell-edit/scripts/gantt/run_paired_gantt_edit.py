@@ -2,7 +2,7 @@
 from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
-from portable_gantt_adapter import paired_date_geometry_edit
+from portable_gantt_adapter import paired_date_geometry_edit, require_distinct_paths
 
 def sha(p):
  h=hashlib.sha256();
@@ -12,11 +12,15 @@ def sha(p):
 
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--source',required=True); ap.add_argument('--expected-sha256',required=True); ap.add_argument('--output',required=True); ap.add_argument('--select-start',required=True); ap.add_argument('--select-end',required=True); ap.add_argument('--start-date',required=True); ap.add_argument('--end-date',required=True); ap.add_argument('--report',required=True); a=ap.parse_args()
- src=Path(a.source); out=Path(a.output); report_path=Path(a.report); before=sha(src)
+ src=Path(a.source); out=Path(a.output); report_path=Path(a.report)
+ require_distinct_paths(src,out,report_path)
+ before=sha(src)
  if before.lower()!=a.expected_sha256.lower(): raise SystemExit('source SHA256 mismatch')
  if out.exists(): raise SystemExit(f'output already exists: {out}')
  if report_path.exists(): raise SystemExit(f'report already exists: {report_path}')
  edit=paired_date_geometry_edit(src,out,{'start':a.select_start,'end':a.select_end},a.start_date,a.end_date)
  result={'status':'PAIRED_GANTT_EDIT_PREPARED','source':str(src.resolve()),'output':str(out.resolve()),'source_sha256_before':before,'source_sha256_after':sha(src),'source_unchanged':before==sha(src),'edit':edit}
- report_path.write_text(json.dumps(result,indent=2)+'\n',encoding='utf8'); print(json.dumps(result,indent=2)); return 0
+ with report_path.open('x', encoding='utf8') as report_file:
+  report_file.write(json.dumps(result,indent=2)+'\n')
+ print(json.dumps(result,indent=2)); return 0
 if __name__=='__main__': raise SystemExit(main())

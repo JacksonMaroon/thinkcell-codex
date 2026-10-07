@@ -544,6 +544,19 @@ def replace_carrier(raw: bytes, chart, after: bytes, output: Path,
                 zout.writestr(copy.copy(item), data)
 
 
+def write_plan(path: Path, target_path: Path, controls_path: Path, plan_out: Path,
+               allow_experimental_insertion: bool = False):
+    paths = [Path(p).expanduser().resolve() for p in (path, target_path, controls_path, plan_out)]
+    need(len({str(p).casefold() for p in paths}) == len(paths),
+         "input, target, controls and plan paths must be distinct")
+    need(not paths[3].exists(), "Plan output already exists")
+    plan = make_plan(paths[0], json.loads(paths[1].read_text(encoding="utf-8-sig")),
+                     json.loads(paths[2].read_text(encoding="utf-8-sig")), allow_experimental_insertion)
+    with paths[3].open("x", encoding="utf-8") as handle:
+        handle.write(json.dumps(plan, indent=2))
+    return plan
+
+
 def prepare(path: Path, plan_path: Path, output: Path, report_path: Path,
             allow_experimental_insertion: bool = False):
     raw=path.read_bytes(); plan=json.loads(plan_path.read_text(encoding="utf-8-sig"))
@@ -616,7 +629,7 @@ if __name__ == "__main__":
     p=sub.add_parser("prepare");p.add_argument("--input",type=Path,required=True);p.add_argument("--plan",type=Path,required=True);p.add_argument("--output",type=Path,required=True);p.add_argument("--report",type=Path,required=True);p.add_argument("--experimental-insertion",action="store_true",help="enable the unverified scalar-label insertion mode")
     a=ap.parse_args()
     try:
-        if a.cmd=="make-plan": a.plan_out.write_text(json.dumps(make_plan(a.input,json.loads(a.target_json.read_text()),json.loads(a.controls_json.read_text()),a.experimental_insertion),indent=2),encoding="utf-8"); print(json.dumps({"status":"PLAN_CREATED"}))
+        if a.cmd=="make-plan": write_plan(a.input,a.target_json,a.controls_json,a.plan_out,a.experimental_insertion); print(json.dumps({"status":"PLAN_CREATED"}))
         else: print(json.dumps(prepare(a.input,a.plan,a.output,a.report,a.experimental_insertion),indent=2))
     except Exception as e:
         print(json.dumps({"status":"REJECTED","error":str(e)})); raise

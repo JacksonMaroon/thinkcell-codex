@@ -2,7 +2,7 @@
 
 **Create chart slides from native think-cell donors and update their data with Codex.**
 
-Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.0+codex.20260930astra**, experimental desktop release.
+Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.1+codex.20261006matrix**, experimental desktop release.
 
 This plugin contains one focused skill, `thinkcell-edit`, and local Python/PowerShell helpers. It uses think-cell's official JSON automation for data changes. An experimental namer identifies unnamed charts and assigns their automation names on working copies by default. A `--named-only` option disables that step.
 
@@ -19,7 +19,16 @@ This plugin contains one focused skill, `thinkcell-edit`, and local Python/Power
 - Saves/reopens an output in PowerPoint and renders a preview for visual review.
 - Includes an optional whole-slide handoff for a separately connected PowerPoint plugin.
 
-Creation uses a real donor slide. The [finished-slide route](skills/thinkcell-edit/references/existing-slide.md) supports bounded chartless targets and one-chart donors with native placement and preservation checks. The package does not generate arbitrary chart types from scratch, provide general slide design, or certify untested native features. Existing chart styles and features come from the donor. It rejects persistent or unknown external Excel links. The namer is a compatibility adapter, not an official think-cell naming API.
+Creation uses a real donor slide. The [finished-slide route](skills/thinkcell-edit/references/existing-slide.md) supports bounded chartless targets and one-chart donors with native placement and preservation checks. The package does not generate arbitrary chart types from scratch, provide general slide design, or certify untested native features. Existing chart styles and features come from the donor. The internal-datasheet updater rejects persistent or unknown external Excel links; existing links have a separate guarded rebinding route. The namer is a compatibility adapter, not an official think-cell naming API.
+
+The [capability matrix](skills/thinkcell-edit/references/capability-matrix.md) now
+has a machine-readable command index. Run `python
+skills/thinkcell-edit/scripts/thinkcell.py capabilities` to inspect routes and
+their gates, or read [capability workflows](skills/thinkcell-edit/references/capability-workflows.md).
+The 0.4.1 development adds selected-chart geometry commands, independent Gantt
+and error-bar readback, staged batch link rebinding, complete source-slide
+sequencing, and broader portable regression discovery. Historical native
+evidence remains separate from current tests.
 
 ## Install in Codex
 
