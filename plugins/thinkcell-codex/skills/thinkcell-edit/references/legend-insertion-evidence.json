@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "sha256": "C9C74C9FC5F35EE14D41748FCFE496A50834FB61E977E30D6F49691BF4C776A5",
+    "inspection": {
+      "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+      "feature": "legend",
+      "series_names": [
+        "Product B"
+      ]
+    }
+  },
+  "changed": {
+    "sha256": "9B3E5BB977CB2BF7C3D1BD389C4BDCB16F8D63197A5B3CFFCB85ED574A5B553B",
+    "inspection": {
+      "status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS",
+      "feature": "legend",
+      "series_names": [
+        "Product B revised"
+      ]
+    }
+  }
+}

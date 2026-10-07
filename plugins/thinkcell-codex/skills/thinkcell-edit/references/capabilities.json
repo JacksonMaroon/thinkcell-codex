@@ -1,6 +1,6 @@
 {
   "schema": "tc.capabilities.v1",
-  "native_evidence_policy": "Registry path checks and portable tests establish packaged availability and guard behavior only. Historical native claims remain profile-specific. A prepared candidate is not a deliverable.",
+  "native_evidence_policy": "Packaged availability, portable checks and prepared outputs do not certify native behavior. Preserve exact per-profile native regeneration, full model/physical/link readback, changed-data controls, source/sibling state and visual evidence; pending or rejected profiles stay explicit",
   "capabilities": [
     {
       "id": "multi-chart-update",
@@ -200,7 +200,7 @@
         "Operation-specific model and datasheet or linked-workbook readback",
         "Native save/reopen and rendered semantic review before delivering a chart"
       ],
-      "limitations": "Historical evidence exists, but this public package has no complete standalone execution adapter for this operation"
+      "limitations": "Historical broader object-plan schema is retained as earlier evidence; current source-slide sequencing and guarded ordinary edits have separate public routes and current controls"
     },
     {
       "id": "annotation-preservation",
@@ -689,75 +689,114 @@
     },
     {
       "id": "gantt-dependency-reflow",
-      "title": "Gantt dependency creation and automatic reflow",
-      "status": "research",
-      "scope": "Inspected vendor Gantt carriers do not expose an identified dependency/link record; taskbar edits do not reflow dependencies",
-      "route": null,
+      "title": "Gantt native anchor inspection and experimental preparation",
+      "status": "prepare_only",
+      "scope": "Inspect actual native CFB graph/date/shape bindings; prepare authentic range-anchor endpoint candidates with portable model/cache checks",
+      "route": {
+        "script": "gantt/dependency_adapter.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "Inspected vendor Gantt carriers do not expose an identified dependency/link record; taskbar edits do not reflow dependencies"
+      "limitations": "Automatic native reflow remains unverified. Pristine typed-date control updated model and XLSB to May 28; a rejected guessed scalar-anchor candidate blocked that update. No guessed scalar-anchor schema shipped; authenticated date-scalar ownership/binding and repeated native controls are required. No lag/duration scheduling claim"
     },
     {
       "id": "new-excel-link",
-      "title": "New persistent Excel link creation",
-      "status": "research",
-      "scope": "No supported creation adapter is shipped; UpdateBatch may break existing Excel links and cannot substitute for link preservation",
-      "route": null,
+      "title": "New persistent Excel link preparation",
+      "status": "prepare_only",
+      "scope": "Prepare a compatible native external link using donor adviser/range closure and separate copied workbook; newly authored link passed persistent native refresh B2 10 to 15 to 20 with exact model/datasheet/cache and source/sibling/workbook preservation",
+      "route": {
+        "script": "external_links/new_link.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "No supported creation adapter is shipped; UpdateBatch may break existing Excel links and cannot substitute for link preservation"
+      "limitations": "Preparation needs fresh presentation/workbook outputs and authentic compatible donor closure; use dedicated native refresh workflow. Adviser local numeric IDs can renumber only when the full semantic table/grid/registration closure is preserved"
     },
     {
       "id": "variable-length-link-rebind",
-      "title": "Arbitrary-length workbook path rebinding",
-      "status": "research",
-      "scope": "Only equal UTF-16 byte-length moniker substitutions are verified; binary layout changes need new native controls",
-      "route": null,
+      "title": "Bounded unequal-length workbook path rebinding",
+      "status": "prepare_only",
+      "scope": "Recognized shorter/longer UTF-16 monikers, including surrogate Unicode, passed two-carrier native identity/model/XLSB and independent automatic refresh controls: first17/second10, then first17/second29, preserving untargeted link and source/workbook state",
+      "route": {
+        "script": "external_links/portable_rebind.py",
+        "arguments": [],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "Only equal UTF-16 byte-length moniker substitutions are verified; binary layout changes need new native controls"
+      "limitations": "Bounded ordinary 4-series/2-category profile with authentic adviser/Package closure on local Windows Office; opaque legacy monikers retain equal-byte-length fallback; no cloud/coauthor persistence claim"
     },
     {
       "id": "new-legend",
-      "title": "New native legend creation",
-      "status": "research",
-      "scope": "Translation of an existing legend does not prove creation of a new native legend",
-      "route": null,
+      "title": "Native legend insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authentic closure insertion into bounded current-schema regular bar chart: zero to one CSequenceChartLegendSE, native/physical bindings and matching swatch; baseline and changed series-name/value controls passed strict ALL_GATES_PASS, native save/reopen and visual review",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "legend"
+        ],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "Translation of an existing legend does not prove creation of a new native legend"
+      "limitations": "Area candidate lost native graph and remains rejected. Verified bar profile required explicit duplicate-axis-GUID repair and official unchanged-data schema normalization before graft; source preflight cannot be skipped. Broader chart families unverified; complete native/data/sibling/visual gates required per output"
     },
     {
       "id": "clean-errorbar-insertion",
-      "title": "Error-bar insertion into a clean chart",
-      "status": "research",
-      "scope": "Authentic Min/Max/Marker donor updates do not prove insertion or new cap styling",
-      "route": null,
+      "title": "Native error-bar range insertion",
+      "status": "prepare_only",
+      "scope": "Clone the native Min/Max range feature into a compatible selected clean sequence chart; a bounded insertion passed native readback",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "errorbar-range"
+        ],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "Authentic Min/Max/Marker donor updates do not prove insertion or new cap styling"
+      "limitations": "Requires authentic compatible donor range/target series; cap styling is a separate route and every candidate still needs regeneration, native, changed-data and visual gates"
     },
     {
       "id": "clean-trendline-insertion",
-      "title": "Trendline insertion into a clean chart",
-      "status": "research",
-      "scope": "Existing linear scatter partitions do not prove new trendline creation or other trendline families",
-      "route": null,
+      "title": "Linear scatter trendline insertion",
+      "status": "prepare_only",
+      "scope": "Compatible linear scatter insertion and repeat native control passed exact regression slope 1.014052411697683; selected-series Y+2 moved intercept 0.38739080896316036 to 2.3873908089631604 while retaining the other series and authentic clipped forecast domain",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "linear-trendline"
+        ],
+        "stage": "preparation"
+      },
       "validation": [
-        "Authentic native donor or documented API contract",
-        "Regeneration and native reopen plus changed-data, visual and preservation controls"
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
       ],
-      "limitations": "Existing linear scatter partitions do not prove new trendline creation or other trendline families"
+      "limitations": "Authentic compatible linear scatter closure and selected scalar series only; nonlinear types and incompatible families remain outside this route; native data, physical and visual gates remain required per output"
     },
     {
       "id": "arbitrary-chart-construction",
@@ -769,7 +808,7 @@
         "Authentic native donor or documented API contract",
         "Regeneration and native reopen plus changed-data, visual and preservation controls"
       ],
-      "limitations": "Chart creation is donor-based; no arbitrary chart authoring API is implemented"
+      "limitations": "Installed-library creation is available as a bounded template route; no donor-independent arbitrary native authoring API is implemented"
     },
     {
       "id": "excel-link-batch-rebind",
@@ -786,13 +825,13 @@
         "Exact changed carrier set and sealed input readback",
         "Native save/reopen and link identity/readback before delivery"
       ],
-      "limitations": "Equal UTF-16 byte length only; portable batch tests do not certify native multi-link updates or arbitrary-length/new-link creation"
+      "limitations": "Atomic staged batch over distinct recognized linked carriers. Two-carrier unequal-length/surrogate-Unicode native identity/parity and independent first-link-only then second-link-only changed-value refresh controls passed for the bounded ordinary profile; unknown opaque monikers retain equal-length fallback"
     },
     {
       "id": "source-slide-sequence",
       "title": "Complete source-slide sequencing",
       "status": "bounded_native",
-      "scope": "Sequence complete one-slide PPTX sources through official generation; exact full physical/native/dependency preservation and native reopen required",
+      "scope": "Sequence complete one-slide sources through official generation with full native authoring-graph, physical content, notes, theme/layout and dependency preservation; optional ordinary edits use their separate bounded profile",
       "route": {
         "script": "assemble_native_slides.py",
         "arguments": [],
@@ -803,7 +842,219 @@
         "Exact slide/order/full native model, data, physical content, notes, theme/layout and dependency readback before and after native reopen",
         "All-slide visual review and source/other-presentation preservation"
       ],
-      "limitations": "Identical slide dimensions, internal dependencies and complete existing source content only; ordinary-object editing and unsupported vendor normalization are not included"
+      "limitations": "Identical slide dimensions and internal dependencies; canonicalization permits only documented Office metadata/storage changes. Review every output slide visually"
+    },
+    {
+      "id": "native-errorbar-caps",
+      "title": "Native error-bar endpoint caps",
+      "status": "prepare_only",
+      "scope": "Compatible native dash endpoint insertion passed saved model/physical coverage and changed-data extent 5 to 12; both endpoints retained all nine native caps with exact canonical signed extent semantics",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "errorbar-caps"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+      ],
+      "limitations": "Authentic compatible range/dash-cap profile only; arbitrary cap styles/families unverified; each result still needs source/sibling and visual gates"
+    },
+    {
+      "id": "installed-library-create",
+      "title": "Create from locally installed native templates",
+      "status": "bounded_native",
+      "scope": "Create from locally installed native templates through official JSON/native gates; clustered-column count-change control passed 2 series/5 categories to 3 series/3 categories with exact model/data/cache and retained subtype",
+      "route": {
+        "script": "native_library_create.py",
+        "arguments": [
+          "create"
+        ],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+      ],
+      "limitations": "No vendor assets bundled; installed licensed runtime required. Inherited thousands scaling rendered small test values as zero labels and requires visual/label revision before client use; arbitrary direct construction is not implemented"
+    },
+    {
+      "id": "installed-library-discovery",
+      "title": "Inspect installed native chart templates",
+      "status": "prepare_only",
+      "scope": "Read actual native families, visible chart subtypes, feature classes and schema versions from local installed templates",
+      "route": {
+        "script": "native_library_create.py",
+        "arguments": [
+          "list"
+        ],
+        "stage": "inspection"
+      },
+      "validation": [
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+      ],
+      "limitations": "Discovery is read-only and neither certifies template compatibility nor licenses/installs vendor assets"
+    },
+    {
+      "id": "excel-link-refresh",
+      "title": "Guarded persistent Excel-link refresh",
+      "status": "bounded_native",
+      "scope": "Prepare, validate-plan, execute and verify a persistent native Excel-link refresh on copied workbooks; newly authored link passed repeat B2 10 to 15 to 20 with exact model/data/cache and complete source/unselected-slide/workbook state",
+      "route": {
+        "script": "external_links/refresh_link.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+      ],
+      "limitations": "Bounded explicit finite scalar/text cell updates and selected recognized link identity; formula/range topology and unrestricted link structures remain unverified; never run the internal JSON updater over persistent links"
+    },
+    {
+      "id": "ordinary-object-assembly",
+      "title": "Sequence with guarded ordinary object edits",
+      "status": "bounded_native",
+      "scope": "Guarded exact-object text/geometry/delete/add manifest edits passed native saved model/cache/physical/dependency gates and visual review; original sources and native owned objects remain protected",
+      "route": {
+        "script": "assemble_native_slides.py",
+        "arguments": [],
+        "stage": "native_pipeline"
+      },
+      "validation": [
+        "Exact source/donor/workbook identity and hash guards",
+        "Complete selected native model, physical binding and untouched source/sibling readback",
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+      ],
+      "limitations": "Textboxes/rectangles and explicitly selected permitted ordinary objects only; native owned/tagged/linked shapes cannot be edited and inherited placeholders cannot be removed"
+    },
+    {
+      "id": "power-trendline-insertion",
+      "title": "Power scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authentic native enum1 power closure on compatible finite positive-X/Y scatter data; native baseline and selected Y times2 repeat passed native partition/physical power trendline and independent log-OLS/visible-Y-limit clipping endpoint grading",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "power-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact source/donor hash and selected series identity",
+        "Complete native model/physical trendline partition and sibling preservation",
+        "Independent power regression and clipped forecast-domain grading; native baseline/repeat data controls and visual review"
+      ],
+      "limitations": "Bounded positive-domain donor profile only. Reference coefficient 1.15122 to 2.302449 and exponent0.838422 are independently fitted, not serialized native fields. Baseline X-axis limit9 alone cannot validate fit; changed fit-limited endpoint5.764033425759087 agrees with reference5.764033425759088. Curve points are not serialized; changed visible-Y-limit clipping supplies one bounded numeric fit control. Other types are outside this route; native and visual gates required per output"
+    },
+    {
+      "id": "exponential-trendline-insertion",
+      "title": "Exponential scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authentic enum2 clean-chart graft on finite full-rank positive-Y data passed native baseline and selected Y times2 controls; saved clipped endpoint4.77347400977944 then3.8960719529819787 agrees with independent reference OLS, preserving Higher-end/source state",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "exponential-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Actual saved native donor enum/type and source hash identity",
+        "Complete native partition/physical trendline, selected data and sibling preservation",
+        "Independent reference OLS and clipped forecast endpoint; native clean-chart insertion and repeated changed-data controls"
+      ],
+      "limitations": "Reference coefficients are fitted calculations, not serialized native fields. Supported donor/domain only, with native/data/sibling/visual gates per output; guessed enum4/5 rejected and polynomial types use separate routes Increasing finite OLS fit only, unique linear X/Y axes and explicit bounds; no general engine or exact curve-point certification"
+    },
+    {
+      "id": "logarithmic-trendline-insertion",
+      "title": "Logarithmic scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authentic enum3 clean-chart graft on finite full-rank positive-X data passed baseline/repeat and discriminating selected X times0.5 plus Y times2 native controls; clipped endpoint4.808574822433828 agrees with independent reference OLS, preserving Higher-end/source state",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "logarithmic-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Actual saved native donor enum/type and source hash identity",
+        "Complete native partition/physical trendline, selected data and sibling preservation",
+        "Independent reference OLS and clipped forecast endpoint; native clean-chart insertion and repeated changed-data controls"
+      ],
+      "limitations": "Baseline and Y times2 endpoint9 are axis-limited, so do not independently validate the fit. Reference coefficients are fitted calculations, not serialized native fields; discriminating clipping is one bounded numeric control. Supported donor/domain only; guessed enum4/5 rejected, polynomial types use separate routes Increasing finite OLS fit only, unique linear X/Y axes and explicit bounds; no general engine or exact curve-point certification"
+    },
+    {
+      "id": "quadratic-trendline-insertion",
+      "title": "Quadratic scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authenticated enum6 clean zero-feature graft and selected Lower-end Y plus0.5X native repeat passed exact model/data/cache/reopen/source/Higher-end preservation and independent fit-dependent clipped endpoints 5.314327858200813 to 6.36393651258992, with current visual review",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "quadratic-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Actual native enum and physical polynomial order identity",
+        "Complete selected model/data/cache, native/physical trendline and source/sibling preservation",
+        "Independent full-rank polynomial OLS and closest-domain forecast root; clean-chart native baseline/repeated changed-data and visual gates"
+      ],
+      "limitations": "Finite full-rank supported degree/donor only; coefficients independently fitted, not serialized native fields. Closest-domain root grading is bounded numeric clipping evidence; native/data/sibling/visual gates required per output. Preexisting template instruction crop outside scope; enum4/5 hypotheses rejected Requires distinct X count at least degree+1, conditioning guard, unique linear X/Y axes with explicit min/max and no forced intercept; no general engine or exact curve-point certification"
+    },
+    {
+      "id": "cubic-trendline-insertion",
+      "title": "Cubic scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authenticated enum7 clean zero-feature graft and selected Lower-end Y plus0.5X native repeat passed exact model/data/cache/reopen/source/Higher-end preservation and independent fit-dependent clipped endpoints 3.344762392582917 to 3.477242913586783, with current visual review",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "cubic-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Actual native enum and physical polynomial order identity",
+        "Complete selected model/data/cache, native/physical trendline and source/sibling preservation",
+        "Independent full-rank polynomial OLS and closest-domain forecast root; clean-chart native baseline/repeated changed-data and visual gates"
+      ],
+      "limitations": "Finite full-rank supported degree/donor only; coefficients independently fitted, not serialized native fields. Closest-domain root grading is bounded numeric clipping evidence; native/data/sibling/visual gates required per output. Preexisting template instruction crop outside scope; enum4/5 hypotheses rejected Requires distinct X count at least degree+1, conditioning guard, unique linear X/Y axes with explicit min/max and no forced intercept; no general engine or exact curve-point certification"
+    },
+    {
+      "id": "quartic-trendline-insertion",
+      "title": "Quartic scatter trendline insertion preparation",
+      "status": "prepare_only",
+      "scope": "Authenticated enum8 clean zero-feature graft and selected Lower-end Y plus0.5X native repeat passed exact model/data/cache/reopen/source/Higher-end preservation and independent fit-dependent clipped endpoints 3.1402494667082186 to 3.105230473600668, with current visual review",
+      "route": {
+        "script": "native_insertions.py",
+        "arguments": [
+          "--feature",
+          "quartic-trendline"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Actual native enum and physical polynomial order identity",
+        "Complete selected model/data/cache, native/physical trendline and source/sibling preservation",
+        "Independent full-rank polynomial OLS and closest-domain forecast root; clean-chart native baseline/repeated changed-data and visual gates"
+      ],
+      "limitations": "Finite full-rank supported degree/donor only; coefficients independently fitted, not serialized native fields. Closest-domain root grading is bounded numeric clipping evidence; native/data/sibling/visual gates required per output. Preexisting template instruction crop outside scope; enum4/5 hypotheses rejected Requires distinct X count at least degree+1, conditioning guard, unique linear X/Y axes with explicit min/max and no forced intercept; no general engine or exact curve-point certification"
     }
   ]
 }

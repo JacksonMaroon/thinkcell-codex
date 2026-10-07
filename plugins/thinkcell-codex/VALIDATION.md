@@ -11,6 +11,48 @@ limitations describe that historical release, rather than the aggregate current
 package. Neither the October 5 portable checks nor this documentation correction
 renew every earlier native certification.
 
+# Development validation for 0.4.2+codex.20261006native
+
+Validated October 6, 2026. Final portable test count: 301 unit tests executed: 300 passed and 1 Windows symlink test skipped. The current runner
+also executes embedded portable regressions and reports fixture-dependent checks
+explicitly. Two supplied historical fixture profiles passed offline; three
+additional profiles remain unavailable. The Windows symlink test remains skipped
+because this session cannot create symlinks. These skips do not establish native
+coverage.
+
+[Current development evidence](skills/thinkcell-edit/references/native-development-evidence.json)
+records bounded native installed-template creation, authentic legend/range/cap
+insertion, supported scatter trendline insertion, guarded ordinary-object assembly
+and Excel-link workflows. New persistent links passed B2 10 to 15 to 20 refresh;
+unequal shorter/longer Unicode paths and two independent linked-carrier refresh
+controls passed identity/model/datasheet/cache and source/workbook preservation.
+See [persistent refresh](skills/thinkcell-edit/references/persistent-link-evidence.json),
+[expanded link controls](skills/thinkcell-edit/references/expanded-links-evidence.json)
+and [legend insertion](skills/thinkcell-edit/references/legend-insertion-evidence.json).
+
+[Nonlinear controls](skills/thinkcell-edit/references/nonlinear-insertion-evidence.json)
+record native exponential/logarithmic and polynomial degree2/3/4 baseline/repeat
+controls, including fit-dependent forecast clipping against independent reference
+fits. Coefficients are fitted references, not serialized native fields; clipping
+plus visual shape supplies bounded evidence, not an exact curve-point or general
+engine certificate. Operation-specific domains, rank/conditioning and axis guards
+remain required.
+
+Automatic Gantt dependency reflow remains unverified: a pristine date update
+reached native model and XLSB, while a rejected guessed scalar binding blocked the
+update. The public adapter ships native inspection and experimental authentic
+range-anchor preparation only. See [Gantt controls](skills/thinkcell-edit/references/gantt-dependency-evidence.json).
+No guessed scalar schema or arbitrary donor-independent constructor is shipped.
+Area legend insertion remains rejected; broader untested chart profiles remain
+outside proof. Installed-template output inherited thousands scaling and needs
+label revision before client use. Proprietary sources, templates, renders and
+private paths remain outside this distribution.
+
+The 0.4.1 and earlier sections below are historical records. Their statements
+about then-unimplemented links, paths and assembly describe those earlier
+profiles; current bounded routes and limitations are maintained in the
+[capability matrix](skills/thinkcell-edit/references/capability-matrix.md).
+
 # Development validation for 0.4.1+codex.20261006matrix
 
 Verified October 6, 2026 with Python 3.12.14 and the declared dependencies.

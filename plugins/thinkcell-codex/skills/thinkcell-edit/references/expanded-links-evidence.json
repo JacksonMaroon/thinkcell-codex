@@ -1,0 +1,85 @@
+{
+  "schema": "thinkcell-expanded-excel-link-evidence-v1",
+  "status": "PASS_NATIVE_REOPEN_AND_INDEPENDENT_DATA_CONTROLS",
+  "profile": {
+    "model_version": 38732,
+    "chart_type": "ordinary sequence type 0",
+    "series": 4,
+    "categories": 2,
+    "linked_carriers": 2,
+    "persistent_excel_source": "local XLSX with legitimate sheet-local hidden registered name",
+    "range": "A1:C5",
+    "input_deck_slides": 4
+  },
+  "native_batch_rebind": {
+    "arbitrary_utf16_path_lengths": true,
+    "serialized_by": "Windows CreateFileMoniker and OleSaveToStream",
+    "range_item_moniker_preserved": true,
+    "exactly_two_selected_carriers_changed": true,
+    "all_other_ole_streams_and_storage_clsids_preserved": true,
+    "distinct_registered_link_identities": true,
+    "path_controls": [
+      {
+        "source_utf16_bytes": 228,
+        "target_utf16_bytes": 200,
+        "has_surrogate_pair": false
+      },
+      {
+        "source_utf16_bytes": 228,
+        "target_utf16_bytes": 338,
+        "has_surrogate_pair": true
+      }
+    ],
+    "unchanged_workbook_data_and_chart_sibling_models": true,
+    "native_save_reopen": true,
+    "independent_actual_adviser_table_full_grid_model_embedded_xlsb_workbook_checks": true,
+    "prepared_sha256": "407CEA9CF1C501AD103A24A5C6690C281748468A4101625E59A67152DC431836",
+    "native_sha256": "01573E92A4B1B5C4AEA7EA6C84F95CCEDE2137E294ECE644BA597CC80456E166"
+  },
+  "automatic_refresh_controls": [
+    {
+      "control": "first_link_only",
+      "selected_cell": "B2",
+      "first_link_value": 17,
+      "second_link_value": 10,
+      "native_save_reopen": true,
+      "automatic_refresh": true,
+      "independent_model_workbook_embedded_xlsb_parity": true,
+      "physical_cache_exact": true,
+      "stable_guid_link_item_range_auto_update": true,
+      "local_adviser_id_normalization": "187 to 2 with exact table and full grid registration remap",
+      "unselected_slides_preserved": true,
+      "selected_ordinary_content_dependencies_preserved": true,
+      "unrelated_workbook_cells_formulas_names_styles_preserved": true,
+      "sealed_originals_and_other_open_office_files_unchanged": true,
+      "presentation_sha256": "06D7ADB0A6F4FE4ED27F95A24DF34AE7D06C840793AE26DBA122D7458FB4932F",
+      "workbook_sha256": "231F81B72DAE3E7C6A51CA60B17E873D66CEE799A89C205690FE865A875C16A0",
+      "untargeted_link_entire_adviser_table_grid_unchanged": true
+    },
+    {
+      "control": "second_link_only",
+      "selected_cell": "B2",
+      "first_link_value": 17,
+      "second_link_value": 29,
+      "native_save_reopen": true,
+      "automatic_refresh": true,
+      "independent_model_workbook_embedded_xlsb_parity": true,
+      "physical_cache_exact": true,
+      "stable_guid_link_item_range_auto_update": true,
+      "local_adviser_id_normalization": "187 to 2 with exact table and full grid registration remap",
+      "unselected_slides_preserved": true,
+      "selected_ordinary_content_dependencies_preserved": true,
+      "unrelated_workbook_cells_formulas_names_styles_preserved": true,
+      "sealed_originals_and_other_open_office_files_unchanged": true,
+      "presentation_sha256": "C892D144F78C9EC70CD45635C52158EE8D11D51F90B0FD50C4074E3BCB6C2A52",
+      "workbook_sha256": "7C39C4AA87972823F0A05A7BA3AA893B6CAC5A95A37D970D7F5228F25FE35131",
+      "untargeted_link_entire_adviser_table_grid_unchanged": true
+    }
+  ],
+  "scope_limits": [
+    "Verified ordinary 4-series by 2-category native profile with authentic adviser and Package closure",
+    "Local Windows Office and licensed think-cell only; no cloud/coauthor persistence claim",
+    "Existing unknown opaque monikers retain the equal UTF16 length fallback"
+  ],
+  "privacy": "Private source decks, workbook aliases, paths, identities, Office state and previews remain outside the public repository"
+}

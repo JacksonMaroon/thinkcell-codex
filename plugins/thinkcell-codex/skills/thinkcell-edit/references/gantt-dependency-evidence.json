@@ -1,0 +1,45 @@
+{
+  "operation": "native Gantt endpoint dependency creation and automatic date reflow",
+  "status": "AUTOMATIC_REFLOW_UNVERIFIED",
+  "public_route": "native range-anchor inspection and experimental preparation only",
+  "public_files": [
+    "scripts/gantt/dependency_adapter.py",
+    "tests/test_gantt_dependencies.py"
+  ],
+  "pristine_changed_date_control": {
+    "input_sha256": "1c840bb7cd6dce58f248dd61c6b7611cab8364d3281a601814b36a06b2944062",
+    "request_sha256": "0af0623841e2e7e02668ba0313dded511d4ca071c35e660f52a88de7c8efbbe8",
+    "output_sha256": "54c669fefe2808ec8314deef601777a0acb89ec0a6b8ed44dea55b55cea47e13",
+    "native_report_sha256": "d49e17c6f061b79990ef0b3221456652935ff96abb69991477d18cf707fa0bf1",
+    "requested_end": "2025-05-28",
+    "actual_native_date": "2025-05-28",
+    "actual_embedded_xlsb_end_serial": 45805,
+    "requested_data_reached_model_and_datasheet": true,
+    "source_unchanged": true,
+    "other_presentations_unchanged": true
+  },
+  "rejected_candidate_control": {
+    "input_sha256": "5e7e5bdd7e63f0557a7c5689c709b8b717d35c3143144341502bdd159afce3d1",
+    "request_sha256": "ef8ee0909d5f303d29ade4039a0c544d00252c19646f416c80b9913be72b8ef2",
+    "output_sha256": "a930ab709977c58215f3ab0dacab304404be33a6dada6dd7e0afd7e96cadcb4d",
+    "native_report_sha256": "2294bf9a633ff7b62a4a12621fa4f8da47c83fe465a66d3961d280ee7570c308",
+    "requested_end": "2025-05-28",
+    "actual_native_date": "2025-05-21",
+    "actual_embedded_xlsb_end_serial": 45798,
+    "requested_data_reached_model_and_datasheet": false,
+    "source_unchanged": true,
+    "other_presentations_unchanged": true,
+    "conclusion": "Date update was skipped on the candidate. Retained XML and native save do not demonstrate a functional binding or failed native reflow calculation."
+  },
+  "remaining_requirement": "Authenticated CGanttScalarAnchor model ownership and binding profile, coupled to its owning date scalar, exact physical taskbar bindings, and two native changed-date controls.",
+  "boundaries": [
+    "No guessed scalar-anchor schema shipped",
+    "No proprietary assets bundled",
+    "No duration preservation or lag scheduling claimed",
+    "COM width change tested as cache-only because native authoring dates did not change"
+  ],
+  "tests": {
+    "pattern": "test_gantt*.py",
+    "passed": 30
+  }
+}

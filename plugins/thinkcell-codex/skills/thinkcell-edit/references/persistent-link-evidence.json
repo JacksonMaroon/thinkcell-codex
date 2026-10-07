@@ -1,0 +1,84 @@
+{
+  "schema": "thinkcell-persistent-refresh-native-evidence-v1",
+  "status": "VERIFIED_PERSISTENT_AUTOMATIC_REFRESH",
+  "operation": "changed-explicit-Excel-cell-with-persistent-native-link",
+  "source_route": "newly-authored-link-after-native-save-reopen",
+  "source_presentation_sha256": "57908E8E5AB80CA01FB8C391CCAECE023CA06F55A46853DF0750C736027184B3",
+  "source_workbook_sha256": "204BB7ABDECB8AFE1081B31E1B1DBED1406B6677240B4B0A097BC8EDC6733FFB",
+  "saved_output_presentation_sha256": "47436F3097D32AAEA7113156C914C44DEAABA5A0AA9773484A664AEBB9765812",
+  "saved_output_workbook_sha256": "F079B996136874AB586747CA9FADE43E5D089967B2266928F3FDC891311C6628",
+  "changed_cell": "B2",
+  "value_before": 10,
+  "value_after": 15,
+  "expected_series_values": [
+    [
+      15,
+      15
+    ],
+    [
+      20,
+      24
+    ],
+    [
+      30,
+      38
+    ],
+    [
+      40,
+      55
+    ]
+  ],
+  "native_reopen_pass": true,
+  "automatic_refresh_verified": true,
+  "guid_link_retained": true,
+  "link_id_retained": true,
+  "range_moniker_retained": true,
+  "adviser_table_grid_registration_resolves": true,
+  "adviser_local_id_before": "187",
+  "adviser_local_id_after": "2",
+  "native_table_grid_ids_preserved": true,
+  "model_exact": true,
+  "datasheet_exact": true,
+  "physical_cache_exact": true,
+  "physical_cache_order": [
+    3,
+    2,
+    1,
+    0
+  ],
+  "physical_cache_names_present": false,
+  "physical_cache_categories_present": false,
+  "strict_parity_pass": true,
+  "ownership_baseline_exception_records_unchanged": true,
+  "unselected_slides_preserved": true,
+  "unrelated_workbook_cells_formulas_names_styles_preserved": true,
+  "sources_unchanged": true,
+  "other_presentations_unchanged": true,
+  "other_workbooks_unchanged": true,
+  "cleanup_complete": true,
+  "no_Send_UpdateBatch_PresentationFromTemplate_or_internal_datasheet_write": true,
+  "validation": "fresh-saved-reopened-output-plus-independent-read-only-strict-integrity-regrade",
+  "repeat_refresh": {
+    "status": "VERIFIED_PERSISTENT_AUTOMATIC_REFRESH",
+    "value_before": 15,
+    "value_after": 20,
+    "source_presentation_sha256": "47436F3097D32AAEA7113156C914C44DEAABA5A0AA9773484A664AEBB9765812",
+    "saved_output_presentation_sha256": "BBBBA73F0C6836CD0D67B3AA5EE851E0BBACFC36B7816C63E925D340F6E31B80",
+    "saved_output_workbook_sha256": "DB824F52BD67B44490D4BA61CAD0BE44D777ABDAEC05B1DAA4687209210702A7",
+    "native_reopen_pass": true,
+    "model_exact": true,
+    "datasheet_exact": true,
+    "physical_cache_exact": true,
+    "unselected_slides_preserved": true,
+    "unrelated_workbook_cells_formulas_names_styles_preserved": true,
+    "adviser_local_id_before": "2",
+    "adviser_local_id_after": "2",
+    "adviser_registration_resolves": true,
+    "sources_unchanged": true,
+    "other_presentations_unchanged": true,
+    "other_workbooks_unchanged": true,
+    "cleanup_complete": true,
+    "selected_slide_ordinary_content_dependencies_preserved": true
+  },
+  "selected_slide_ordinary_content_dependencies_preserved": true
+}

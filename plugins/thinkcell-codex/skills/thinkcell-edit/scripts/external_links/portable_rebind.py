@@ -397,7 +397,7 @@ def main(argv: list[str] | None = None) -> int:
         "identity_after": rebound["fields"],
         "moniker_after": rebound["moniker_text"],
         "guards": {"guid": args.guid, "link_id": args.link_id, "range_name": args.range_name,
-                   "equal_moniker_length": len(selected['xml']) == len(rebound['xml']),
+                   "equal_moniker_length": len(selected['payload']) == len(rebound['payload']),
                    "moniker_route": 'WINDOWS_FILE_MONIKER' if selected['payload'].startswith(COMPOSITE_CLSID) else 'OPAQUE_EQUAL_UTF16',
                    "item_moniker_preserved": True,
                    "named_range_compatibility": {"target": target_named_range, "source": source_named_range, "expected_range": _norm_ref(args.expected_range) if args.expected_range else None}},

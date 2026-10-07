@@ -2,22 +2,22 @@
 
 **Create chart slides from native think-cell donors and update their data with Codex.**
 
-Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.1+codex.20261006matrix**, experimental desktop release.
+Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.2+codex.20261006native**, experimental desktop release.
 
 This plugin contains one focused skill, `thinkcell-edit`, and local Python/PowerShell helpers. It uses think-cell's official JSON automation for data changes. An experimental namer identifies unnamed charts and assigns their automation names on working copies by default. A `--named-only` option disables that step.
 
 ## What it does
 
-- Inspects native chart identity and embedded data without opening PowerPoint.
-- Builds a data-request template from the chart, including its actual row layout.
-- Creates native chart slides from user-supplied donors, optionally binding a company style file for new-element defaults.
-- Adds an experimental finished-slide route: choose a chart and empty region, position the native donor through exclusive anchors, then preserve ordinary target content in a new slide copy.
-- Updates bounded pie, bar/column/line/area/combination, scatter and bubble structures through the installed generator.
-- Adds guarded native controls for secondary axes, series colors, scalar and percentage labels, CAGR endpoints, existing axis breaks, series connectors, selected Gantt edits, and existing Excel-link rebinding.
-- Adds experimental fixed-structure waterfall and Mekko contracts, including calculated totals and independent widths.
-- Checks intended values, embedded data, untouched sibling charts, theme and notes. Ordinary charts also use native-cache parity; waterfall/Mekko instead require specialized visual semantic review after exact model/datasheet checks.
-- Saves/reopens an output in PowerPoint and renders a preview for visual review.
-- Includes an optional whole-slide handoff for a separately connected PowerPoint plugin.
+- Inspects native chart identity and embedded data without opening PowerPoint
+- Builds a data-request template from the chart, including its actual row layout
+- Creates native chart slides from user-supplied donors, optionally binding a company style file for new-element defaults
+- Adds an experimental finished-slide route: choose a chart and empty region, position the native donor through exclusive anchors, then preserve ordinary target content in a new slide copy
+- Updates bounded pie, bar/column/line/area/combination, scatter and bubble structures through the installed generator
+- Adds guarded native controls for secondary axes, series colors, scalar and percentage labels, CAGR endpoints, existing axis breaks, series connectors, selected Gantt edits, and existing Excel-link rebinding
+- Adds experimental fixed-structure waterfall and Mekko contracts, including calculated totals and independent widths
+- Checks intended values, embedded data, untouched sibling charts, theme and notes. Ordinary charts also use native-cache parity; waterfall/Mekko instead require specialized visual semantic review after exact model/datasheet checks
+- Saves/reopens an output in PowerPoint and renders a preview for visual review
+- Includes an optional whole-slide handoff for a separately connected PowerPoint plugin
 
 Creation uses a real donor slide. The [finished-slide route](skills/thinkcell-edit/references/existing-slide.md) supports bounded chartless targets and one-chart donors with native placement and preservation checks. The package does not generate arbitrary chart types from scratch, provide general slide design, or certify untested native features. Existing chart styles and features come from the donor. The internal-datasheet updater rejects persistent or unknown external Excel links; existing links have a separate guarded rebinding route. The namer is a compatibility adapter, not an official think-cell naming API.
 
@@ -25,10 +25,12 @@ The [capability matrix](skills/thinkcell-edit/references/capability-matrix.md) n
 has a machine-readable command index. Run `python
 skills/thinkcell-edit/scripts/thinkcell.py capabilities` to inspect routes and
 their gates, or read [capability workflows](skills/thinkcell-edit/references/capability-workflows.md).
-The 0.4.1 development adds selected-chart geometry commands, independent Gantt
-and error-bar readback, staged batch link rebinding, complete source-slide
-sequencing, and broader portable regression discovery. Historical native
-evidence remains separate from current tests.
+The 0.4.2 development adds native feature insertion preparation, creation from
+locally installed templates, new persistent-link preparation and guarded refresh,
+recognized variable-length link monikers, Gantt anchor inspection/experimental preparation and
+ordinary-object edits during assembly. Each route states its native proof and
+remaining gates. A prepared candidate or installed template discovery is not
+native certification; rejected profiles remain explicit in the matrix.
 
 ## Install in Codex
 
@@ -56,10 +58,10 @@ If you want only the standalone skill, copy `skills/thinkcell-edit` from the plu
 
 ## Runtime requirements
 
-- Windows desktop with Microsoft PowerPoint and licensed, connected think-cell.
-- Python 3.10+ and the dependencies in `skills/thinkcell-edit/scripts/requirements.txt`.
-- Windows PowerShell 5.1 for native Office and structured-storage operations.
-- Optional: a connected PowerPoint plugin with native slide export and OOXML return tools.
+- Windows desktop with Microsoft PowerPoint and licensed, connected think-cell
+- Python 3.10+ and the dependencies in `skills/thinkcell-edit/scripts/requirements.txt`
+- Windows PowerShell 5.1 for native Office and structured-storage operations
+- Optional: a connected PowerPoint plugin with native slide export and OOXML return tools
 
 The setup guide is [here](skills/thinkcell-edit/references/setup.md). There are no embedded API keys, bundled Office binaries, proprietary templates, client decks, or background services. The scripts make no network requests while processing charts. Data supplied to Codex or an Office connector remains subject to that product's settings and policies.
 

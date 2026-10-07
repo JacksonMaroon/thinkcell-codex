@@ -43,7 +43,7 @@ class CapabilityTests(unittest.TestCase):
     def test_research_route_cannot_execute(self):
         with patch.object(capabilities.subprocess, 'run') as run:
             with self.assertRaisesRegex(ValueError, 'no packaged execution route'):
-                capabilities.dispatch('gantt-dependency-reflow', ['--execute'])
+                capabilities.dispatch('arbitrary-chart-construction', ['--execute'])
             run.assert_not_called()
 
     def test_dispatch_preserves_arguments_and_child_failure(self):

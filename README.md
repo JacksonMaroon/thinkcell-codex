@@ -1,6 +1,11 @@
-# Think-cell for Codex 0.4.1+codex.20261006matrix
+# Think-cell for Codex 0.4.2+codex.20261006native
 
 By Jackson Maroon. A focused Codex plugin for donor-based native chart creation, guarded feature updates, and scoped data changes.
+
+The 0.4.2 development expands the command matrix with installed-template
+creation, bounded native insertion, persistent-link workflows and assembly
+edits. [Capability workflows](plugins/thinkcell-codex/skills/thinkcell-edit/references/capability-workflows.md)
+separate prepared candidates, recorded native controls and unresolved profiles.
 
 ## Install from GitHub
 

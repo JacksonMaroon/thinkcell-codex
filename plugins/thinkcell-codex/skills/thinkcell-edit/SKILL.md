@@ -26,6 +26,21 @@ For a chart added to a finished slide that contains no think-cell content, read 
 
 For a new chart, use `create` to copy an authorized native donor slide matching the chart type, layout and desired features. Optionally load a user-supplied style file for new-element defaults. Then follow the data-update path below. Read [creation-and-features.md](references/creation-and-features.md) for creation, styling, or features beyond data. Never equate a slide clone with generating an arbitrary chart from scratch.
 
+When no supplied donor is available, `native_library_create.py list` discovers
+locally installed native templates by their actual chart subtype and feature
+identity. Its `create` command extracts a task-owned native slide and populates
+it through official JSON/native gates. Vendor assets are never bundled or
+downloaded. Follow [capability workflows](references/capability-workflows.md)
+for the exact tested profile; installed-template discovery does not certify a
+native creation result.
+
+Use `native_insertions.py` for explicitly scoped legend, range/cap or supported
+scatter trendline candidates on compatible charts. Prepared grafts still need
+official regeneration, native readback and changed-data controls. An area-legend
+canary lost its graph after native reopen and remains rejected. For external
+links, use the dedicated preparation, rebind and refresh routes, preserving both
+presentation and workbook identity; never substitute the internal JSON updater.
+
 For clean dynamic percentage labels, prefer an existing verified native percentage chart or a compatible native percentage donor. `update` automatically checks direct percentage-label preservation after native regeneration. Use `create --native-percent --data-json <request.json>` to copy, populate and verify a single-chart donor in one operation, or `update --require-native-percent` when native percentages are mandatory. Follow [native-percentage-labels.md](references/native-percentage-labels.md). Do not apply the field-wrapper workaround to a chart already using verified direct native percentage labels.
 
 For an existing ordinary absolute stacked-column chart matching the verified 3x3 profile, `convert-percent` converts one selected segment or all nine labels to bare native relative fields while retaining the absolute axis and native plot. This is preferred over the invisible-wrapper workaround for eligible charts. The command executes on a new local copy and requires native regeneration/reopen and field-binding checks. Later `update` calls automatically verify these converted fields too. See the conversion profile and limits in [native-percentage-labels.md](references/native-percentage-labels.md).
@@ -44,11 +59,11 @@ Run `doctor` once for a new environment or after a dependency failure. See [setu
 
 ## Boundaries
 
-- Automatic naming edits only the chart and owning data-table name fields on a separate local copy. It is an experimental compatibility adapter, not an official naming API. Regenerate through official JSON before native use; never deliver a naming-only candidate.
-- The ordinary single-target JSON route covers bounded pie, sequence, scatter and bubble structures with its documented count limits. For count or topology changes, inspect [multi-chart](references/multi-chart.md) and [specialized-chart](references/specialized-charts.md) routes before declaring a limitation. Gantt taskbar dates and milestone dates/markers have separate bounded adapters in [expanded controls](references/expanded-features.md); general Gantt restructuring is not covered by the ordinary JSON updater.
-- Persistent or unknown external links, including linked siblings, must not pass through the internal-datasheet JSON updater. Inspect link state and use the documented link-preserving operation, including the existing-workbook rebind adapter. If no matching route exists, investigate on isolated presentation and workbook copies; never silently detach links or replace a dynamic chart with a static one.
-- Preserve whole native slides and dependencies. Use the selected documented model-and-shape adapter for its permitted fields, followed by its regeneration/native readback checks. The coordinate adapter is one such route, not the only permitted native edit. A PowerPoint cache-only change does not establish a valid think-cell edit.
-- Inputs, reports and outputs must stay distinct. After a timeout or uncertain native write, inspect the recorded state instead of retrying blindly. Close only task-owned presentations; never quit PowerPoint.
+- Automatic naming edits only the chart and owning data-table name fields on a separate local copy. It is an experimental compatibility adapter, not an official naming API. Regenerate through official JSON before native use; never deliver a naming-only candidate
+- The ordinary single-target JSON route covers bounded pie, sequence, scatter and bubble structures with its documented count limits. For count or topology changes, inspect [multi-chart](references/multi-chart.md) and [specialized-chart](references/specialized-charts.md) routes before declaring a limitation. Gantt taskbar dates and milestone dates/markers have separate bounded adapters in [expanded controls](references/expanded-features.md); general Gantt restructuring is not covered by the ordinary JSON updater
+- Persistent or unknown external links, including linked siblings, must not pass through the internal-datasheet JSON updater. Inspect link state and use the documented link-preserving operation, including the existing-workbook rebind adapter. If no matching route exists, investigate on isolated presentation and workbook copies; never silently detach links or replace a dynamic chart with a static one
+- Preserve whole native slides and dependencies. Use the selected documented model-and-shape adapter for its permitted fields, followed by its regeneration/native readback checks. The coordinate adapter is one such route, not the only permitted native edit. A PowerPoint cache-only change does not establish a valid think-cell edit
+- Inputs, reports and outputs must stay distinct. After a timeout or uncertain native write, inspect the recorded state instead of retrying blindly. Close only task-owned presentations; never quit PowerPoint
 
 ## Guarded native controls
 

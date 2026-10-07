@@ -2,7 +2,9 @@
 
 Manifest: {"schema":"tc.slide-sequence.v1", "slides":[{"id":"slide-a",
 "path":"source-a.pptx", "sha256":"64 hex characters"}, ...]}.
-Sources retain all existing content; this route does not apply object edits.
+Optional per-slide `edits` apply guarded ordinary PowerPoint object changes.
+Native-owned, tagged and linked objects remain protected. Placeholder text
+edits retain inheritance; inherited placeholders cannot be removed.
 Default is read-only preflight. --execute uses task-owned clones, then requires
 per-slide shape/text/font/geometry, chart data/grammar and dependency checks
 before and after native save/reopen. Inspect every slide visually before use.
@@ -11,6 +13,7 @@ from pathlib import Path
 from collections import Counter
 import argparse
 import hashlib
+import io
 import json
 import posixpath
 import re
@@ -27,6 +30,7 @@ from chart_semantics import identity_invariants
 from multi_chart_update import model_of, owner_semantics
 from office_operation_lock import OfficeOperationLock, run_locked_subprocess
 from runtime import find_ppttc, powershell, powershell_env
+from ordinary_slide_edits import prepare_source, inspect_shapes
 
 REL = "http://schemas.openxmlformats.org/package/2006/relationships"
 R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -83,6 +87,11 @@ def dependencies(package, slide):
         elif part.startswith("ppt/theme/"):
             # Theme values supply inherited colors/fonts absent from shape XML.
             signatures.append("theme:" + repr(_normal_xml(E.fromstring(package.read(part)))))
+        elif part.startswith("ppt/charts/"):
+            # Native owning models do not cover ordinary PowerPoint charts.
+            # Preserve actual chart caches/style parts too, retaining closure
+            # multiplicity instead of reducing every chart to a generic token.
+            signatures.append("chart:" + repr(_normal_xml(E.fromstring(package.read(part)))))
         elif part.startswith(("ppt/slideMasters/", "ppt/slideLayouts/", "ppt/notesMasters/")):
             # Placeholders may inherit geometry or visible objects from these.
             signatures.append("layout:" + repr(physical_snapshot(package, part)))
@@ -115,9 +124,7 @@ def physical_snapshot(package, slide):
             resolved = target.lstrip("/") if target.startswith("/") else posixpath.normpath(posixpath.join(folder, target))
             raw = package.read(resolved)
             kind = relationship.get("Type", "").rsplit("/", 1)[-1]
-            if kind == "chart":
-                token = "native-chart"  # Exact owning chart/tag/data is checked by inventory.
-            elif raw.startswith(bytes.fromhex("D0CF11E0A1B11AE1")):
+            if raw.startswith(bytes.fromhex("D0CF11E0A1B11AE1")):
                 # CFB storage timestamps may change while every stream remains
                 # byte-identical. Bind the complete stream payload including
                 # think-cellXML, rather than unrelated storage header bytes.
@@ -161,7 +168,8 @@ def physical_snapshot(package, slide):
 
 
 def snapshot(path, slide_number=1):
-    docs, charts, _ = inventory(Path(path).read_bytes())
+    data = path if isinstance(path, bytes) else Path(path).read_bytes()
+    docs, charts, _ = inventory(data)
     identity_invariants(docs)
     selected = [chart for chart in charts if chart["doc"]["slide_number"] == slide_number]
     carriers = []
@@ -170,10 +178,14 @@ def snapshot(path, slide_number=1):
         need(chart["exact"] and len(chart["frames"]) == 1, "Chart identity is ambiguous")
         carriers.append((chart["frames"][0]["shape_tag"], model_of(chart), owner_semantics(chart)))
     need(len({item[0] for item in carriers}) == len(carriers), "Duplicate chart carrier tags")
-    with zipfile.ZipFile(path) as package:
+    with zipfile.ZipFile(io.BytesIO(data)) as package:
         slides = logical_slides(package)
         need(1 <= slide_number <= len(slides), "Slide number out of range")
         slide = slides[slide_number - 1]["part"]
+        # Physical equality normalizes package-local IDs, but duplicate slide
+        # object IDs are never valid. OLE fallback pictures are one carrier's
+        # alternate representation and are excluded by the shared inspector.
+        inspect_shapes(package.read(slide))
         dimensions = E.fromstring(package.read("ppt/presentation.xml")).find("p:sldSz", NS)
         need(dimensions is not None, "Slide dimensions missing")
         folder, name = posixpath.split(slide)
@@ -193,23 +205,39 @@ def snapshot(path, slide_number=1):
                 "slide_count": len(slides)}
 
 
+def _prepared(data, edits):
+    with zipfile.ZipFile(io.BytesIO(data)) as package:
+        slides = logical_slides(package)
+        need(len(slides) == 1, "Every source must contain exactly one slide")
+        part = slides[0]["part"]
+    return prepare_source(data, edits, part)
+
+
 def preflight(manifest_path, expected_sha256):
     manifest_path = Path(manifest_path).resolve()
-    need(sha(manifest_path) == expected_sha256.upper(), "Manifest SHA-256 mismatch")
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+    manifest_bytes = manifest_path.read_bytes()
+    need(hashlib.sha256(manifest_bytes).hexdigest().upper() == expected_sha256.upper(), "Manifest SHA-256 mismatch")
+    manifest = json.loads(manifest_bytes.decode("utf-8-sig"))
     need(set(manifest) == {"schema", "slides"} and manifest["schema"] == "tc.slide-sequence.v1", "Invalid sequence manifest")
     need(isinstance(manifest["slides"], list) and len(manifest["slides"]) >= 2, "Sequence requires at least two slides")
     sources, snapshots, identities = [], [], set()
     for entry in manifest["slides"]:
-        need(isinstance(entry, dict) and set(entry) == {"id", "path", "sha256"}, "Invalid source entry")
+        need(isinstance(entry, dict) and {"id", "path", "sha256"}.issubset(entry) and set(entry).issubset({"id", "path", "sha256", "edits"}), "Invalid source entry")
+        need("edits" not in entry or isinstance(entry["edits"], list), "Edits must be a list")
         need(isinstance(entry["id"], str) and entry["id"].strip() and entry["id"] not in identities, "Slide IDs must be unique")
         need(isinstance(entry["sha256"], str) and re.fullmatch("[0-9A-Fa-f]{64}", entry["sha256"]), "Malformed source hash")
         need(isinstance(entry["path"], str) and entry["path"].strip(), "Missing source path")
         source = (manifest_path.parent / entry["path"]).resolve()
         need(source.is_file() and source.suffix.lower() == ".pptx", "Source must be an existing PPTX")
-        need(sha(source) == entry["sha256"].upper(), "Source SHA-256 mismatch: " + entry["id"])
-        state = snapshot(source)
+        data = source.read_bytes()
+        need(hashlib.sha256(data).hexdigest().upper() == entry["sha256"].upper(), "Source SHA-256 mismatch: " + entry["id"])
+        state = snapshot(data)
         need(state["slide_count"] == 1, "Every source must contain exactly one slide")
+        if entry.get("edits"):
+            edited = snapshot(_prepared(data, entry["edits"]))
+            for key in ("dimensions", "notes", "carriers", "dependencies"):
+                need(edited[key] == state[key], "Ordinary edits changed native/dependency state: " + key)
+            state = edited
         if snapshots:
             need(state["dimensions"] == snapshots[0]["dimensions"], "Source slide dimensions differ")
         identities.add(entry["id"]); sources.append(source); snapshots.append(state)
@@ -238,21 +266,28 @@ def run(manifest_path, expected_sha256, output, report, execute=False, ppttc=Non
     need(not output.is_relative_to(HERE.parent) and not report.is_relative_to(HERE.parent), "Outputs must be outside package assets")
     need(not report.is_relative_to(stage), "Report must be outside staging")
     result = {"status": "SEQUENCE_PREFLIGHT_PASS", "writes": False, "slide_count": len(sources),
-              "scope": "complete source-slide sequencing; no object edits", "native_certification": False}
+              "scope": "source-slide sequencing with guarded ordinary object edits" if any(entry.get("edits") for entry in manifest["slides"]) else "complete source-slide sequencing; no object edits", "native_certification": False}
     if not execute:
         return result
     executable = Path(ppttc).resolve() if ppttc else find_ppttc()
     need(executable and executable.is_file(), "Official ppttc.exe unavailable")
     stage.mkdir()
-    clones = []
-    for index, source in enumerate(sources, 1):
+    clones, clone_hashes = [], []
+    for index, (source, entry) in enumerate(zip(sources, manifest["slides"]), 1):
         clone = stage / f"source-{index}.pptx"
+        data = source.read_bytes()
+        need(hashlib.sha256(data).hexdigest().upper() == sealed[source], "Source changed while cloning")
+        prepared = _prepared(data, entry["edits"]) if entry.get("edits") else data
+        prepared_state = snapshot(prepared)
+        for key in ("dimensions", "physical", "notes", "carriers", "dependencies"):
+            need(prepared_state[key] == expected[index - 1][key], "Prepared source differs from preflight")
         with clone.open("xb") as stream:
-            stream.write(source.read_bytes())
-        need(sha(clone) == sealed[source], "Source changed while cloning")
+            stream.write(prepared)
+        clone_hashes.append(hashlib.sha256(prepared).hexdigest().upper())
         clones.append(clone)
     job = stage / "sequence.ppttc"
     job.write_text(json.dumps([{"template": str(path), "data": []} for path in clones]), encoding="utf-8")
+    need(all(sha(path) == digest for path, digest in sealed.items()), "An original input changed before generation")
     generated, reopened = stage / "generated.pptx", stage / "reopened.pptx"
     native_report, render = stage / "native.json", stage / "slide-1.png"
     with OfficeOperationLock("native-slide-sequence"):
@@ -273,7 +308,7 @@ def run(manifest_path, expected_sha256, output, report, execute=False, ppttc=Non
     need(all(native.get(key) for key in ("native_reopen_pass", "source_unchanged", "other_presentations_unchanged")), "Native scope gates failed")
     gates = verify_output(reopened, expected)
     need(all(sha(path) == digest for path, digest in sealed.items()), "An original input changed; output withheld")
-    need(all(sha(path) == sealed[source] for path, source in zip(clones, sources)), "Task-owned source clone changed")
+    need(all(sha(path) == digest for path, digest in zip(clones, clone_hashes)), "Task-owned source clone changed")
     with output.open("xb") as stream:
         stream.write(reopened.read_bytes())
     result.update(status="NATIVE_SEQUENCE_VERIFIED_VISUAL_REVIEW_REQUIRED", writes=True,

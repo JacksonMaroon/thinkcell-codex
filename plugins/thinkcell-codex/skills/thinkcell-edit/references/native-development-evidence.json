@@ -1,0 +1,221 @@
+{
+  "schema": "tc.release-native-evidence.v1",
+  "release": "0.4.2+codex.20261006native",
+  "validation_date_local": "2026-10-06",
+  "evidence_scope": "Profile-specific native controls; preparation and pending/rejected profiles do not establish broader certification",
+  "controls": [
+    {
+      "operation": "installed-clustered-template-creation",
+      "status": "PASS_VISUAL_REVISION_REQUIRED",
+      "profile": "2 series/5 categories to 3 series/3 categories",
+      "readback_checks": [
+        "Exact native model/datasheet/cache",
+        "Strict multi-chart gate",
+        "Native save/reopen and retained chart subtype",
+        "Source unchanged",
+        "Other visible/named/unsaved presentations unchanged"
+      ],
+      "limitations": "Inherited thousands scaling renders small supplied values as zero labels; output requires label/layout revision before client use",
+      "native_output_sha256": "38EB2B8AD33EC018E25005ADB4FAC2C2D8D6DB0228AEFD7436951FFAFE144047"
+    },
+    {
+      "operation": "two-carrier-unequal-length-unicode-rebind",
+      "status": "PASS_REPEAT_NATIVE_INDEPENDENT_CONTROLS",
+      "native_output_sha256": "01573E92A4B1B5C4AEA7EA6C84F95CCEDE2137E294ECE644BA597CC80456E166",
+      "readback_checks": [
+        "Each full GUID/moniker/table/grid identity",
+        "External workbook/native model/embedded XLSB parity",
+        "All sibling models unchanged",
+        "Sealed source presentations/workbooks",
+        "First-link-only 17/10 then second-link-only 17/29 automatic refresh",
+        "Untargeted adviser/table/grid and ordinary/sibling dependencies preserved",
+        "Unrelated workbook cells/formulas/names/styles preserved"
+      ],
+      "limitations": "Bounded local Windows ordinary 4-series/2-category profile; no cloud/coauthor claim",
+      "repeat_native_output_sha256": "C892D144F78C9EC70CD45635C52158EE8D11D51F90B0FD50C4074E3BCB6C2A52"
+    },
+    {
+      "operation": "ordinary-object-assembly",
+      "status": "PASS",
+      "native_output_sha256": "4BF834163C440D7568822E3925CDAE459FD37834BED0EC45B18F481034C3AF2A",
+      "profile": "Text, geometry, deletion and explicit ordinary object addition",
+      "readback_checks": [
+        "Native save/reopen",
+        "Complete model/cache/physical/dependency gates",
+        "Visual review"
+      ],
+      "limitations": "Native owned/tagged/linked objects protected; inherited placeholders cannot be removed"
+    },
+    {
+      "operation": "errorbar-range-insertion",
+      "status": "PASS_BOUNDED",
+      "readback_checks": [
+        "Native range insertion/model/physical grade"
+      ],
+      "limitations": "Compatible donor/target range profile only; each output needs source/sibling, changed-data and visual gates"
+    },
+    {
+      "operation": "errorbar-cap-insertion",
+      "status": "PASS_REPEAT_NATIVE",
+      "readback_checks": [
+        "Native insertion and save/reopen",
+        "Canonical signed extent physical ownership",
+        "Indexed model/cache endpoint marker coverage",
+        "Changed-data extent control and visual review"
+      ],
+      "limitations": "Authentic compatible native range/dash-cap profile only; arbitrary styles unverified",
+      "native_output_sha256": "9C4A4DF4F7F72F5D165ED1F667680922368505A240F1F4B3DAF6EBE32C1A163D",
+      "profile": "Signed range extent changed 5 to 12; all nine dash caps retained on both endpoints"
+    },
+    {
+      "operation": "area-legend-insertion",
+      "status": "REJECTED",
+      "failure": "Native graph removed after reopen",
+      "limitations": "Visible cache/appearance does not prove native legend retention"
+    },
+    {
+      "operation": "regular-bar-legend-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "native_output_sha256": "C9C74C9FC5F35EE14D41748FCFE496A50834FB61E977E30D6F49691BF4C776A5",
+      "repeat_native_output_sha256": "9B3E5BB977CB2BF7C3D1BD389C4BDCB16F8D63197A5B3CFFCB85ED574A5B553B",
+      "profile": "Current-schema regular bar; zero to one native legend; Product B to Product B revised and first bar5.1 to6.8; Product A sibling unchanged",
+      "readback_checks": [
+        "CSequenceChartLegendSE and source/physical native bindings",
+        "Matching native legend swatch and dynamic series name",
+        "Baseline/repeat strict ALL_GATES_PASS",
+        "Native save/reopen, actual feature verifier and visual review"
+      ],
+      "limitations": "Explicit source duplicate-axis-GUID correction and official unchanged-data schema normalization preceded graft. Area remains rejected; broader families unverified",
+      "evidence": "legend-insertion-evidence.json"
+    },
+    {
+      "operation": "linear-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE",
+      "profile": "Selected Lower-end series Y +2; Higher-end series unchanged",
+      "readback_checks": [
+        "Exact native slope 1.014052411697683 unchanged",
+        "Native intercept 0.38739080896316036 to 2.3873908089631604",
+        "Authentic clipped forecast domain and physical polyline",
+        "Native save/reopen, selected data/sibling retention and visual review"
+      ],
+      "limitations": "Compatible linear scatter series only; other supported types have separate controls",
+      "native_output_sha256": "379FCFFE0BC934CF8853F2590323B3ABB80BE7A48EC036001D4627F403D081F6"
+    },
+    {
+      "operation": "new-persistent-excel-link-refresh",
+      "status": "PASS_REPEAT_NATIVE",
+      "limitations": "Bounded recognized link and explicit cell changes; local adviser ID renumbered 187 to 2 only with semantic table/grid/registration closure retained",
+      "native_output_sha256": "47436F3097D32AAEA7113156C914C44DEAABA5A0AA9773484A664AEBB9765812",
+      "profile": "Newly authored persistent link; explicit workbook B2 10 to 15 to 20",
+      "readback_checks": [
+        "Native automatic refresh, save/reopen",
+        "GUID/link/range/table/grid identity and adviser closure",
+        "Exact native model/embedded datasheet/physical cache strict parity",
+        "Unselected slide models/text/dependencies preserved",
+        "Unrelated workbook cells/formulas/names/styles preserved",
+        "Source presentations/workbooks and other open presentations/workbooks unchanged",
+        "Selected ordinary slide objects preserved"
+      ],
+      "repeat_native_output_sha256": "BBBBA73F0C6836CD0D67B3AA5EE851E0BBACFC36B7816C63E925D340F6E31B80",
+      "repeat_output_workbook_sha256": "DB824F52BD67B44490D4BA61CAD0BE44D777ABDAEC05B1DAA4687209210702A7"
+    },
+    {
+      "operation": "gantt-finish-start-endpoint-anchors",
+      "status": "AUTOMATIC_REFLOW_UNVERIFIED",
+      "limitations": "Cannot infer a native reflow calculation failure from skipped candidate data update. Authentic scalar-anchor ownership/binding profile and repeated native event controls remain unavailable. Public route has inspection and experimental authentic range-anchor preparation only; no guessed scalar schema shipped",
+      "observed": "Pristine typed-date May28 control reached native date and XLSB serial45805; rejected guessed scalar-anchor candidate retained May21 and skipped update",
+      "evidence": "gantt-dependency-evidence.json"
+    },
+    {
+      "operation": "power-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "native_output_sha256": "16EBCF1113BE168FE27E26F058250CE0A07E2C73D25A722ACEC83EB7D5B44905",
+      "profile": "Authentic native enum1 donor; finite positive X/Y; selected series Y times2",
+      "readback_checks": [
+        "Native enum1 partition and physical power trendline retained after baseline/repeated regeneration",
+        "Independent reference log-OLS power fit and visible-Y-limit clipped endpoint",
+        "Changed actual upper X5.764033425759087 agrees with reference5.764033425759088"
+      ],
+      "reference_fit": {
+        "coefficient_before_approx": 1.15122,
+        "coefficient_after_approx": 2.302449,
+        "exponent_approx": 0.838422,
+        "serialized_native_coefficients": false
+      },
+      "limitations": "Baseline axis limit9 alone is insufficient fit evidence. Independent fitted coefficients are reference calculations, not serialized native fields; native power curve points are not serialized (CPPTPolyline length0, placed0). Changed visible-Y-limit clipping supplies one bounded numeric fit control. Other types outside this route; native/visual gates required per output"
+    },
+    {
+      "operation": "exponential-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "observed": "Authentic enum2 clean graft baseline/Y times2 native controls; exact reference-clipped endpoints4.77347400977944 and3.8960719529819787",
+      "limitations": "Finite full-rank supported domain only; reference coefficients not serialized; guessed enum4/5 rejected, polynomial types have separate controls",
+      "native_output_sha256": "8067E8254B190042737396F9C1CA718B2288B81B3A592CE1B4AC9B941FC4AE3D",
+      "repeat_native_output_sha256": "E75B3EFCEE63C5DA46CA857BEB1F63C5D3CACFA7D16FD8EEED722F80507472A2",
+      "readback_checks": [
+        "Exact request/native cache parity, native reopen and source unchanged",
+        "Higher-end unchanged and current previews reviewed",
+        "Reference constant0.6202726585593982 to1.2405453171187961; slope0.5356764616682798 stable; reference values not serialized"
+      ],
+      "evidence": "nonlinear-insertion-evidence.json"
+    },
+    {
+      "operation": "logarithmic-scatter-trendline-insertion",
+      "status": "PASS_DISCRIMINATING_NATIVE_BOUNDED",
+      "observed": "Authentic enum3 clean graft baseline/Y times2 controls axis-limited; discriminating selected X times0.5 plus Y times2 yields clipped endpoint4.808574822433828 exactly matching reference",
+      "limitations": "Baseline and Y times2 endpoint9 do not validate fit; discriminating clipping is one bounded numeric control. Supported positive-X full-rank donor profile only; guessed enum4/5 rejected, polynomial types have separate controls",
+      "native_output_sha256": "79C9E55993B7EB6E10415E03385E1E4A295145EB2E6BA81E4468FC47F2646AAE",
+      "repeat_native_output_sha256": "F67FBA97F8B9A9A41A568F8962695F61DDB5D2BBB4EBB086006EF1BEE8773F6A",
+      "readback_checks": [
+        "Exact request/native cache parity, native reopen and source unchanged",
+        "Higher-end unchanged and current previews reviewed",
+        "Discriminating reference constant5.298447983469879/slope2.9938549316142553; not serialized native fields"
+      ],
+      "evidence": "nonlinear-insertion-evidence.json"
+    },
+    {
+      "operation": "quadratic-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "observed": "Clean zero-feature graft baseline and Lower-end Y plus0.5X repeat actual clipped endpoint 5.314327858200813 to 6.36393651258992 matched independent reference within1.2e-11",
+      "limitations": "Supported authentic enum/order finite full-rank profile only; reference coefficients not serialized native fields. Preexisting instruction-box crop excluded; enum4/5 rejected",
+      "native_output_sha256": "278042C329655054F6EA6E9D541BD50B90A393DF1AD8422252E0BA5A1D9DB344",
+      "repeat_native_output_sha256": "4B6266552F7020D74A06F454B721CDCEA457D728CC4F186F1F4F8CE568F3D64C",
+      "readback_checks": [
+        "Exact native/cache/request data and save/reopen",
+        "Source unchanged and Higher-end sibling unchanged",
+        "Independent full-rank polynomial OLS and closest-domain fit-dependent clipping root",
+        "Current preview curve/boundary/point/label/legend review"
+      ],
+      "evidence": "nonlinear-insertion-evidence.json"
+    },
+    {
+      "operation": "cubic-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "observed": "Clean zero-feature graft baseline and Lower-end Y plus0.5X repeat actual clipped endpoint 3.344762392582917 to 3.477242913586783 matched independent reference within1.2e-11",
+      "limitations": "Supported authentic enum/order finite full-rank profile only; reference coefficients not serialized native fields. Preexisting instruction-box crop excluded; enum4/5 rejected",
+      "native_output_sha256": "280526723E990FB715D1E992ADF2220408AF8139C010BFEE87965AC525D0C1CD",
+      "repeat_native_output_sha256": "885C28E2D2BE86C42E596BEE6CFCEC7145E98868B6EF1B1FBB74B72F4EB6439C",
+      "readback_checks": [
+        "Exact native/cache/request data and save/reopen",
+        "Source unchanged and Higher-end sibling unchanged",
+        "Independent full-rank polynomial OLS and closest-domain fit-dependent clipping root",
+        "Current preview curve/boundary/point/label/legend review"
+      ],
+      "evidence": "nonlinear-insertion-evidence.json"
+    },
+    {
+      "operation": "quartic-scatter-trendline-insertion",
+      "status": "PASS_REPEAT_NATIVE_BOUNDED",
+      "observed": "Clean zero-feature graft baseline and Lower-end Y plus0.5X repeat actual clipped endpoint 3.1402494667082186 to 3.105230473600668 matched independent reference within1.2e-11",
+      "limitations": "Supported authentic enum/order finite full-rank profile only; reference coefficients not serialized native fields. Preexisting instruction-box crop excluded; enum4/5 rejected",
+      "native_output_sha256": "5983B7826037B00E033CCAC9B63A7FDFB85BEFE615A2D830A6F993E59EF07AEE",
+      "repeat_native_output_sha256": "A0AE89478CF6FFB235D502C207C7FC5274886B22196B970971C335FB1663BBA1",
+      "readback_checks": [
+        "Exact native/cache/request data and save/reopen",
+        "Source unchanged and Higher-end sibling unchanged",
+        "Independent full-rank polynomial OLS and closest-domain fit-dependent clipping root",
+        "Current preview curve/boundary/point/label/legend review"
+      ],
+      "evidence": "nonlinear-insertion-evidence.json"
+    }
+  ]
+}
