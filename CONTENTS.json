@@ -8,7 +8,7 @@
     "plugins/thinkcell-codex/CITATION.cff": "9b10319092a284375c1879a8c0a8895f0eb955bbeea7cea546c355102fdc4c25",
     "plugins/thinkcell-codex/LICENSE": "4ffedfb187ebbb992f63ae113f2df8c29545e687d76999b71d81a88ba38108ac",
     "plugins/thinkcell-codex/plugin.json": "a8474d334793e4b209e2ca2627366b3dc3bc5ba3d464ee210f24ac78a65f1c4a",
-    "plugins/thinkcell-codex/README.md": "f5ac1530cc1dde8dfe3c573076ad9e7270ce3edc0c614f04c7e5cf65d82139f3",
+    "plugins/thinkcell-codex/README.md": "34bd356f1996a642a84754cb143de17fb5055075615c2e0a0a18ecfd65888fc5",
     "plugins/thinkcell-codex/skills/thinkcell-edit/agents/openai.yaml": "653326a2f2859b5f57503b440116646f7c98102c2824953074aa3b99419cc3eb",
     "plugins/thinkcell-codex/skills/thinkcell-edit/examples/pie-update.json": "db2632eb03b617e98d19478374217f5056f61de693b82ac14b607c782a484762",
     "plugins/thinkcell-codex/skills/thinkcell-edit/references/broken-axis.md": "42b56d277ac402aad2e4db6aca65f95e07902fb28b2d58e77bdec24ecc08fac9",
@@ -174,7 +174,7 @@
     "plugins/thinkcell-codex/tests/test_placement.py": "47be958c6106cc3eae4aae455ae5ebf5d7f49765243d7dc89276f8447b49e5b9",
     "plugins/thinkcell-codex/tests/test_specialized.py": "1c8203f7f4ba1ea4427fd56bf64dc0ae05ea724612927cc456f7de155ea16b26",
     "plugins/thinkcell-codex/THIRD_PARTY.md": "131b86394e2fb4c7692a42e4a75b181570f3c94944465fe27f782a2a1f5da014",
-    "plugins/thinkcell-codex/VALIDATION.md": "2bc291817488680894f19af2303e68f668cdb6f1933ab26b7da772d63738d05b",
-    "README.md": "9fd22c91fb1d41446ae468f52ae16120267ce31a18cd6681e7ef8574736d1142"
+    "plugins/thinkcell-codex/VALIDATION.md": "c07f768ba40c8d63c03141936c1d4cfff2ae345b9379b96f73860ae07a769148",
+    "README.md": "0f82610ca959a8d4ee14121f61aea9369adc8ccbee53901f00b5d9c7f1cb904a"
   }
 }

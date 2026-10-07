@@ -1,3 +1,16 @@
+# Current capability scope
+
+Use the [capability matrix](skills/thinkcell-edit/references/capability-matrix.md)
+for the maintained, operation-specific support list. It includes later bounded
+category/series changes, native annotation and break insertion, Gantt taskbar
+and milestone edits, and existing Excel-link updates/rebinding. These operations
+retain their recorded profile and native-runtime limits.
+
+The September 15 sections below preserve the original 0.3.0 evidence. Their
+limitations describe that historical release, rather than the aggregate current
+package. Neither the October 5 portable checks nor this documentation correction
+renew every earlier native certification.
+
 # Build verification for 0.4.0+codex.20260930astra
 
 Verified October 5, 2026. All 91 portable tests passed with Python 3.12 and the declared dependencies. This build synchronizes the plugin version and skill display label, clarifies routing between dedicated chart skills, and repairs a skill-local percentage-conversion documentation link. Chart runtime scripts match the prior GitHub main branch.
@@ -75,4 +88,9 @@ python -m unittest discover -s tests -v
 
 Recorded runtime: Windows, PowerPoint 16.0.20228.20186, installed think-cell 14.0.38.764, Python 3.12.14. The installed file version does not independently prove which DLL an already-running Office process loaded.
 
-Not implemented: arbitrary chart generation from scratch, changing category/series/point counts, geometry outside the bounded donor route, adding/removing chart annotations or scale breaks, Gantt data changes, percent-input Mekko, mixed absolute/percentage pie inputs, persistent external-link updates, or atomic coauthoring conflict protection. Native reopen is distinct from manually double-clicking every datasheet in the UI. These limits appear in the skill and capability guide.
+At the September 15 validation date, count changes, feature insertion, Gantt
+data changes and persistent link updates were outside that release's implemented
+scope. Later bounded adapters are recorded in the current capability matrix.
+Arbitrary chart construction, unrestricted feature/layout changes and atomic
+coauthoring protection remain outside the package's demonstrated scope. Native
+reopen is distinct from manually double-clicking every datasheet in the UI.

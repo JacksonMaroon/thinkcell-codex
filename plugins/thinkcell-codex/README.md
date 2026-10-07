@@ -41,7 +41,7 @@ The [GitHub repository](https://github.com/JacksonMaroon/thinkcell-codex) includ
 
 You can also install from the configured marketplace using Codex's plugin browser. Installation copies the plugin into Codex's cache. The scripts still require the local runtime below. The repository does not install the plugin globally.
 
-For ordinary presentation creation, slide writing, and non-think-cell PowerPoint edits, install the companion [PowerPoint for Codex](https://github.com/JacksonMaroon/powerpoint-codex). Keep chart data updates and native chart operations in this plugin. The companion does not substitute for this plugin's supported chart workflow.
+For ordinary presentation creation, slide writing, and non-think-cell PowerPoint edits, the optional [PowerPoint for Codex](https://github.com/JacksonMaroon/powerpoint-codex) companion currently requires private repository access. The local chart workflow works independently. Keep chart data updates and native chart operations in this plugin.
 
 If you want only the standalone skill, copy `skills/thinkcell-edit` from the plugin folder to a supported Codex skills directory. All runtime helpers are inside that skill. Keep only one installed copy enabled to avoid duplicate routing.
 
