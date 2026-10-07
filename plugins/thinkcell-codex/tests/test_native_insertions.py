@@ -200,5 +200,54 @@ class LegendSwatch(unittest.TestCase):
             adapter.verify_legend_swatch(chart, swatch, [5, 9])
 
 
+class AreaLegendSwatch(unittest.TestCase):
+    def carrier(self, values):
+        root = E.fromstring(b'<ser><spPr><solidFill><srgbClr val="808080"/></solidFill></spPr><val><numRef><numCache/></numRef></val></ser>')
+        cache = root.find('val/numRef/numCache')
+        E.SubElement(cache, 'ptCount', val=str(len(values)))
+        for index, value in enumerate(values):
+            E.SubElement(E.SubElement(cache, 'pt', idx=str(index)), 'v').text = str(value)
+        return root
+
+    def verify(self, observed, expected, duplicate=False, color='808080', chart_type='areaChart'):
+        chart = E.Element('chart'); area = E.SubElement(chart, chart_type)
+        area.append(self.carrier(observed))
+        if duplicate:
+            area.append(self.carrier(observed))
+        swatch = E.fromstring(b'<sp><spPr><solidFill><srgbClr/></solidFill></spPr></sp>')
+        swatch.find('.//srgbClr').set('val', color)
+        adapter.verify_legend_swatch(chart, swatch, expected, 'areaChart')
+
+    def test_official_large_number_roundoff(self):
+        self.verify([4683.812633999998, 7499.118678000006], [4683.812634, 7499.118678])
+
+    def test_tiny_material_change_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'unique native'):
+            self.verify([1e-15, 2e-15], [2e-15, 2e-15])
+
+    def test_duplicate_vector_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'unique native'):
+            self.verify([2, 3], [2, 3], duplicate=True)
+
+    def test_wrong_color_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'swatch color'):
+            self.verify([2, 3], [2, 3], color='FFFFFF')
+
+    def test_nonfinite_expected_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'unique native'):
+            self.verify([2, 3], [float('inf'), 3])
+
+    def test_bar_cannot_substitute_for_area(self):
+        with self.assertRaisesRegex(ValueError, 'unique native'):
+            self.verify([2, 3], [2, 3], chart_type='barChart')
+
+    def test_bar_matching_remains_exact(self):
+        chart = E.Element('chart'); bar = E.SubElement(chart, 'barChart')
+        bar.append(self.carrier([4683.812633999998]))
+        swatch = E.fromstring(b'<sp><spPr><solidFill><srgbClr val="808080"/></solidFill></spPr></sp>')
+        with self.assertRaisesRegex(ValueError, 'unique native'):
+            adapter.verify_legend_swatch(chart, swatch, [4683.812634])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -742,7 +742,7 @@
       "id": "new-legend",
       "title": "Native legend insertion preparation",
       "status": "prepare_only",
-      "scope": "Authentic closure insertion into bounded current-schema regular bar chart: zero to one CSequenceChartLegendSE, native/physical bindings and matching swatch; baseline and changed series-name/value controls passed strict ALL_GATES_PASS, native save/reopen and visual review",
+      "scope": "Authentic closure insertion into bounded current-schema regular bar and four-series/five-category stacked-area charts: zero to one CSequenceChartLegendSE, native/physical ownership, exact series labels and matching fills; baseline and repeated series-name/value controls passed official generation, native save/reopen, model/datasheet/indexed cache checks and visual review",
       "route": {
         "script": "native_insertions.py",
         "arguments": [
@@ -754,9 +754,10 @@
       "validation": [
         "Exact source/donor/workbook identity and hash guards",
         "Complete selected native model, physical binding and untouched source/sibling readback",
-        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use"
+        "Official regeneration where applicable; native save/reopen, changed-data controls and visual review before use",
+        "Area only: owner m_estDefault=2, owned areaChart, exact complete numeric point indexes/counts, unique full numeric series value-vector binding and finite cache values within 32 ULPs; exact model/datasheet series/category labels and physical legend labels/fills; fresh zero-to-one control and repeated label/value update"
       ],
-      "limitations": "Area candidate lost native graph and remains rejected. Verified bar profile required explicit duplicate-axis-GUID repair and official unchanged-data schema normalization before graft; source preflight cannot be skipped. Broader chart families unverified; complete native/data/sibling/visual gates required per output"
+      "limitations": "Earlier three-series area candidates remain rejected historical profiles. Verified bar profile required explicit duplicate-axis-GUID repair and official unchanged-data schema normalization before graft; source preflight cannot be skipped. Area proof is limited to the recorded four-series/five-category stacked-area profile. Broader chart families unverified; complete native/data/source/sibling/visual gates required per output"
     },
     {
       "id": "clean-errorbar-insertion",
@@ -1055,6 +1056,26 @@
         "Independent full-rank polynomial OLS and closest-domain forecast root; clean-chart native baseline/repeated changed-data and visual gates"
       ],
       "limitations": "Finite full-rank supported degree/donor only; coefficients independently fitted, not serialized native fields. Closest-domain root grading is bounded numeric clipping evidence; native/data/sibling/visual gates required per output. Preexisting template instruction crop outside scope; enum4/5 hypotheses rejected Requires distinct X count at least degree+1, conditioning guard, unique linear X/Y axes with explicit min/max and no forced intercept; no general engine or exact curve-point certification"
+    },
+    {
+      "id": "gantt-endpoint-equality",
+      "title": "Invoked Gantt endpoint equality preparation",
+      "status": "prepare_only",
+      "scope": "Explicit predecessor-end/successor-start equality on normalized current-schema four-visible-bar native Gantt, seven-day linear fixed calendar and empty unbound Sheet1; genuine FS anchor insertion and May21 to May28 to Jun4 repeated updates passed full graph/date/visibility/geometry/CFB/source/native/visual controls",
+      "route": {
+        "script": "gantt/endpoint_propagation.py",
+        "arguments": [
+          "prepare"
+        ],
+        "stage": "preparation"
+      },
+      "validation": [
+        "Exact source SHA-256 and stable predecessor-end / successor-start date GUIDs; distinct fresh candidate/report/job outputs",
+        "Current schema, seven-day fixed timeline, visible bars and empty unbound datasheet; authentic reciprocal FS edge",
+        "Official generation and native save/reopen; separate verifier with report-bound source/candidate/generated hashes and saved-native semantic readback",
+        "Full stable GUID graph, all exact dates, visibility, native/physical geometry, unrelated CFB/datasheet/source/presentation state and current visual review"
+      ],
+      "limitations": "Invoked adapter updates both endpoints explicitly; automatic engine dependency reflow and native ScalarAnchor binding remain unverified. No duration preservation, lag scheduling, arbitrary graph or donor-independent authoring. Hidden donor-item cleanup is separate preparation, never part of public endpoint updates. Native proof covers the recorded four-bar fixed-calendar profile only"
     }
   ]
 }

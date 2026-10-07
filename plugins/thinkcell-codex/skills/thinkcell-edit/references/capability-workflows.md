@@ -62,6 +62,38 @@ unverified. No guessed scalar-anchor schema is shipped; authenticated scalar
 ownership/binding and repeated native event controls remain required. No lag
 scheduling or duration preservation is claimed.
 
+## Gantt endpoint equality updates
+
+`gantt/endpoint_propagation.py` prepares an explicit predecessor-end and
+successor-start equality update using stable native date GUIDs. The supported
+profile is a separately normalized current-schema native Gantt, all four native
+bars visible, a seven-day linear fixed calendar, genuine empty unbound Sheet1
+and no scalar/scalar-anchor classes. Existing-source updates do not delete bars
+or normalize hidden historical donor items.
+
+```powershell
+python skills/thinkcell-edit/scripts/gantt/endpoint_propagation.py prepare --input source.pptx --expected-sha256 HASH --output candidate.pptx --report preparation.json --job candidate.ppttc --predecessor-end-guid GUID --end-date YYYY-MM-DD --successor-start-guid GUID
+python skills/thinkcell-edit/scripts/gantt/endpoint_propagation.py verify --preparation-report preparation.json --native-report native-save.json --report verified.json
+```
+
+The successor selector is optional only when an existing genuine reciprocal FS
+edge uniquely determines it. Preparation produces a candidate, report and
+official generation job. Generate through the installed engine, save/reopen and
+render on task-owned artifacts, then use the separate `verify` subcommand with
+report-bound source/candidate/generated hashes, strict saved-native semantic
+readback and preparation/native reports. Release
+requires strict full stable-GUID graph, all dates, visibility, native and physical
+geometry, unrelated CFB/datasheet streams, source and unrelated presentation
+state plus current visual review.
+
+[Endpoint controls](gantt-endpoint-evidence.json) record initial genuine FS anchor
+insertion and two sequential end/start equality updates, May 21 to May 28 to
+June 4. Parent start and child end remain fixed, so these updates change task
+durations. This is invoked adapter propagation. Automatic engine dependency
+reflow, native ScalarAnchor/date binding, duration-preserving scheduling and lag
+support remain unverified. Historical dependency failures remain in their
+separate [evidence record](gantt-dependency-evidence.json).
+
 ## Existing Excel-link batches
 
 The separate `excel-link-batch-rebind` route stages every requested existing link
@@ -170,7 +202,11 @@ control changed a two-series/five-category donor into three series/three
 categories with exact model/datasheet/cache parity and retained native subtype.
 Its inherited thousands scaling rendered small supplied values as zero labels,
 so that output requires label/layout revision and visual review before client
-use. This proves the bounded template route, not arbitrary direct construction.
+use. This proves the bounded template route. A donor-independent constructor
+remains unauthenticated: the [direct-construction audit](direct-construction-audit.json)
+records five documented names resolving and six exact candidate names returning
+UNKNOWNNAME on think-cell 14.0.38.790, without invoking any methods. Neither
+this scoped name probe nor the inspected exports enumerate every internal API.
 
 ## Native feature insertion
 
@@ -195,8 +231,13 @@ dash-cap changed-data extent 5 to 12 also passed canonical signed-range ownershi
 all nine cap markers on both endpoints and visual review. A linear scatter insertion passed
 native regression slope/intercept and authentic clipped forecast-domain grading;
 its repeat native control passed selected-series Y +2 with unchanged slope,
-intercept increasing by exactly 2, retained other series and visual review. The area-legend candidate lost its native graph
-after reopen and is rejected. A bounded regular-bar insertion passed zero to one
+intercept increasing by exactly 2, retained other series and visual review. Earlier three-series area candidates lost their native graph
+after reopen and remain rejected. The current four-series/five-category stacked-area
+profile passed a clean zero-legend control, fresh authentic zero-to-one insertion,
+and BPO to BPO revised / 4683.812634 to 5000.125 repeat controls. Saved areaChart
+ownership, exact labels/raw data/model, indexed numeric cache values within
+32 ULPs and exact fills passed, alongside source preservation and current visual
+review. See [area controls](area-legend-evidence.json). A bounded regular-bar insertion passed zero to one
 native legend, matching swatch, Product B to Product B revised and first bar
 5.1 to 6.8 repeat controls, with Product A sibling preserved, strict
 ALL_GATES_PASS, native save/reopen and visual review. Its source required

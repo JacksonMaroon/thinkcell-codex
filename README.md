@@ -1,10 +1,11 @@
-# Think-cell for Codex 0.4.2+codex.20261006native
+# Think-cell for Codex 0.4.3+codex.20261006gaps
 
 By Jackson Maroon. A focused Codex plugin for donor-based native chart creation, guarded feature updates, and scoped data changes.
 
-The 0.4.2 development expands the command matrix with installed-template
-creation, bounded native insertion, persistent-link workflows and assembly
-edits. [Capability workflows](plugins/thinkcell-codex/skills/thinkcell-edit/references/capability-workflows.md)
+The 0.4.3 release adds a verified four-series stacked-area legend profile,
+a guarded invoked Gantt endpoint update and a scoped direct-construction audit.
+The package also supports installed-template creation, bounded native insertion,
+persistent-link workflows and assembly edits. [Capability workflows](plugins/thinkcell-codex/skills/thinkcell-edit/references/capability-workflows.md)
 separate prepared candidates, recorded native controls and unresolved profiles.
 
 ## Install from GitHub

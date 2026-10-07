@@ -569,11 +569,22 @@ def verify_power_forecast(cache, trend, xmax, coefficient, exponent, xmin=None):
     return {"actual_upper_x": actual, "reference_upper_x": wanted, "fit_limits_visible_endpoint": wanted < bounds["x"], **lower_domain}
 
 
-def verify_legend_swatch(cache, swatch, values):
-    """Bounded bar profile: swatch color belongs to the uniquely bound series."""
-    carriers = [node for node in cache.xpath('.//*[local-name()="barChart"]/*[local-name()="ser"]')
-                if indexed_numeric_values(node, "val") == values]
-    naming.need(len(carriers) == 1, "Legend swatch requires a unique native bar series value binding")
+def verify_legend_swatch(cache, swatch, values, chart_type="barChart"):
+    """Bounded bar/area profiles bind swatches to a unique native series."""
+    import math
+    naming.need(chart_type in ("barChart", "areaChart"), "Unsupported legend cache profile")
+    def matches(node):
+        observed = indexed_numeric_values(node, "val")
+        if chart_type == "barChart":
+            return observed == values
+        # Official area cache serialization has bounded binary rounding.
+        return len(observed) == len(values) and all(
+            math.isfinite(expected) and abs(actual - expected) <=
+            32 * max(math.ulp(actual), math.ulp(expected))
+            for actual, expected in zip(observed, values))
+    carriers = [node for node in cache.xpath('.//*[local-name()="' + chart_type + '"]/*[local-name()="ser"]')
+                if matches(node)]
+    naming.need(len(carriers) == 1, "Legend swatch requires a unique native " + chart_type + " series value binding")
     def fill(node):
         fills = node.xpath('./*[local-name()="spPr"]/*[local-name()="solidFill"]')
         naming.need(len(fills) == 1, "Legend series or swatch fill is missing or ambiguous")
@@ -627,7 +638,8 @@ def inspect_inserted(path, selector, feature, expected_request):
                 rectangle = ids[entry.find("m_pptrect").get("idref")]
                 swatch_tag = rectangle.findtext("m_bstrShapeName")
                 naming.need(swatch_tag in tagged and rectangle.find("m_bPlaced").get("val") == "1", "Native physical legend swatch missing")
-                verify_legend_swatch(cache, tagged[swatch_tag], actual["expected_model"]["series_values"][series.index(sid)])
+                cache_type = "areaChart" if target["owner"].find("m_estDefault").get("val") == "2" else "barChart"
+                verify_legend_swatch(cache, tagged[swatch_tag], actual["expected_model"]["series_values"][series.index(sid)], cache_type)
                 names.append(name)
             naming.need(len(parents) == len(series) and set(parents) == set(series), "Legend series coverage differs")
             return {"status": "NATIVE_MODEL_AND_PHYSICAL_SEMANTICS_PASS", "feature": feature, "series_names": names}

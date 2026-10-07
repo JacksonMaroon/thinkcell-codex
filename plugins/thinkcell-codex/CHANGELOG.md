@@ -1,3 +1,32 @@
+# 0.4.3+codex.20261006gaps
+
+Adds a bounded stacked-area legend insertion profile to the existing native
+legend route. A clean four-series/five-category control retained zero legends;
+fresh authentic graft and repeated series-name/value updates retained one native
+legend after official generation and save/reopen. The verifier checks areaChart
+ownership, exact indexed caches and fills, with a 32-ULP bound for finite numeric
+area-cache values. Regular-bar checks retain their existing contract.
+See [area legend controls](skills/thinkcell-edit/references/area-legend-evidence.json).
+Earlier three-series area candidates remain rejected historical profiles.
+
+The [direct-construction audit](skills/thinkcell-edit/references/direct-construction-audit.json)
+records current manual review and read-only dispatch name resolution on
+think-cell 14.0.38.790. Five documented names resolved; six exact candidate names
+returned UNKNOWNNAME. This does not establish that every internal constructor
+is absent. A donor-independent construction contract and native result remain
+unauthenticated; installed-template creation retains its separate bounded proof.
+
+Adds a guarded invoked Gantt endpoint route for one normalized current-schema
+four-visible-bar, seven-day fixed-calendar profile. Genuine finish/start anchor
+insertion and two sequential May 21 to May 28 to June 4 end/start equality
+updates passed native graph/date/geometry/datasheet/source and visual gates.
+See [endpoint controls](skills/thinkcell-edit/references/gantt-endpoint-evidence.json).
+Automatic dependency reflow and native scalar-anchor binding remain unverified;
+no duration-preserving or lag scheduling support is claimed. Hidden historical
+donor-item cleanup was separate donor preparation, not a public update action.
+Prior release evidence remains unchanged and scoped to the original profiles.
+No proprietary templates, workbooks, renders or private source paths are bundled.
+
 # 0.4.2+codex.20261006native
 
 Adds public preparation and verification routes for compatible native legend,

@@ -1,6 +1,6 @@
 {
   "name": "thinkcell-codex",
-  "version": "0.4.2+codex.20261006native",
+  "version": "0.4.3+codex.20261006gaps",
   "description": "Create and update native think-cell charts using installed or supplied templates, guarded feature and Excel-link workflows, and native verification",
   "author": {
     "name": "Jackson Maroon"

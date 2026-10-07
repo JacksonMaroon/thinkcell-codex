@@ -32,12 +32,16 @@ identity. Its `create` command extracts a task-owned native slide and populates
 it through official JSON/native gates. Vendor assets are never bundled or
 downloaded. Follow [capability workflows](references/capability-workflows.md)
 for the exact tested profile; installed-template discovery does not certify a
-native creation result.
+native creation result. A donor-independent constructor remains unauthenticated;
+see the scoped [direct-construction audit](references/direct-construction-audit.json).
 
 Use `native_insertions.py` for explicitly scoped legend, range/cap or supported
 scatter trendline candidates on compatible charts. Prepared grafts still need
-official regeneration, native readback and changed-data controls. An area-legend
-canary lost its graph after native reopen and remains rejected. For external
+official regeneration, native readback and changed-data controls. The current
+four-series/five-category stacked-area profile passed zero-to-one native legend
+insertion and repeated series-name/value controls. Earlier three-series area
+profiles remain rejected; see [area legend controls](references/area-legend-evidence.json).
+For external
 links, use the dedicated preparation, rebind and refresh routes, preserving both
 presentation and workbook identity; never substitute the internal JSON updater.
 
@@ -45,7 +49,14 @@ For clean dynamic percentage labels, prefer an existing verified native percenta
 
 For an existing ordinary absolute stacked-column chart matching the verified 3x3 profile, `convert-percent` converts one selected segment or all nine labels to bare native relative fields while retaining the absolute axis and native plot. This is preferred over the invisible-wrapper workaround for eligible charts. The command executes on a new local copy and requires native regeneration/reopen and field-binding checks. Later `update` calls automatically verify these converted fields too. See the conversion profile and limits in [native-percentage-labels.md](references/native-percentage-labels.md).
 
-For formatting, axes, annotations, Gantt taskbars/milestones or existing Excel-link rebinding, use the relevant section of [expanded native controls](references/expanded-features.md) or [reliable features](references/reliable-features.md). These use their own adapters and checks, not necessarily the JSON data-update path below. Inspection-only requests finish with the requested findings.
+For formatting, axes, annotations, Gantt taskbars/milestones or existing Excel-link rebinding, use the relevant section of [expanded native controls](references/expanded-features.md) or [reliable features](references/reliable-features.md). These use their own adapters and checks, not necessarily the JSON data-update path below. For a normalized current-schema four-visible-bar Gantt with a seven-day fixed
+calendar and empty unbound datasheet, the guarded
+`gantt/endpoint_propagation.py` route prepares explicit predecessor-end /
+successor-start equality updates by stable native date GUIDs. Follow the
+[Gantt endpoint workflow](references/capability-workflows.md#gantt-endpoint-equality-updates)
+and its native verifier. This does not establish automatic dependency reflow,
+duration preservation or lag scheduling. Inspection-only requests finish with
+the requested findings.
 
 ## Ordinary JSON data updates
 

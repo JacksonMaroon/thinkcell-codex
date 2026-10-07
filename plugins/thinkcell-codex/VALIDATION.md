@@ -11,6 +11,48 @@ limitations describe that historical release, rather than the aggregate current
 package. Neither the October 5 portable checks nor this documentation correction
 renew every earlier native certification.
 
+# Development validation for 0.4.3+codex.20261006gaps
+
+Validated October 6, 2026. Final portable test count: 343 unit tests executed: 342 passed and 1 Windows symlink test skipped. Two supplied historical fixture profiles passed offline; three unavailable fixture profiles remain explicitly skipped.
+Portable checks do not certify native Office behavior.
+
+[Area legend controls](skills/thinkcell-edit/references/area-legend-evidence.json)
+record a clean native zero-legend control and fresh authentic zero-to-one graft
+on one four-series/five-category stacked-area profile. BPO to BPO revised and
+4683.812634 to 5000.125 repeat controls retained native legend ownership, exact
+labels/raw datasheet/model, indexed areaChart cache values and matching fills.
+Official generation, native save/reopen, source preservation, unrelated open
+presentation state and current visual review passed. Finite area-cache numeric
+comparisons permit at most 32 ULPs; complete numeric point indexes/counts,
+model/datasheet series/category labels and physical legend labels/fills remain
+exact. Swatches require a unique full numeric series value-vector binding.
+Earlier three-series direct-inline and different-target authentic candidates
+remain rejected historical profiles. This does not certify broader area layouts.
+
+[Direct construction audit](skills/thinkcell-edit/references/direct-construction-audit.json)
+records current official manuals and read-only GetIDsOfNames on think-cell
+14.0.38.790. Five documented API names resolved; six tested candidate names
+returned 0x80020006. No methods were invoked by that probe. Name resolution does
+not authenticate argument contracts, construction behavior or every internal
+method's existence. No donor-independent chart result is claimed.
+
+[Gantt endpoint controls](skills/thinkcell-edit/references/gantt-endpoint-evidence.json)
+record initial genuine reciprocal finish/start anchor insertion, followed by
+explicit end/start equality updates from May 21 to May 28 to June 4. On the
+normalized current-schema four-visible-bar, seven-day fixed-calendar profile,
+full stable GUID graph, all dates, visibility, native/physical geometry, unrelated
+CFB streams and authenticated empty unbound Sheet1 remained correct. Official
+generation, native save/reopen, source/unrelated presentation state and current
+visual review passed. Hidden historical donor-item removal occurred only in
+separate donor preparation; the public adapter does not prune taskbars.
+Automatic date/dependency reflow and native scalar-anchor binding remain
+unverified. This invoked adapter changes both end/start endpoints explicitly;
+no native automatic scheduling, duration preservation or lag support is claimed.
+Installed-template creation, regular-bar legend insertion and prior native
+controls retain their original scoped evidence. The 0.4.2 and earlier sections
+below are historical records; their rejected area statement describes the
+earlier profiles. Proprietary artifacts and private paths remain excluded.
+
 # Development validation for 0.4.2+codex.20261006native
 
 Validated October 6, 2026. Final portable test count: 301 unit tests executed: 300 passed and 1 Windows symlink test skipped. The current runner

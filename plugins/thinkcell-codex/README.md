@@ -2,7 +2,7 @@
 
 **Create chart slides from native think-cell donors and update their data with Codex.**
 
-Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.2+codex.20261006native**, experimental desktop release.
+Created and maintained by **Jackson Maroon**, with Codex assistance. Version **0.4.3+codex.20261006gaps**, experimental desktop release.
 
 This plugin contains one focused skill, `thinkcell-edit`, and local Python/PowerShell helpers. It uses think-cell's official JSON automation for data changes. An experimental namer identifies unnamed charts and assigns their automation names on working copies by default. A `--named-only` option disables that step.
 
@@ -25,12 +25,20 @@ The [capability matrix](skills/thinkcell-edit/references/capability-matrix.md) n
 has a machine-readable command index. Run `python
 skills/thinkcell-edit/scripts/thinkcell.py capabilities` to inspect routes and
 their gates, or read [capability workflows](skills/thinkcell-edit/references/capability-workflows.md).
-The 0.4.2 development adds native feature insertion preparation, creation from
+The current package includes native feature insertion preparation, creation from
 locally installed templates, new persistent-link preparation and guarded refresh,
 recognized variable-length link monikers, Gantt anchor inspection/experimental preparation and
 ordinary-object edits during assembly. Each route states its native proof and
 remaining gates. A prepared candidate or installed template discovery is not
-native certification; rejected profiles remain explicit in the matrix.
+native certification; rejected profiles remain explicit in the matrix. The 0.4.3
+[area legend controls](skills/thinkcell-edit/references/area-legend-evidence.json)
+cover one four-series/five-category stacked-area profile. The
+[direct-construction audit](skills/thinkcell-edit/references/direct-construction-audit.json)
+records six unresolved candidate names on the inspected runtime; a general
+donor-independent constructor remains unauthenticated. The
+[Gantt endpoint controls](skills/thinkcell-edit/references/gantt-endpoint-evidence.json)
+passed explicit adapter end/start equality updates on a normalized four-bar
+profile. Gantt automatic dependency reflow remains unverified.
 
 ## Install in Codex
 
