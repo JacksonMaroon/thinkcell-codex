@@ -14,7 +14,7 @@ renew every earlier native certification.
 # Development validation for 0.4.1+codex.20261006matrix
 
 Verified October 6, 2026 with Python 3.12.14 and the declared dependencies.
-The expanded runner executed 180 unit tests: 179 passed and one symlink test
+The expanded runner executed 181 unit tests: 180 passed and one symlink test
 was skipped because this Windows session could not create symlinks. The
 standalone relationship allocator regression passed. Two supplied historical
 fixture profiles passed offline; three additional fixture profiles were

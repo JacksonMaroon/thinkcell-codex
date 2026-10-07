@@ -90,6 +90,16 @@ class MonikerTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'no-op'):
             rebind.rebind_xml(xml, payload, r'c:\SOURCE.xlsx')
 
+    def test_workbook_path_binding_is_drive_independent(self):
+        for drive in ('C', 'D', 'Z'):
+            with self.subTest(drive=drive):
+                source = drive + r':\runner\source.xlsx'
+                target = drive + r':\runner\target.xlsx'
+                xml, payload = carrier(source)
+                changed, old = rebind.rebind_xml(xml, payload, target)
+                self.assertEqual(old, source)
+                self.assertEqual(rebind._path_runs(rebind._fields(changed)[2])[0][2], target)
+
     def test_payload_must_match_sealed_xml(self):
         xml, payload = carrier()
         with self.assertRaisesRegex(RuntimeError, 'differs from XML'):
@@ -263,7 +273,9 @@ class BatchTests(unittest.TestCase):
 class OfflinePackageTests(unittest.TestCase):
     def test_real_ole_write_package_readback_and_source_guard(self):
         with tempfile.TemporaryDirectory() as folder:
-            base = Path(folder)
+            # Match the CLI's canonical path binding, including runner temp
+            # junctions/short names and whichever Windows drive hosts TEMP.
+            base = Path(folder).resolve()
             source, target = base / 'source.xlsx', base / 'target.xlsx'
             workbook(source); workbook(target)
             xml, old_payload = carrier(str(source))
